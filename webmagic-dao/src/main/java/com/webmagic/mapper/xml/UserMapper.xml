@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.webmagic.mapper.UserMapper" >
+  <resultMap id="BaseResultMap" type="com.webmagic.model.User" >
+    <id column="id" property="id" jdbcType="CHAR" />
+    <result column="seq_id" property="seqId" jdbcType="CHAR" />
+    <result column="user_name" property="userName" jdbcType="VARCHAR" />
+    <result column="email" property="email" jdbcType="VARCHAR" />
+    <result column="phone" property="phone" jdbcType="VARCHAR" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from user
+    where `id` = #{id,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.webmagic.model.User" >
+    <selectKey resultType="java.lang.String" keyProperty="id" order="BEFORE" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into user (`id`, `seq_id`, `user_name`, 
+      `email`, `phone`)
+    values (#{id,jdbcType=CHAR}, #{seqId,jdbcType=CHAR}, #{userName,jdbcType=VARCHAR}, 
+      #{email,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.webmagic.model.User" >
+    update user
+    set `seq_id` = #{seqId,jdbcType=CHAR},
+      `user_name` = #{userName,jdbcType=VARCHAR},
+      `email` = #{email,jdbcType=VARCHAR},
+      `phone` = #{phone,jdbcType=VARCHAR}
+    where `id` = #{id,jdbcType=CHAR}
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select `id`, `seq_id`, `user_name`, `email`, `phone`
+    from user
+    where `id` = #{id,jdbcType=CHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select `id`, `seq_id`, `user_name`, `email`, `phone`
+    from user
+  </select>
+</mapper>

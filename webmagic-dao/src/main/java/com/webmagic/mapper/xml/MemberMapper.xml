@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.webmagic.mapper.MemberMapper" >
+  <resultMap id="BaseResultMap" type="com.webmagic.model.Member" >
+    <id column="id" property="id" jdbcType="CHAR" />
+    <result column="seq_id" property="seqId" jdbcType="CHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="professionals" property="professionals" jdbcType="VARCHAR" />
+    <result column="blog_url" property="blogUrl" jdbcType="VARCHAR" />
+    <result column="avatar_url" property="avatarUrl" jdbcType="VARCHAR" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from member
+    where `id` = #{id,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.webmagic.model.Member" >
+    <selectKey resultType="java.lang.String" keyProperty="id" order="BEFORE" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into member (`id`, `seq_id`, `name`, `professionals`, 
+      `blog_url`, `avatar_url`)
+    values (#{id,jdbcType=CHAR}, #{seqId,jdbcType=CHAR}, #{name,jdbcType=VARCHAR}, #{professionals,jdbcType=VARCHAR}, 
+      #{blogUrl,jdbcType=VARCHAR}, #{avatarUrl,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.webmagic.model.Member" >
+    update member
+    set `seq_id` = #{seqId,jdbcType=CHAR},
+      `name` = #{name,jdbcType=VARCHAR},
+      `professionals` = #{professionals,jdbcType=VARCHAR},
+      `blog_url` = #{blogUrl,jdbcType=VARCHAR},
+      `avatar_url` = #{avatarUrl,jdbcType=VARCHAR}
+    where `id` = #{id,jdbcType=CHAR}
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select `id`, `seq_id`, `name`, `professionals`, `blog_url`, `avatar_url`
+    from member
+    where `id` = #{id,jdbcType=CHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select `id`, `seq_id`, `name`, `professionals`, `blog_url`, `avatar_url`
+    from member
+  </select>
+</mapper>

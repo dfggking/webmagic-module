@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.webmagic.mapper.SysOperateLogMapper" >
+  <resultMap id="BaseResultMap" type="com.webmagic.model.SysOperateLog" >
+    <id column="id" property="id" jdbcType="CHAR" />
+    <result column="seq_id" property="seqId" jdbcType="CHAR" />
+    <result column="user_id" property="userId" jdbcType="CHAR" />
+    <result column="content" property="content" jdbcType="VARCHAR" />
+    <result column="create_at" property="createAt" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from sys_operate_log
+    where `id` = #{id,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.webmagic.model.SysOperateLog" >
+    <selectKey resultType="java.lang.String" keyProperty="id" order="BEFORE" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into sys_operate_log (`id`, `seq_id`, `user_id`, `content`, 
+      `create_at`)
+    values (#{id,jdbcType=CHAR}, #{seqId,jdbcType=CHAR}, #{userId,jdbcType=CHAR}, #{content,jdbcType=VARCHAR}, 
+      #{createAt,jdbcType=TIMESTAMP})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.webmagic.model.SysOperateLog" >
+    update sys_operate_log
+    set `seq_id` = #{seqId,jdbcType=CHAR},
+      `user_id` = #{userId,jdbcType=CHAR},
+      `content` = #{content,jdbcType=VARCHAR},
+      `create_at` = #{createAt,jdbcType=TIMESTAMP}
+    where `id` = #{id,jdbcType=CHAR}
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select `id`, `seq_id`, `user_id`, `content`, `create_at`
+    from sys_operate_log
+    where `id` = #{id,jdbcType=CHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select `id`, `seq_id`, `user_id`, `content`, `create_at`
+    from sys_operate_log
+  </select>
+</mapper>

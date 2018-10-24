@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.webmagic.mapper.WebsiteConfigMapper" >
+  <resultMap id="BaseResultMap" type="com.webmagic.model.WebsiteConfig" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="website_title" property="websiteTitle" jdbcType="VARCHAR" />
+    <result column="description" property="description" jdbcType="VARCHAR" />
+    <result column="email" property="email" jdbcType="VARCHAR" />
+    <result column="copyright" property="copyright" jdbcType="VARCHAR" />
+    <result column="address" property="address" jdbcType="VARCHAR" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from website_config
+    where `id` = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.webmagic.model.WebsiteConfig" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="BEFORE" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into website_config (`id`, `website_title`, `description`, 
+      `email`, `copyright`, `address`
+      )
+    values (#{id,jdbcType=INTEGER}, #{websiteTitle,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, 
+      #{email,jdbcType=VARCHAR}, #{copyright,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.webmagic.model.WebsiteConfig" >
+    update website_config
+    set `website_title` = #{websiteTitle,jdbcType=VARCHAR},
+      `description` = #{description,jdbcType=VARCHAR},
+      `email` = #{email,jdbcType=VARCHAR},
+      `copyright` = #{copyright,jdbcType=VARCHAR},
+      `address` = #{address,jdbcType=VARCHAR}
+    where `id` = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select `id`, `website_title`, `description`, `email`, `copyright`, `address`
+    from website_config
+    where `id` = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select `id`, `website_title`, `description`, `email`, `copyright`, `address`
+    from website_config
+  </select>
+</mapper>
