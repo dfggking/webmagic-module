@@ -1,6 +1,6 @@
 package com.webmagic.mapper;
 
-import com.webmagic.model.SysConfig;
+import com.webmagic.dto.SysConfig;
 import java.util.List;
 
 public interface SysConfigMapper {

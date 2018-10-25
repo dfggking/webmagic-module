@@ -1,6 +1,6 @@
 package com.webmagic.mapper;
 
-import com.webmagic.model.SysLoginLog;
+import com.webmagic.dto.SysLoginLog;
 import java.util.List;
 
 public interface SysLoginLogMapper {

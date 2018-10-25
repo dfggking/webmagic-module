@@ -1,6 +1,6 @@
 package com.webmagic.mapper;
 
-import com.webmagic.model.UserRole;
+import com.webmagic.dto.UserRole;
 import java.util.List;
 
 public interface UserRoleMapper {

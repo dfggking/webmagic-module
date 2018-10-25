@@ -1,6 +1,6 @@
 package com.webmagic.mapper;
 
-import com.webmagic.model.SysOperateLog;
+import com.webmagic.dto.SysOperateLog;
 import java.util.List;
 
 public interface SysOperateLogMapper {

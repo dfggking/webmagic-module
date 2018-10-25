@@ -1,6 +1,6 @@
 package com.webmagic.mapper;
 
-import com.webmagic.model.User;
+import com.webmagic.dto.User;
 import java.util.List;
 
 public interface UserMapper {

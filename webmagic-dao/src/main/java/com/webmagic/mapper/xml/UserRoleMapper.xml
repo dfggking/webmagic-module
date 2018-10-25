@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.webmagic.mapper.UserRoleMapper" >
-  <resultMap id="BaseResultMap" type="com.webmagic.model.UserRole" >
+  <resultMap id="BaseResultMap" type="com.webmagic.dto.UserRole" >
     <id column="id" property="id" jdbcType="CHAR" />
     <result column="seq_id" property="seqId" jdbcType="CHAR" />
     <result column="user_id" property="userId" jdbcType="CHAR" />
@@ -11,16 +11,14 @@
     delete from user_role
     where `id` = #{id,jdbcType=CHAR}
   </delete>
-  <insert id="insert" parameterType="com.webmagic.model.UserRole" >
-    <selectKey resultType="java.lang.String" keyProperty="id" order="BEFORE" >
+  <insert id="insert" parameterType="com.webmagic.dto.UserRole" >
+    <selectKey resultType="java.lang.String" keyProperty="id" order="AFTER" >
       SELECT LAST_INSERT_ID()
     </selectKey>
-    insert into user_role (`id`, `seq_id`, `user_id`, `role_id`
-      )
-    values (#{id,jdbcType=CHAR}, #{seqId,jdbcType=CHAR}, #{userId,jdbcType=CHAR}, #{roleId,jdbcType=CHAR}
-      )
+    insert into user_role (`seq_id`, `user_id`, `role_id`)
+    values (#{seqId,jdbcType=CHAR}, #{userId,jdbcType=CHAR}, #{roleId,jdbcType=CHAR})
   </insert>
-  <update id="updateByPrimaryKey" parameterType="com.webmagic.model.UserRole" >
+  <update id="updateByPrimaryKey" parameterType="com.webmagic.dto.UserRole" >
     update user_role
     set `seq_id` = #{seqId,jdbcType=CHAR},
       `user_id` = #{userId,jdbcType=CHAR},

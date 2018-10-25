@@ -58,7 +58,7 @@
             <i class="iconfont">&#xe6b8;</i><cite>系统管理</cite><i class="iconfont nav_right">&#xe697;</i>
           </a>
           <ul class="sub-menu">
-            <li><a _href="./website/config"><i class="iconfont">&#xe6a7;</i><cite>网站配置</cite></a></li>
+            <li><a _href="./wconfig/page"><i class="iconfont">&#xe6a7;</i><cite>网站配置</cite></a></li>
             <li><a _href="javascript:;"><i class="iconfont">&#xe6a7;</i><cite>开发中</cite></a></li>
           </ul>
         </li>

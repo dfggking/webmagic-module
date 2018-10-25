@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.webmagic.mapper.UserLoginMapper" >
-  <resultMap id="BaseResultMap" type="com.webmagic.model.UserLogin" >
+  <resultMap id="BaseResultMap" type="com.webmagic.dto.UserLogin" >
     <id column="id" property="id" jdbcType="CHAR" />
     <result column="seq_id" property="seqId" jdbcType="CHAR" />
     <result column="user_id" property="userId" jdbcType="CHAR" />
@@ -15,18 +15,18 @@
     delete from user_login
     where `id` = #{id,jdbcType=CHAR}
   </delete>
-  <insert id="insert" parameterType="com.webmagic.model.UserLogin" >
-    <selectKey resultType="java.lang.String" keyProperty="id" order="BEFORE" >
+  <insert id="insert" parameterType="com.webmagic.dto.UserLogin" >
+    <selectKey resultType="java.lang.String" keyProperty="id" order="AFTER" >
       SELECT LAST_INSERT_ID()
     </selectKey>
-    insert into user_login (`id`, `seq_id`, `user_id`, `login_name`, 
+    insert into user_login (`seq_id`, `user_id`, `login_name`, 
       `pwd`, `error_count`, `create_at`, 
       `update_at`)
-    values (#{id,jdbcType=CHAR}, #{seqId,jdbcType=CHAR}, #{userId,jdbcType=CHAR}, #{loginName,jdbcType=VARCHAR}, 
+    values (#{seqId,jdbcType=CHAR}, #{userId,jdbcType=CHAR}, #{loginName,jdbcType=VARCHAR}, 
       #{pwd,jdbcType=VARCHAR}, #{errorCount,jdbcType=BIT}, #{createAt,jdbcType=TIMESTAMP}, 
       #{updateAt,jdbcType=TIMESTAMP})
   </insert>
-  <update id="updateByPrimaryKey" parameterType="com.webmagic.model.UserLogin" >
+  <update id="updateByPrimaryKey" parameterType="com.webmagic.dto.UserLogin" >
     update user_login
     set `seq_id` = #{seqId,jdbcType=CHAR},
       `user_id` = #{userId,jdbcType=CHAR},

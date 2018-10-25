@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.webmagic.mapper.MemberMapper" >
-  <resultMap id="BaseResultMap" type="com.webmagic.model.Member" >
+  <resultMap id="BaseResultMap" type="com.webmagic.dto.Member" >
     <id column="id" property="id" jdbcType="CHAR" />
     <result column="seq_id" property="seqId" jdbcType="CHAR" />
     <result column="name" property="name" jdbcType="VARCHAR" />
@@ -13,16 +13,16 @@
     delete from member
     where `id` = #{id,jdbcType=CHAR}
   </delete>
-  <insert id="insert" parameterType="com.webmagic.model.Member" >
-    <selectKey resultType="java.lang.String" keyProperty="id" order="BEFORE" >
+  <insert id="insert" parameterType="com.webmagic.dto.Member" >
+    <selectKey resultType="java.lang.String" keyProperty="id" order="AFTER" >
       SELECT LAST_INSERT_ID()
     </selectKey>
-    insert into member (`id`, `seq_id`, `name`, `professionals`, 
+    insert into member (`seq_id`, `name`, `professionals`, 
       `blog_url`, `avatar_url`)
-    values (#{id,jdbcType=CHAR}, #{seqId,jdbcType=CHAR}, #{name,jdbcType=VARCHAR}, #{professionals,jdbcType=VARCHAR}, 
+    values (#{seqId,jdbcType=CHAR}, #{name,jdbcType=VARCHAR}, #{professionals,jdbcType=VARCHAR}, 
       #{blogUrl,jdbcType=VARCHAR}, #{avatarUrl,jdbcType=VARCHAR})
   </insert>
-  <update id="updateByPrimaryKey" parameterType="com.webmagic.model.Member" >
+  <update id="updateByPrimaryKey" parameterType="com.webmagic.dto.Member" >
     update member
     set `seq_id` = #{seqId,jdbcType=CHAR},
       `name` = #{name,jdbcType=VARCHAR},

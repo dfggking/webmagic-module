@@ -25,6 +25,7 @@
     <module>webmagic-web</module>
     <module>webmagic-dao</module>
     <module>webmagic-util</module>
+    <module>webmagic-model</module>
   </modules>
   <dependencies>
     <dependency>

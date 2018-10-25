@@ -1,6 +1,6 @@
 package com.webmagic.mapper;
 
-import com.webmagic.model.Menu;
+import com.webmagic.dto.Menu;
 import java.util.List;
 
 public interface MenuMapper {

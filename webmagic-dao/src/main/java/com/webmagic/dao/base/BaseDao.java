@@ -11,4 +11,6 @@ public interface BaseDao<T> {
     Integer update(T var);
 
     List<T> select(T var);
+
+    T get(Integer id);
 }

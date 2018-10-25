@@ -1,6 +1,6 @@
 package com.webmagic.mapper;
 
-import com.webmagic.model.UserLogin;
+import com.webmagic.dto.UserLogin;
 import java.util.List;
 
 public interface UserLoginMapper {

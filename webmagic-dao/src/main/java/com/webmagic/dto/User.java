@@ -1,4 +1,4 @@
-package com.webmagic.model;
+package com.webmagic.dto;
 
 public class User {
     private String id;

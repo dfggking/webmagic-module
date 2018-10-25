@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <%@ include file="../common/header.jsp" %>
   <link href="/css/admin/style.css" rel="stylesheet">
-
 </head>
 <body>
   <div class="x-nav">
@@ -21,20 +21,20 @@
       请在此编辑网站配置信息
     </blockquote>
 
-    <form class="layui-form layui-form-pane" action="">
+    <form class="layui-form layui-form-pane" action="/wconfig/update">
       <fieldset class="layui-elem-field layui-field-title" style="margin-top: 50px;">
         <legend>网站head</legend>
       </fieldset>
       <div class="layui-form-item">
         <label class="layui-form-label">网站名称</label>
         <div class="layui-input-block">
-          <input type="text" name="title" autocomplete="off" placeholder="请输入网站名称" class="layui-input">
+          <input type="text" name="title" value="${entity.websiteTitle}" autocomplete="off" placeholder="请输入网站名称" class="layui-input">
         </div>
       </div>
       <div class="layui-form-item layui-form-text">
         <label class="layui-form-label">网站描述</label>
         <div class="layui-input-block">
-          <textarea placeholder="用于百度SEO" class="layui-textarea"></textarea>
+          <textarea placeholder="用于百度SEO" class="layui-textarea">${entity.description}</textarea>
         </div>
       </div>
       <fieldset class="layui-elem-field layui-field-title" style="margin-top: 50px;">
@@ -43,23 +43,23 @@
       <div class="layui-form-item">
         <label class="layui-form-label">联系邮箱</label>
         <div class="layui-input-block">
-          <input type="email" name="username" lay-verify="required" placeholder="请输入联系邮箱" autocomplete="off" class="layui-input">
+          <input type="email" name="username" value="${entity.email}" lay-verify="required" placeholder="请输入联系邮箱" autocomplete="off" class="layui-input">
         </div>
       </div>
       <div class="layui-form-item">
         <label class="layui-form-label">联系地址</label>
         <div class="layui-input-block">
-          <input type="email" name="username" lay-verify="required" placeholder="请输入联系地址" autocomplete="off" class="layui-input">
+          <input type="text" name="username" value="${entity.address}" lay-verify="required" placeholder="请输入联系地址" autocomplete="off" class="layui-input">
         </div>
       </div>
       <div class="layui-form-item">
         <label class="layui-form-label">copyright</label>
         <div class="layui-input-block">
-          <input type="email" name="username" lay-verify="required" placeholder="请输入copyright" autocomplete="off" class="layui-input">
+          <input type="text" name="username" value="${entity.copyright}" lay-verify="required" placeholder="请输入copyright" autocomplete="off" class="layui-input">
         </div>
       </div>
       <div class="layui-form-item">
-        <button class="layui-btn" lay-submit="" lay-filter="demo2">跳转式提交</button>
+        <button class="layui-btn" lay-submit="" lay-filter="demo2" style="margin-top: 50px;">更新</button>
       </div>
       <fieldset class="layui-elem-field layui-field-title" style="margin-top: 50px;">
         <legend>更多~开发中</legend>

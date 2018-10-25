@@ -1,6 +1,6 @@
 package com.webmagic.mapper;
 
-import com.webmagic.model.Role;
+import com.webmagic.dto.Role;
 import java.util.List;
 
 public interface RoleMapper {

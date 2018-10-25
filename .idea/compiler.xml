@@ -9,13 +9,14 @@
         <module name="webmagicadmin" />
         <module name="webmagicapi" />
         <module name="webmagicdao" />
+        <module name="webmagicmodel" />
         <module name="webmagicservice" />
         <module name="webmagicutil" />
         <module name="webmagicweb" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="webmagicmodel" target="1.5" />
+      <module name="webmagicmodel" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

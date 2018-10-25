@@ -25,7 +25,7 @@
         targetPackage：生成的实体包位置，默认存放在src目录下
         targetProject：目标工程名
      -->
-    <javaModelGenerator targetPackage="com.webmagic.model" targetProject="src/main/java"/>
+    <javaModelGenerator targetPackage="com.webmagic.dto" targetProject="src/main/java"/>
     
     <!-- 实体包对应映射文件位置及名称，默认存放在src目录下 -->
     <sqlMapGenerator targetPackage="com.webmagic.mapper.xml" targetProject="src/main/java"/>
@@ -50,7 +50,7 @@
       enableUpdateByExample="false"
       selectByExampleQueryId="false"
     >
-      <generatedKey column="id" sqlStatement="Mysql"/>
+      <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
     </table>
 
   </context>

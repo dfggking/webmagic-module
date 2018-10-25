@@ -1,17 +1,13 @@
-package com.webmagic.model;
+package com.webmagic.dto;
 
-import java.util.Date;
-
-public class SysOperateLog {
+public class UserRole {
     private String id;
 
     private String seqId;
 
     private String userId;
 
-    private String content;
-
-    private Date createAt;
+    private String roleId;
 
     public String getId() {
         return id;
@@ -37,19 +33,11 @@ public class SysOperateLog {
         this.userId = userId;
     }
 
-    public String getContent() {
-        return content;
+    public String getRoleId() {
+        return roleId;
     }
 
-    public void setContent(String content) {
-        this.content = content;
-    }
-
-    public Date getCreateAt() {
-        return createAt;
-    }
-
-    public void setCreateAt(Date createAt) {
-        this.createAt = createAt;
+    public void setRoleId(String roleId) {
+        this.roleId = roleId;
     }
 }

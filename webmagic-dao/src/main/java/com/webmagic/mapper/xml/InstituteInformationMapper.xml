@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.webmagic.mapper.InstituteInformationMapper" >
-  <resultMap id="BaseResultMap" type="com.webmagic.model.InstituteInformation" >
+  <resultMap id="BaseResultMap" type="com.webmagic.dto.InstituteInformation" >
     <id column="id" property="id" jdbcType="CHAR" />
     <result column="news_title" property="newsTitle" jdbcType="VARCHAR" />
     <result column="summary" property="summary" jdbcType="VARCHAR" />
@@ -12,16 +12,16 @@
     delete from institute_information
     where `id` = #{id,jdbcType=CHAR}
   </delete>
-  <insert id="insert" parameterType="com.webmagic.model.InstituteInformation" >
-    <selectKey resultType="java.lang.String" keyProperty="id" order="BEFORE" >
+  <insert id="insert" parameterType="com.webmagic.dto.InstituteInformation" >
+    <selectKey resultType="java.lang.String" keyProperty="id" order="AFTER" >
       SELECT LAST_INSERT_ID()
     </selectKey>
-    insert into institute_information (`id`, `news_title`, `summary`, 
-      `content`, `main_img`)
-    values (#{id,jdbcType=CHAR}, #{newsTitle,jdbcType=VARCHAR}, #{summary,jdbcType=VARCHAR}, 
-      #{content,jdbcType=VARCHAR}, #{mainImg,jdbcType=VARCHAR})
+    insert into institute_information (`news_title`, `summary`, `content`, 
+      `main_img`)
+    values (#{newsTitle,jdbcType=VARCHAR}, #{summary,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, 
+      #{mainImg,jdbcType=VARCHAR})
   </insert>
-  <update id="updateByPrimaryKey" parameterType="com.webmagic.model.InstituteInformation" >
+  <update id="updateByPrimaryKey" parameterType="com.webmagic.dto.InstituteInformation" >
     update institute_information
     set `news_title` = #{newsTitle,jdbcType=VARCHAR},
       `summary` = #{summary,jdbcType=VARCHAR},

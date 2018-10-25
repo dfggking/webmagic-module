@@ -1,6 +1,6 @@
 package com.webmagic.mapper;
 
-import com.webmagic.model.RoleMenu;
+import com.webmagic.dto.RoleMenu;
 import java.util.List;
 
 public interface RoleMenuMapper {

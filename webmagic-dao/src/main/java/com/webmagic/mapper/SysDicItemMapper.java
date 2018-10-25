@@ -1,6 +1,6 @@
 package com.webmagic.mapper;
 
-import com.webmagic.model.SysDicItem;
+import com.webmagic.dto.SysDicItem;
 import java.util.List;
 
 public interface SysDicItemMapper {
