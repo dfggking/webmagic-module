@@ -4,6 +4,7 @@
   <resultMap id="BaseResultMap" type="com.webmagic.dto.WebsiteConfig" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="website_title" property="websiteTitle" jdbcType="VARCHAR" />
+    <result column="keyword" property="keyword" jdbcType="VARCHAR" />
     <result column="description" property="description" jdbcType="VARCHAR" />
     <result column="email" property="email" jdbcType="VARCHAR" />
     <result column="copyright" property="copyright" jdbcType="VARCHAR" />
@@ -17,14 +18,17 @@
     <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
       SELECT LAST_INSERT_ID()
     </selectKey>
-    insert into website_config (`website_title`, `description`, `email`, 
-      `copyright`, `address`)
-    values (#{websiteTitle,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
-      #{copyright,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR})
+    insert into website_config (`website_title`, `keyword`, `description`, 
+      `email`, `copyright`, `address`
+      )
+    values (#{websiteTitle,jdbcType=VARCHAR}, #{keyword,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, 
+      #{email,jdbcType=VARCHAR}, #{copyright,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}
+      )
   </insert>
   <update id="updateByPrimaryKey" parameterType="com.webmagic.dto.WebsiteConfig" >
     update website_config
     set `website_title` = #{websiteTitle,jdbcType=VARCHAR},
+      `keyword` = #{keyword,jdbcType=VARCHAR},
       `description` = #{description,jdbcType=VARCHAR},
       `email` = #{email,jdbcType=VARCHAR},
       `copyright` = #{copyright,jdbcType=VARCHAR},
@@ -32,12 +36,12 @@
     where `id` = #{id,jdbcType=INTEGER}
   </update>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
-    select `id`, `website_title`, `description`, `email`, `copyright`, `address`
+    select `id`, `website_title`, `keyword`, `description`, `email`, `copyright`, `address`
     from website_config
     where `id` = #{id,jdbcType=INTEGER}
   </select>
   <select id="selectAll" resultMap="BaseResultMap" >
-    select `id`, `website_title`, `description`, `email`, `copyright`, `address`
+    select `id`, `website_title`, `keyword`, `description`, `email`, `copyright`, `address`
     from website_config
   </select>
 </mapper>

@@ -14,6 +14,7 @@ public abstract class BaseController {
     protected static final String SUCCESS = "success";
     protected static final String FAILED = "failed";
     protected static final String ENTITY = "entity";
+    protected static final String LIST = "list";
 
     protected HttpServletRequest request;
     protected HttpServletResponse response;

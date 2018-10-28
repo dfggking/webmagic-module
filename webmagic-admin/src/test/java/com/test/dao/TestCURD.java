@@ -21,19 +21,19 @@ public class TestCURD {
     @Test
     public void getUser(){
         User us = userService.get(1);
-        System.out.println(us.getEmail());
+//        System.out.println(us.getEmail());
     }
 
     @Test
     public void insertWebsiteConfig(){
-        WebsiteConfig wc = new WebsiteConfig();
-        wc.setId(0);
-        wc.setWebsiteTitle("title");
-        wc.setCopyright("copyriht");
-        wc.setEmail("email");
-        wc.setDescription("desc");
-        wc.setAddress("addr");
-        websiteConfigService.insert(wc);
+//        WebsiteConfig wc = new WebsiteConfig();
+//        wc.setId(0);
+//        wc.setWebsiteTitle("title");
+//        wc.setCopyright("copyriht");
+//        wc.setEmail("email");
+//        wc.setDescription("desc");
+//        wc.setAddress("addr");
+//        websiteConfigService.insert(wc);
     }
 
 }

@@ -1,10 +1,43 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <%@ include file="../../common/header.jsp" %>
+  <link href="/third-party/umeditor/themes/default/css/umeditor.css" type="text/css" rel="stylesheet">
   <link href="/css/admin/style.css" rel="stylesheet">
+  <script type="text/javascript" charset="utf-8" src="/third-party/umeditor/umeditor.config.js"></script>
+  <script type="text/javascript" charset="utf-8" src="/third-party/umeditor/umeditor.min.js"></script>
+  <script type="text/javascript" src="/third-party/umeditor/lang/zh-cn/zh-cn.js"></script>
+  <style rel="stylesheet">
+    #myEditor.edui-body-container{
+      padding: 20px;
+    }
+    li{
+      list-style: disc;
+    }
+  </style>
+  <script>
+    $(function(){
+      //实例化编辑器
+      var um = UM.getEditor('myEditor');
+      $("#J_submit").click(function(){
 
+        var intruductionStr = UM.getEditor('myEditor').getContent();
+        $.ajax({
+          url: "/institute/update",
+          dataType: "json",
+          data: {
+            intruductionStr: intruductionStr
+          },
+          success: function(args){
+            console.info(args);
+          }
+        });
+      });
+
+    });
+  </script>
 </head>
 <body>
   <div class="x-nav">
@@ -18,55 +51,18 @@
     </a>
   </div>
   <div class="x-body">
+
     <blockquote class="layui-elem-quote">
       研究所介绍
     </blockquote>
 
-    <form class="layui-form layui-form-pane" action="">
-      <fieldset class="layui-elem-field layui-field-title" style="margin-top: 50px;">
-        <legend>网站head</legend>
-      </fieldset>
-      <div class="layui-form-item">
-        <label class="layui-form-label">网站名称</label>
-        <div class="layui-input-block">
-          <input type="text" name="title" autocomplete="off" placeholder="请输入网站名称" class="layui-input">
-        </div>
-      </div>
-      <div class="layui-form-item layui-form-text">
-        <label class="layui-form-label">网站描述</label>
-        <div class="layui-input-block">
-          <textarea placeholder="用于百度SEO" class="layui-textarea"></textarea>
-        </div>
-      </div>
-      <fieldset class="layui-elem-field layui-field-title" style="margin-top: 50px;">
-        <legend>网站footer</legend>
-      </fieldset>
-      <div class="layui-form-item">
-        <label class="layui-form-label">联系邮箱</label>
-        <div class="layui-input-block">
-          <input type="email" name="username" lay-verify="required" placeholder="请输入联系邮箱" autocomplete="off" class="layui-input">
-        </div>
-      </div>
-      <div class="layui-form-item">
-        <label class="layui-form-label">联系地址</label>
-        <div class="layui-input-block">
-          <input type="email" name="username" lay-verify="required" placeholder="请输入联系地址" autocomplete="off" class="layui-input">
-        </div>
-      </div>
-      <div class="layui-form-item">
-        <label class="layui-form-label">copyright</label>
-        <div class="layui-input-block">
-          <input type="email" name="username" lay-verify="required" placeholder="请输入copyright" autocomplete="off" class="layui-input">
-        </div>
-      </div>
-      <div class="layui-form-item">
-        <button class="layui-btn" lay-submit="" lay-filter="demo2">跳转式提交</button>
-      </div>
-      <fieldset class="layui-elem-field layui-field-title" style="margin-top: 50px;">
-        <legend>更多~开发中</legend>
-      </fieldset>
-    </form>
+    <!--style给定宽度可以影响编辑器的最终宽度-->
+    <script type="text/plain" id="myEditor" style="width:100%;height:480px;">
+      ${entity.introduction}
+    </script>
+    <div style="margin-top: 50px;">
+      <button id="J_submit" class="layui-btn layui-btn-fluid layui-btn-radius">确认保存</button>
+    </div>
   </div>
 </body>
-
 </html>

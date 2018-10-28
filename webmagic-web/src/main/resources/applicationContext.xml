@@ -38,15 +38,8 @@
     <property name="basePackage" value="com.webmagic.mapper"/>
     <property name="sqlSessionTemplateBeanName" value="sqlSessionTemplate"/>
   </bean>
- 
-  <!-- 激活@Controller注解模式 -->
-  <mvc:annotation-driven />
-  
-  <!--配置注解扫描器-->
-  <context:component-scan base-package="com.webmagic.controller"/>
-  <context:component-scan base-package="com.webmagic.service"/>
-  <context:component-scan base-package="com.webmagic.dao"/>
-  <context:component-scan base-package="com.webmagic.mapper"/>
+
+
   
   <!--加载资源文件-->
   <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">

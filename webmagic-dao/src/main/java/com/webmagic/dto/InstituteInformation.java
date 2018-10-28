@@ -1,30 +1,37 @@
 package com.webmagic.dto;
 
-public class InstituteInformation {
-    private String id;
+import java.util.Date;
 
-    private String newsTitle;
+public class InstituteInformation {
+    private Integer id;
+
+    private String title;
 
     private String summary;
 
     private String content;
 
+    private String type;
+
     private String mainImg;
 
-    public String getId() {
+    
+    private Date createAt;
+
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    public String getNewsTitle() {
-        return newsTitle;
+    public String getTitle() {
+        return title;
     }
 
-    public void setNewsTitle(String newsTitle) {
-        this.newsTitle = newsTitle;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getSummary() {
@@ -43,11 +50,27 @@ public class InstituteInformation {
         this.content = content;
     }
 
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
     public String getMainImg() {
         return mainImg;
     }
 
     public void setMainImg(String mainImg) {
         this.mainImg = mainImg;
+    }
+
+    public Date getCreateAt() {
+        return createAt;
+    }
+
+    public void setCreateAt(Date createAt) {
+        this.createAt = createAt;
     }
 }

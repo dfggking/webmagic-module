@@ -5,6 +5,8 @@ public class WebsiteConfig {
 
     private String websiteTitle;
 
+    private String keyword;
+
     private String description;
 
     private String email;
@@ -27,6 +29,14 @@ public class WebsiteConfig {
 
     public void setWebsiteTitle(String websiteTitle) {
         this.websiteTitle = websiteTitle;
+    }
+
+    public String getKeyword() {
+        return keyword;
+    }
+
+    public void setKeyword(String keyword) {
+        this.keyword = keyword;
     }
 
     public String getDescription() {

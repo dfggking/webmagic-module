@@ -4,11 +4,11 @@ import com.webmagic.dto.InstituteInformation;
 import java.util.List;
 
 public interface InstituteInformationMapper {
-    int deleteByPrimaryKey(String id);
+    int deleteByPrimaryKey(Integer id);
 
     int insert(InstituteInformation record);
 
-    InstituteInformation selectByPrimaryKey(String id);
+    InstituteInformation selectByPrimaryKey(Integer id);
 
     List<InstituteInformation> selectAll();
 

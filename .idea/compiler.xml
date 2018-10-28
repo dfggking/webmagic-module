@@ -6,6 +6,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="webmagic-admin" />
+        <module name="webmagic-api" />
+        <module name="webmagic-dao" />
+        <module name="webmagic-service" />
+        <module name="webmagic-util" />
+        <module name="webmagic-web" />
         <module name="webmagicadmin" />
         <module name="webmagicapi" />
         <module name="webmagicdao" />
@@ -16,6 +22,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="webmagic-model" target="1.8" />
       <module name="webmagicmodel" target="1.8" />
     </bytecodeTargetLevel>
   </component>

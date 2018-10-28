@@ -10,8 +10,15 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 @RequestMapping("datacode")
 public class DataCodeController {
-    @RequestMapping("list")
-    public ModelAndView list() {
+    
+    @RequestMapping("data/list")
+    public ModelAndView datalist() {
+        ModelAndView mv = new ModelAndView();
+        return mv;
+    }
+    
+    @RequestMapping("code/list")
+    public ModelAndView codeList() {
         ModelAndView mv = new ModelAndView();
         return mv;
     }

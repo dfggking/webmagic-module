@@ -59,7 +59,6 @@
           </a>
           <ul class="sub-menu">
             <li><a _href="./wconfig/page"><i class="iconfont">&#xe6a7;</i><cite>网站配置</cite></a></li>
-            <li><a _href="javascript:;"><i class="iconfont">&#xe6a7;</i><cite>开发中</cite></a></li>
           </ul>
         </li>
         <li>
@@ -123,6 +122,15 @@
               </a>
               <ul class="sub-menu">
                 <li><a _href="./course/list"><i class="iconfont">&#xe6a7;</i><cite>课程列表</cite></a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="javascript:;">
+                <i class="iconfont">&#xe6b5;</i><cite>数据与代码</cite><i class="iconfont nav_right">&#xe697;</i>
+              </a>
+              <ul class="sub-menu">
+                <li><a _href="./datacode/data/list"><i class="iconfont">&#xe6a7;</i><cite>数据集</cite></a></li>
+                <li><a _href="./datacode/code/list"><i class="iconfont">&#xe6a7;</i><cite>代码</cite></a></li>
               </ul>
             </li>
             <li>

@@ -1,11 +1,7 @@
 package com.webmagic.dto;
 
 public class Institute {
-    private String id;
-
-    private String name;
-
-    private String introduction;
+    private Integer id;
 
     private String mainImg;
 
@@ -15,28 +11,14 @@ public class Institute {
 
     private String img3;
 
-    public String getId() {
+    private String introduction;
+
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Integer id) {
         this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getIntroduction() {
-        return introduction;
-    }
-
-    public void setIntroduction(String introduction) {
-        this.introduction = introduction;
     }
 
     public String getMainImg() {
@@ -69,5 +51,13 @@ public class Institute {
 
     public void setImg3(String img3) {
         this.img3 = img3;
+    }
+
+    public String getIntroduction() {
+        return introduction;
+    }
+
+    public void setIntroduction(String introduction) {
+        this.introduction = introduction;
     }
 }

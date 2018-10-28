@@ -34,10 +34,8 @@ public class WebsiteConfigController extends BaseController {
 
     @RequestMapping("update")
     @ResponseBody
-    public ModelAndView update(WebsiteConfig wc) {
-        ModelAndView mv = new ModelAndView();
+    public String update(WebsiteConfig wc) {
         websiteConfigService.update(wc);
-        mv.addObject(RESULT, SUCCESS);
-        return mv;
+        return SUCCESS;
     }
 }
