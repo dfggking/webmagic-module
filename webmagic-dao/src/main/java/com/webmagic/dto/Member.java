@@ -3,15 +3,17 @@ package com.webmagic.dto;
 public class Member {
     private String id;
 
-    private String seqId;
-
     private String name;
 
-    private String professionals;
+    private String major1;
+
+    private String major2;
 
     private String blogUrl;
 
     private String avatarUrl;
+
+    private String institute;
 
     public String getId() {
         return id;
@@ -19,14 +21,6 @@ public class Member {
 
     public void setId(String id) {
         this.id = id;
-    }
-
-    public String getSeqId() {
-        return seqId;
-    }
-
-    public void setSeqId(String seqId) {
-        this.seqId = seqId;
     }
 
     public String getName() {
@@ -37,12 +31,20 @@ public class Member {
         this.name = name;
     }
 
-    public String getProfessionals() {
-        return professionals;
+    public String getMajor1() {
+        return major1;
     }
 
-    public void setProfessionals(String professionals) {
-        this.professionals = professionals;
+    public void setMajor1(String major1) {
+        this.major1 = major1;
+    }
+
+    public String getMajor2() {
+        return major2;
+    }
+
+    public void setMajor2(String major2) {
+        this.major2 = major2;
     }
 
     public String getBlogUrl() {
@@ -59,5 +61,13 @@ public class Member {
 
     public void setAvatarUrl(String avatarUrl) {
         this.avatarUrl = avatarUrl;
+    }
+
+    public String getInstitute() {
+        return institute;
+    }
+
+    public void setInstitute(String institute) {
+        this.institute = institute;
     }
 }

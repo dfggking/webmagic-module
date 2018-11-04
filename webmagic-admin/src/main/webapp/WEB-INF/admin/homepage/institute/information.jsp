@@ -51,9 +51,6 @@
           ,{field:'content', width:120,title: '内容'}
           ,{field:'type', title: '类别'}
           ,{field:'createAt', width:165, title: '创建时间'}
-          // ,{field:'createAt', width:165, title: '创建时间', templet: function(args){
-          //     return new Date(args.createAt).Format("yyyy-MM-dd hh:mm:ss");
-          //   }}
           ,{fixed: 'right', title:'操作', toolbar: '#bar', width:150}
         ]]
         ,toolbar: '#toolbar',

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page import="java.util.Date"%>
 <!DOCTYPE html>
 <html>
@@ -17,7 +18,7 @@
         </div>
         <div class="h-nav">
           <ul id="J_header_nav" class="clearfix">
-            <li class="active"><a href="/index">网站首页</a></li>
+            <li class="active"><a href="/home/index">网站首页</a></li>
             <li><a href="/team/member/list">团队成员</a></li>
             <li><a href="/research/direction">研究方向</a></li>
             <li><a href="/thesis/index">论文著作</a></li>
@@ -86,62 +87,15 @@
         </div>
         <div class="notice">
           <ul class="info-list">
+            <c:forEach items="${info_list}" var="info" varStatus="s">
             <li class="active">
               <a href="">
-                <span class="label color1">通知公告</span>
-                <span class="title">关于2018-2019学年第一学期在职专业学位研究生注册的通知</span>
-                <span class="time">[2018-10-02]</span>
+                <span class="label color1">${info.type}</span>
+                <span class="title">${info.title}</span>
+                <span class="time">[<fmt:formatDate value="${info.createAt}" type="date" pattern="yyyy-MM-dd"/>]</span>
               </a>
             </li>
-            <li>
-              <a href="">
-                <span class="label color1">通知公告</span>
-                <span class="title">关于拟对许艳宁等3名在职专业学位研究生进行退学处理的通知</span>
-                <span class="time">[2018-10-02]</span>
-              </a>
-            </li>
-            <li>
-              <a href="">
-                <span class="label color2">重要会议</span>
-                <span class="title">2018年9月在职研究生毕业论文答辩报名通知！</span>
-                <span class="time">[2018-07-02]</span>
-              </a>
-            </li>
-            <li>
-              <a href="">
-                <span class="label color1">通知公告</span>
-                <span class="title">关于对2013年9月入学的在职专业学位研究生延期申请的通知！！</span>
-                <span class="time">[2018-10-02]</span>
-              </a>
-            </li>
-            <li>
-              <a href="">
-                <span class="label color2">重要会议</span>
-                <span class="title">关于全面清理超期研究生学籍的通知！！</span>
-                <span class="time">[2018-10-02]</span>
-              </a>
-            </li>
-            <li>
-              <a href="">
-                <span class="label color1">通知公告</span>
-                <span class="title">关于拟对张继辉等44名在职专业学位研究生进行退学处理的通知</span>
-                <span class="time">[2018-10-02]</span>
-              </a>
-            </li>
-            <li>
-              <a href="">
-                <span class="label color1">通知公告</span>
-                <span class="title">关于对2014年4月入学但未毕业的在职专业学位研究生进行第一次学业警示的通知</span>
-                <span class="time">[2018-10-02]</span>
-              </a>
-            </li>
-            <li>
-              <a href="">
-                <span class="label color2">重要会议</span>
-                <span class="title">在职专业学位研究生学费缴纳及发票认领注意事项</span>
-                <span class="time">[2018-10-02]</span>
-              </a>
-            </li>
+            </c:forEach>
           </ul>
         </div>
       </div>

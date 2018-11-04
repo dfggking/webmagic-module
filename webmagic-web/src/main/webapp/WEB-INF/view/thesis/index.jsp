@@ -14,7 +14,7 @@
       </div>
       <div class="h-nav">
         <ul id="J_header_nav" class="clearfix">
-          <li><a href="/index">网站首页</a></li>
+          <li><a href="/home/index">网站首页</a></li>
           <li><a href="/team/member/list">团队成员</a></li>
           <li><a href="/research/direction">研究方向</a></li>
           <li class="active"><a href="/thesis/index">论文著作</a></li>

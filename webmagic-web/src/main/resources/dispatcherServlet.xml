@@ -11,31 +11,29 @@
                            http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
   
   
-  <!-- 激活@Controller注解模式 -->
   <mvc:annotation-driven>
-    <mvc:message-converters register-defaults="true">
-      <bean class="com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter">
-        <property name="supportedMediaTypes">
-          <list>
-            <value>text/html;charset=UTF-8</value>
-            <value>application/json</value>
-            <value>application/xml;charset=UTF-8</value>
-          </list>
-        </property>
-        
+    <!--配置@ResponseBody由fastjson解析-->
+    <mvc:message-converters>
+      <bean class="org.springframework.http.converter.StringHttpMessageConverter">
+        <property name="defaultCharset" value="UTF-8"/>
       </bean>
-      <bean id="dateFormat" class="java.text.SimpleDateFormat">
-        <constructor-arg type="java.lang.String" value="yyyy-MM-dd HH:mm:ss"/>
+      <bean class="com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter">
+        <property name="fastJsonConfig" ref="fastJsonConfig" />
       </bean>
     </mvc:message-converters>
   </mvc:annotation-driven>
-  <mvc:default-servlet-handler />
+  
+  <bean id="fastJsonConfig" class="com.alibaba.fastjson.support.config.FastJsonConfig">
+    <property name="charset" value="UTF-8" />
+    <property name="dateFormat" value="yyyy-MM-dd hh:mm:ss"/>
+  </bean>
   
   <!--配置注解扫描器-->
   <context:component-scan base-package="com.webmagic.controller"/>
   <context:component-scan base-package="com.webmagic.service"/>
   <context:component-scan base-package="com.webmagic.dao"/>
   <context:component-scan base-package="com.webmagic.mapper"/>
+  <mvc:default-servlet-handler />
   
   <!-- 定义视图及路径 -->
   <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">

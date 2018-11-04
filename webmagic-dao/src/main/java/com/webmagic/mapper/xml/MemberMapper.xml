@@ -3,11 +3,12 @@
 <mapper namespace="com.webmagic.mapper.MemberMapper" >
   <resultMap id="BaseResultMap" type="com.webmagic.dto.Member" >
     <id column="id" property="id" jdbcType="CHAR" />
-    <result column="seq_id" property="seqId" jdbcType="CHAR" />
     <result column="name" property="name" jdbcType="VARCHAR" />
-    <result column="professionals" property="professionals" jdbcType="VARCHAR" />
+    <result column="major1" property="major1" jdbcType="VARCHAR" />
+    <result column="major2" property="major2" jdbcType="VARCHAR" />
     <result column="blog_url" property="blogUrl" jdbcType="VARCHAR" />
     <result column="avatar_url" property="avatarUrl" jdbcType="VARCHAR" />
+    <result column="institute" property="institute" jdbcType="VARCHAR" />
   </resultMap>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from member
@@ -17,27 +18,30 @@
     <selectKey resultType="java.lang.String" keyProperty="id" order="AFTER" >
       SELECT LAST_INSERT_ID()
     </selectKey>
-    insert into member (`seq_id`, `name`, `professionals`, 
-      `blog_url`, `avatar_url`)
-    values (#{seqId,jdbcType=CHAR}, #{name,jdbcType=VARCHAR}, #{professionals,jdbcType=VARCHAR}, 
-      #{blogUrl,jdbcType=VARCHAR}, #{avatarUrl,jdbcType=VARCHAR})
+    insert into member (`name`, `major1`, `major2`, 
+      `blog_url`, `avatar_url`, `institute`
+      )
+    values (#{name,jdbcType=VARCHAR}, #{major1,jdbcType=VARCHAR}, #{major2,jdbcType=VARCHAR}, 
+      #{blogUrl,jdbcType=VARCHAR}, #{avatarUrl,jdbcType=VARCHAR}, #{institute,jdbcType=VARCHAR}
+      )
   </insert>
   <update id="updateByPrimaryKey" parameterType="com.webmagic.dto.Member" >
     update member
-    set `seq_id` = #{seqId,jdbcType=CHAR},
-      `name` = #{name,jdbcType=VARCHAR},
-      `professionals` = #{professionals,jdbcType=VARCHAR},
+    set `name` = #{name,jdbcType=VARCHAR},
+      `major1` = #{major1,jdbcType=VARCHAR},
+      `major2` = #{major2,jdbcType=VARCHAR},
       `blog_url` = #{blogUrl,jdbcType=VARCHAR},
-      `avatar_url` = #{avatarUrl,jdbcType=VARCHAR}
+      `avatar_url` = #{avatarUrl,jdbcType=VARCHAR},
+      `institute` = #{institute,jdbcType=VARCHAR}
     where `id` = #{id,jdbcType=CHAR}
   </update>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
-    select `id`, `seq_id`, `name`, `professionals`, `blog_url`, `avatar_url`
+    select `id`, `name`, `major1`, `major2`, `blog_url`, `avatar_url`, `institute`
     from member
     where `id` = #{id,jdbcType=CHAR}
   </select>
   <select id="selectAll" resultMap="BaseResultMap" >
-    select `id`, `seq_id`, `name`, `professionals`, `blog_url`, `avatar_url`
+    select `id`, `name`, `major1`, `major2`, `blog_url`, `avatar_url`, `institute`
     from member
   </select>
 </mapper>

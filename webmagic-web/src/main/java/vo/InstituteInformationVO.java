@@ -1,8 +1,10 @@
-package com.webmagic.dto;
+package vo;
+
+import com.alibaba.fastjson.annotation.JSONField;
 
 import java.util.Date;
 
-public class InstituteInformation {
+public class InstituteInformationVO {
     private Integer id;
 
     private String title;
@@ -14,7 +16,8 @@ public class InstituteInformation {
     private String type;
 
     private String mainImg;
-
+    
+    @JSONField(format="yyyy-MM-dd hh:mm:ss")
     private Date createAt;
 
     public Integer getId() {

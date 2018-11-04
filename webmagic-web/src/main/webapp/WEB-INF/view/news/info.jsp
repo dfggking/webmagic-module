@@ -1,4 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page import="java.util.Date"%>
 <!DOCTYPE html>
 <html>
@@ -14,7 +16,7 @@
       </div>
       <div class="h-nav">
         <ul id="J_header_nav" class="clearfix">
-          <li><a href="/index">网站首页</a></li>
+          <li><a href="/home/index">网站首页</a></li>
           <li><a href="/team/member/list">团队成员</a></li>
           <li><a href="/research/direction">研究方向</a></li>
           <li><a href="/thesis/index">论文著作</a></li>
@@ -40,123 +42,21 @@
   </div>
   <div class="container news-container top-margin">
     <div class="news-list clearfix">
+      <c:forEach items="${info_list}" var="info" varStatus="s">
       <div class="news-panel">
         <div class="news-img">
           <img src="/images/news/3.jpg" />
         </div>
-        <h4>关于拟录取2017新生通知关于拟录取2017新生通知关于拟录取2017新生通知</h4>
+        <h4>${info.title}</h4>
         <div class="panel-footer">
           <span class="time">
             <span class="icon"></span>
-          <span class="t">2017-10-22</span>
+          <span class="t"><fmt:formatDate value="${info.createAt}" type="date" pattern="yyyy-MM-dd"/></span>
           </span>
-          <span class="news-label type2">重要会议</span>
+          <span class="news-label type2">${info.type}</span>
         </div>
       </div>
-      <div class="news-panel">
-        <div class="news-img">
-          <img src="/images/news/2.jpg" />
-        </div>
-        <h4>关于拟录取2017新生通知</h4>
-        <div class="panel-footer">
-          <span class="time">
-            <span class="icon"></span>
-          <span class="t">2017-10-22</span>
-          </span>
-          <span class="news-label type2">重要会议</span>
-        </div>
-      </div>
-      <div class="news-panel">
-        <div class="news-img">
-          <img src="/images/news/4.jpg" />
-        </div>
-        <h4>关于拟录取2017新生通知</h4>
-        <div class="panel-footer">
-          <span class="time">
-            <span class="icon"></span>
-          <span class="t">2017-10-22</span>
-          </span>
-          <span class="news-label type1">通知公告</span>
-        </div>
-      </div>
-      <div class="news-panel">
-        <div class="news-img">
-          <img src="/images/news/2.jpg" />
-        </div>
-        <h4>关于拟录取2017新生通知</h4>
-        <div class="panel-footer">
-          <span class="time">
-            <span class="icon"></span>
-          <span class="t">2017-10-22</span>
-          </span>
-          <span class="news-label type2">重要会议</span>
-        </div>
-      </div>
-      <div class="news-panel">
-        <div class="news-img">
-          <img src="/images/news/3.jpg" />
-        </div>
-        <h4>关于拟录取2017新生通知</h4>
-        <div class="panel-footer">
-          <span class="time">
-            <span class="icon"></span>
-          <span class="t">2017-10-22</span>
-          </span>
-          <span class="news-label type1">通知公告</span>
-        </div>
-      </div>
-      <div class="news-panel">
-        <div class="news-img">
-          <img src="/images/news/4.jpg" />
-        </div>
-        <h4>关于拟录取2017新生通知</h4>
-        <div class="panel-footer">
-          <span class="time">
-            <span class="icon"></span>
-          <span class="t">2017-10-22</span>
-          </span>
-          <span class="news-label type2">重要会议</span>
-        </div>
-      </div>
-      <div class="news-panel">
-        <div class="news-img">
-          <img src="/images/news/2.jpg" />
-        </div>
-        <h4>关于拟录取2017新生通知</h4>
-        <div class="panel-footer">
-          <span class="time">
-            <span class="icon"></span>
-          <span class="t">2017-10-22</span>
-          </span>
-          <span class="news-label type1">通知公告</span>
-        </div>
-      </div>
-      <div class="news-panel">
-        <div class="news-img">
-          <img src="/images/news/3.jpg" />
-        </div>
-        <h4>关于拟录取2017新生通知</h4>
-        <div class="panel-footer">
-          <span class="time">
-            <span class="icon"></span>
-          <span class="t">2017-10-22</span>
-          </span>
-          <span class="news-label type2">重要会议</span>
-        </div>
-      </div>
-      <div class="news-panel">
-        <div class="news-img">
-          <img src="/images/news/4.jpg" />
-        </div>
-        <h4>关于拟录取2017新生通知</h4>
-        <div class="panel-footer">
-          <span class="time">
-            <span class="icon"></span>
-          <span class="t">2017-10-22</span>
-          </span>
-          <span class="news-label type1">通知公告</span>
-        </div>
-      </div>
+      </c:forEach>
     </div>
   </div>
   <jsp:include page="../common/footer.jsp" />

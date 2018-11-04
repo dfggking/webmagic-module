@@ -38,7 +38,7 @@ public class HomepageController extends BaseController {
 	}
 	
 	@RequestMapping("institute/introduce")
-	public ModelAndView introduce() throws UnsupportedEncodingException {
+	public ModelAndView introduce() {
 		Institute institute = instituteService.get(0);
 		ModelAndView mv = new ModelAndView();
 		mv.addObject(RESULT, SUCCESS);

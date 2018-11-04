@@ -137,17 +137,13 @@
         <table class="layui-table">
           <tbody>
             <tr>
-              <th>版权所有</th>
-              <td>xxxxx(xxxx) <a href="http://www.xxx.com/" class='x-a' target="_blank">访问官网</a></td>
-            </tr>
-            <tr>
               <th>开发者</th>
-              <td>马志斌(113664000@qq.com)</td>
+              <td>金英飞(835317619@qq.com)</td>
             </tr>
           </tbody>
         </table>
       </div>
     </fieldset>
-    <blockquote class="layui-elem-quote layui-quote-nm">感谢layui,百度Echarts,jquery,本系统由x-admin提供技术支持。</blockquote>
+    <blockquote class="layui-elem-quote layui-quote-nm">感谢layui,百度Echarts,jquery,本系统由dfggking提供技术支持。</blockquote>
   </div>
 </body>
