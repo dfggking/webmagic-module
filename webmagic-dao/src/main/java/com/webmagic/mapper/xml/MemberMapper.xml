@@ -2,28 +2,29 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.webmagic.mapper.MemberMapper" >
   <resultMap id="BaseResultMap" type="com.webmagic.dto.Member" >
-    <id column="id" property="id" jdbcType="CHAR" />
+    <id column="id" property="id" jdbcType="INTEGER" />
     <result column="name" property="name" jdbcType="VARCHAR" />
     <result column="major1" property="major1" jdbcType="VARCHAR" />
     <result column="major2" property="major2" jdbcType="VARCHAR" />
     <result column="blog_url" property="blogUrl" jdbcType="VARCHAR" />
     <result column="avatar_url" property="avatarUrl" jdbcType="VARCHAR" />
     <result column="institute" property="institute" jdbcType="VARCHAR" />
+    <result column="is_show" property="isShow" jdbcType="BIT" />
   </resultMap>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from member
-    where `id` = #{id,jdbcType=CHAR}
+    where `id` = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.webmagic.dto.Member" >
-    <selectKey resultType="java.lang.String" keyProperty="id" order="AFTER" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
       SELECT LAST_INSERT_ID()
     </selectKey>
     insert into member (`name`, `major1`, `major2`, 
-      `blog_url`, `avatar_url`, `institute`
-      )
+      `blog_url`, `avatar_url`, `institute`, 
+      `is_show`)
     values (#{name,jdbcType=VARCHAR}, #{major1,jdbcType=VARCHAR}, #{major2,jdbcType=VARCHAR}, 
-      #{blogUrl,jdbcType=VARCHAR}, #{avatarUrl,jdbcType=VARCHAR}, #{institute,jdbcType=VARCHAR}
-      )
+      #{blogUrl,jdbcType=VARCHAR}, #{avatarUrl,jdbcType=VARCHAR}, #{institute,jdbcType=VARCHAR}, 
+      #{isShow,jdbcType=BIT})
   </insert>
   <update id="updateByPrimaryKey" parameterType="com.webmagic.dto.Member" >
     update member
@@ -32,16 +33,17 @@
       `major2` = #{major2,jdbcType=VARCHAR},
       `blog_url` = #{blogUrl,jdbcType=VARCHAR},
       `avatar_url` = #{avatarUrl,jdbcType=VARCHAR},
-      `institute` = #{institute,jdbcType=VARCHAR}
-    where `id` = #{id,jdbcType=CHAR}
+      `institute` = #{institute,jdbcType=VARCHAR},
+      `is_show` = #{isShow,jdbcType=BIT}
+    where `id` = #{id,jdbcType=INTEGER}
   </update>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
-    select `id`, `name`, `major1`, `major2`, `blog_url`, `avatar_url`, `institute`
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select `id`, `name`, `major1`, `major2`, `blog_url`, `avatar_url`, `institute`, `is_show`
     from member
-    where `id` = #{id,jdbcType=CHAR}
+    where `id` = #{id,jdbcType=INTEGER}
   </select>
   <select id="selectAll" resultMap="BaseResultMap" >
-    select `id`, `name`, `major1`, `major2`, `blog_url`, `avatar_url`, `institute`
+    select `id`, `name`, `major1`, `major2`, `blog_url`, `avatar_url`, `institute`, `is_show`
     from member
   </select>
 </mapper>

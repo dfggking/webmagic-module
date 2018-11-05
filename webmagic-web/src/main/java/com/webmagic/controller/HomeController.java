@@ -3,9 +3,11 @@ package com.webmagic.controller;
 import com.dfgg.util.CopyUtils;
 import com.sun.org.apache.xpath.internal.operations.Mod;
 import com.webmagic.controller.base.BaseController;
+import com.webmagic.dto.HomeSwiper;
 import com.webmagic.dto.Institute;
 import com.webmagic.dto.InstituteInformation;
 import com.webmagic.dto.WebsiteConfig;
+import com.webmagic.mapper.HomeSwiperMapper;
 import com.webmagic.service.InformationService;
 import com.webmagic.service.InstituteService;
 import com.webmagic.service.WebsiteConfigService;
@@ -30,7 +32,9 @@ public class HomeController extends BaseController {
 	private InstituteService instituteService;
     @Autowired
     private InformationService informationService;
-	
+	@Autowired
+	private HomeSwiperMapper homeSwiperMapper;
+ 
 	@RequestMapping("")
 	public ModelAndView _default() {
 		ModelAndView mv = new ModelAndView("redirect:/home/index");
@@ -44,13 +48,16 @@ public class HomeController extends BaseController {
         InstituteInformation info = new InstituteInformation();
         List<InstituteInformation> list = informationService.select(info);
         List<InstituteInformationVO> list2 = CopyUtils.copyList(list);
-
+		
+		List<HomeSwiper> swipers = homeSwiperMapper.selectAll();
+        
         ModelAndView mv = new ModelAndView();
 		mv.addObject(RESULT, SUCCESS);
 		mv.addObject(ENTITY, wc);
         mv.addObject("info_list", list2);
 		Institute institute = instituteService.get(0);
 		mv.addObject("institute", institute);
+		mv.addObject("swipers", swipers);
 		return mv;
 	}
 }

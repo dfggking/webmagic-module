@@ -19,13 +19,13 @@
         <dl class="layui-nav-child">
           <!-- 二级菜单 -->
           <dd>
-            <a onclick="x_admin_show('备用','http://www.baidu.com')"><i class="iconfont">&#xe6a2;</i>备用</a>
+            <a onclick="x_admin_show('备用','http://www.baidu.com')"><i class="iconfont">&#xe6a2;</i>开发中</a>
           </dd>
           <dd>
-            <a onclick="x_admin_show('备用','http://www.baidu.com')"><i class="iconfont">&#xe6a8;</i>备用</a>
+            <a onclick="x_admin_show('备用','http://www.baidu.com')"><i class="iconfont">&#xe6a8;</i>开发中</a>
           </dd>
           <dd>
-            <a onclick="x_admin_show('备用','http://www.baidu.com')"><i class="iconfont">&#xe6b8;</i>备用</a>
+            <a onclick="x_admin_show('备用','http://www.baidu.com')"><i class="iconfont">&#xe6b8;</i>开发中</a>
           </dd>
         </dl></li>
     </ul>
@@ -59,6 +59,10 @@
           </a>
           <ul class="sub-menu">
             <li><a _href="./wconfig/page"><i class="iconfont">&#xe6a7;</i><cite>网站配置</cite></a></li>
+            <li><a _href="./wconfig/page"><i class="iconfont">&#xe6a7;</i><cite>用户管理</cite></a></li>
+            <li><a _href="./wconfig/page"><i class="iconfont">&#xe6a7;</i><cite>角色管理</cite></a></li>
+            <li><a _href="./wconfig/page"><i class="iconfont">&#xe6a7;</i><cite>系统菜单</cite></a></li>
+            <li><a _href="./wconfig/page"><i class="iconfont">&#xe6a7;</i><cite>学院管理</cite></a></li>
           </ul>
         </li>
         <li>

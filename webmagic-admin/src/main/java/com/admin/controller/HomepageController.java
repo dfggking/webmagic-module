@@ -1,10 +1,14 @@
 package com.admin.controller;
 
 import com.admin.controller.base.BaseController;
-import com.dfgg.util.CopyUtils;
-import com.webmagic.dto.Institute;
 import com.admin.vo.InstituteInformationVO;
+import com.admin.vo.ResultMap;
+import com.dfgg.util.CopyUtils;
+import com.webmagic.dto.HomeSwiper;
+import com.webmagic.dto.Homepage;
+import com.webmagic.dto.Institute;
 import com.webmagic.dto.InstituteInformation;
+import com.webmagic.mapper.HomeSwiperMapper;
 import com.webmagic.service.HomepageService;
 import com.webmagic.service.InformationService;
 import com.webmagic.service.InstituteService;
@@ -12,15 +16,17 @@ import org.apache.commons.beanutils.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.io.UnsupportedEncodingException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.File;
+import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Controller
 @RequestMapping("homepage")
@@ -31,10 +37,42 @@ public class HomepageController extends BaseController {
 	private InstituteService instituteService;
 	@Autowired
 	private InformationService informationService;
+	@Autowired
+	private HomeSwiperMapper homeSwiperMapper;
+	
 	@RequestMapping("swiper")
-	public ModelAndView config() {
-		ModelAndView mv = new ModelAndView();
+	public ModelAndView swiper(ModelAndView mv){
 		return mv;
+	}
+	
+	@RequestMapping(value="swiper/update", method=RequestMethod.POST)
+	@ResponseBody
+	public ResultMap swiperConfig(MultipartFile file, HttpServletRequest request, HttpServletResponse response) {
+		
+		try {
+			String fileName = file.getOriginalFilename();
+			if (file != null && fileName != null && fileName.length() > 0) {
+				String newFileName = UUID.randomUUID() + fileName;
+				String picPath = request.getSession().getServletContext().getRealPath("/uploads");
+				File targetFile = new File("/uploads", newFileName);
+				File fileParent = targetFile.getParentFile();
+				if(!fileParent.exists()){
+					fileParent.mkdirs();
+				}
+				file.transferTo(targetFile);
+				HomeSwiper homeSwiper = new HomeSwiper();
+				homeSwiper.setFilePath(targetFile.getPath());
+				homeSwiper.setFileName(newFileName);
+				homeSwiperMapper.insert(homeSwiper);
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		
+		ResultMap resultMap = new ResultMap();
+		resultMap.setResult(SUCCESS);
+		return resultMap;
 	}
 	
 	@RequestMapping("institute/introduce")

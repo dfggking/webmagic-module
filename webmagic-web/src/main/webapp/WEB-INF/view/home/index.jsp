@@ -33,15 +33,11 @@
     </header>
     <div id="J_index_swiper" class="swiper-container">
       <div class="swiper-wrapper">
-        <div class="swiper-slide">
-          <img class="swiper-img" src="/images/swiper.jpg">
-        </div>
-        <div class="swiper-slide">
-          <img class="swiper-img" src="/images/swiper.jpg">
-        </div>
-        <div class="swiper-slide">
-          <img class="swiper-img" src="/images/swiper.jpg">
-        </div>
+        <c:forEach items="${swipers}" var="swiper">
+          <div class="swiper-slide">
+            <img class="swiper-img" src="${swiper.filePath}">
+          </div>
+        </c:forEach>
       </div>
       <div class="swiper-pagination"></div>
     </div>

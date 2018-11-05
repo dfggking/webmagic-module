@@ -1,7 +1,7 @@
 package com.webmagic.dto;
 
 public class Member {
-    private String id;
+    private Integer id;
 
     private String name;
 
@@ -15,11 +15,13 @@ public class Member {
 
     private String institute;
 
-    public String getId() {
+    private Boolean isShow;
+
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -69,5 +71,13 @@ public class Member {
 
     public void setInstitute(String institute) {
         this.institute = institute;
+    }
+
+    public Boolean getIsShow() {
+        return isShow;
+    }
+
+    public void setIsShow(Boolean isShow) {
+        this.isShow = isShow;
     }
 }

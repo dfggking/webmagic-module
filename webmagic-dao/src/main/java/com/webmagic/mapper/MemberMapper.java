@@ -4,11 +4,11 @@ import com.webmagic.dto.Member;
 import java.util.List;
 
 public interface MemberMapper {
-    int deleteByPrimaryKey(String id);
+    int deleteByPrimaryKey(Integer id);
 
     int insert(Member record);
 
-    Member selectByPrimaryKey(String id);
+    Member selectByPrimaryKey(Integer id);
 
     List<Member> selectAll();
 
