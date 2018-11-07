@@ -4,11 +4,9 @@ import com.admin.controller.base.BaseController;
 import com.admin.vo.InstituteInformationVO;
 import com.admin.vo.ResultMap;
 import com.dfgg.util.CopyUtils;
-import com.webmagic.dto.HomeSwiper;
-import com.webmagic.dto.Homepage;
-import com.webmagic.dto.Institute;
-import com.webmagic.dto.InstituteInformation;
+import com.webmagic.dto.*;
 import com.webmagic.mapper.HomeSwiperMapper;
+import com.webmagic.mapper.SysConfigMapper;
 import com.webmagic.service.HomepageService;
 import com.webmagic.service.InformationService;
 import com.webmagic.service.InstituteService;
@@ -39,22 +37,28 @@ public class HomepageController extends BaseController {
 	private InformationService informationService;
 	@Autowired
 	private HomeSwiperMapper homeSwiperMapper;
+	@Autowired
+    private SysConfigMapper sysConfigMapper;
 	
 	@RequestMapping("swiper")
 	public ModelAndView swiper(ModelAndView mv){
-		return mv;
+        SysConfig sysConfig = sysConfigMapper.selectByPrimaryKey(1);
+        List<HomeSwiper> list = homeSwiperMapper.selectAll();
+        mv.addObject(LIST, list);
+        mv.addObject("sysConfig", sysConfig);
+        mv.addObject(RESULT, SUCCESS);
+	    return mv;
 	}
 	
 	@RequestMapping(value="swiper/update", method=RequestMethod.POST)
 	@ResponseBody
 	public ResultMap swiperConfig(MultipartFile file, HttpServletRequest request, HttpServletResponse response) {
-		
 		try {
 			String fileName = file.getOriginalFilename();
 			if (file != null && fileName != null && fileName.length() > 0) {
 				String newFileName = UUID.randomUUID() + fileName;
-				String picPath = request.getSession().getServletContext().getRealPath("/uploads");
-				File targetFile = new File("/uploads", newFileName);
+                SysConfig sysConfig = sysConfigMapper.selectByPrimaryKey(1);
+				File targetFile = new File(sysConfig.getFileSavePosition() + "/uploads", newFileName);
 				File fileParent = targetFile.getParentFile();
 				if(!fileParent.exists()){
 					fileParent.mkdirs();
@@ -62,19 +66,25 @@ public class HomepageController extends BaseController {
 				file.transferTo(targetFile);
 				HomeSwiper homeSwiper = new HomeSwiper();
 				homeSwiper.setFilePath(targetFile.getPath());
+
 				homeSwiper.setFileName(newFileName);
 				homeSwiperMapper.insert(homeSwiper);
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
-		
-		ResultMap resultMap = new ResultMap();
-		resultMap.setResult(SUCCESS);
+        ResultMap resultMap = new ResultMap();
+        resultMap.setResult(SUCCESS);
 		return resultMap;
 	}
-	
+
+    @RequestMapping("swiper/del")
+	public ModelAndView delSwiper(Integer id){
+        homeSwiperMapper.deleteByPrimaryKey(id);
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("homepage/swiper");
+        return mv;
+    }
 	@RequestMapping("institute/introduce")
 	public ModelAndView introduce() {
 		Institute institute = instituteService.get(0);

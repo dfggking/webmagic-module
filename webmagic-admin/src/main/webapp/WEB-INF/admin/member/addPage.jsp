@@ -67,7 +67,7 @@
       elem: '#J_avatar_select',
       auto: false,
       accept: 'image',
-      acceptMime: 'image/jpg, image/png',
+      acceptMime: 'image/jpg, image/png, image/jpeg',
       choose: function (obj) {
         //预读本地文件示例，不支持ie8
         obj.preview(function (index, file, result) {

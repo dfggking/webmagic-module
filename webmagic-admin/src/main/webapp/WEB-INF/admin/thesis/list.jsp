@@ -8,18 +8,18 @@
   <div class="x-nav">
     <span class="layui-breadcrumb">
       <a href="">首页</a>
-      <a href="">演示</a>
-      <a><cite>导航元素</cite></a>
+      <a href="">论文著作</a>
+      <a><cite>论文列表</cite></a>
     </span>
-    <a class="layui-btn layui-btn-small" style="line-height: 1.6em; margin-top: 3px; float: right" href="javascript:location.replace(location.href);" title="刷新">
-      <i class="layui-icon" style="line-height: 30px">ဂ</i>
+    <a class="layui-btn layui-btn-small" style="line-height: 1.6em; margin-top: 3px; float: right"
+       href="javascript:location.replace(location.href);" title="刷新">
+      <i class="layui-icon layui-icon-refresh" style="line-height: 38px"></i>
     </a>
   </div>
   <div class="x-body">
     <div class="layui-row">
       <form class="layui-form layui-col-md12 x-so">
-        <input class="layui-input" placeholder="开始日" name="start" id="start"> <input class="layui-input" placeholder="截止日" name="end" id="end">
-        <input type="text" name="username" placeholder="请输入用户名" autocomplete="off" class="layui-input">
+        <input type="text" name="username" placeholder="请输入论文名称" autocomplete="off" class="layui-input">
         <button class="layui-btn" lay-submit="" lay-filter="sreach">
           <i class="layui-icon">&#xe615;</i>
         </button>
@@ -41,13 +41,13 @@
               <i class="layui-icon">&#xe605;</i>
             </div>
           </th>
-          <th>ID</th>
-          <th>登录名</th>
-          <th>手机</th>
-          <th>邮箱</th>
-          <th>角色</th>
-          <th>加入时间</th>
-          <th>状态</th>
+          <th style="max-width: 300px;">论文名称</th>
+          <th style="min-width: 60px;">作者</th>
+          <th style="min-width: 40px;">源码</th>
+          <th style="min-width: 40px;">PDF</th>
+          <th style="min-width: 40px;">附件</th>
+          <th style="min-width: 50px;">是否展示</th>
+          <th style="min-width: 70px;">创建时间</th>
           <th>操作</th>
       </thead>
       <tbody>
@@ -57,17 +57,94 @@
               <i class="layui-icon">&#xe605;</i>
             </div>
           </td>
-          <td>1</td>
-          <td>admin</td>
-          <td>18925139194</td>
-          <td>113664000@qq.com</td>
-          <td>超级管理员</td>
+          <td>大数据环境下的网络安全领域文献研究进展分析 </td>
+          <td>冯仑</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td class="td-status"><span class="layui-btn layui-btn-normal layui-btn-mini">展示</span></td>
           <td>2017-01-01 11:11:42</td>
-          <td class="td-status"><span class="layui-btn layui-btn-normal layui-btn-mini">已启用</span></td>
-          <td class="td-manage"><a onclick="member_stop(this,'10001')" href="javascript:;" title="启用"> <i class="layui-icon">&#xe601;</i>
-          </a> <a title="编辑" onclick="x_admin_show('编辑','admin-edit.html')" href="javascript:;"> <i class="layui-icon">&#xe642;</i>
+          <td class="td-manage">
+            </a> <a title="编辑" onclick="x_admin_show('编辑','admin-edit.html')" href="javascript:;"> <i class="layui-icon">&#xe642;</i>
+            </a> <a title="删除" onclick="member_del(this,'要删除的id')" href="javascript:;"> <i class="layui-icon">&#xe640;</i>
+            </a>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="layui-unselect layui-form-checkbox" lay-skin="primary" data-id='2'>
+              <i class="layui-icon">&#xe605;</i>
+            </div>
+          </td>
+          <td>Windows下基于SpamAssassin的垃圾邮件过滤系统的研究与实现 优先出版 </td>
+          <td>张园园</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td class="td-status"><span class="layui-btn layui-btn-normal layui-btn-mini">展示</span></td>
+          <td>2018-02-03 11:11:42</td>
+          <td class="td-manage">
+            </a> <a title="编辑" onclick="x_admin_show('编辑','admin-edit.html')" href="javascript:;"> <i class="layui-icon">&#xe642;</i>
           </a> <a title="删除" onclick="member_del(this,'要删除的id')" href="javascript:;"> <i class="layui-icon">&#xe640;</i>
-          </a></td>
+          </a>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="layui-unselect layui-form-checkbox" lay-skin="primary" data-id='2'>
+              <i class="layui-icon">&#xe605;</i>
+            </div>
+          </td>
+          <td>S.-Y. Zhao, G.-D. Zhang, M.-W. Li, W.-J. Li. Proximal SCOPE for Distributed Sparse Learning. In: Proceedings of the Annual Conference on Neural Information Processing Systems (NIPS), 2018. </td>
+          <td>海棠</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td class="td-status"><span class="layui-btn layui-btn-normal layui-btn-mini">展示</span></td>
+          <td>2018-11-01 11:11:42</td>
+          <td class="td-manage">
+            </a> <a title="编辑" onclick="x_admin_show('编辑','admin-edit.html')" href="javascript:;"> <i class="layui-icon">&#xe642;</i>
+          </a> <a title="删除" onclick="member_del(this,'要删除的id')" href="javascript:;"> <i class="layui-icon">&#xe640;</i>
+          </a>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="layui-unselect layui-form-checkbox" lay-skin="primary" data-id='2'>
+              <i class="layui-icon">&#xe605;</i>
+            </div>
+          </td>
+          <td>Y. Yang, Y.-F. Wu, D.-C. Zhan, Z.-B. Liu, Y. Jiang. Complex Object Classification: A Multi-Modal Multi-Instance Multi-Label Deep Network with Optimal Transport. In: Proceedings of the Annual Conference on ACM SIGKDD (KDD'18), London, UK, 2018.  </td>
+          <td>罗伊</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td class="td-status"><span class="layui-btn layui-btn-normal layui-btn-mini">展示</span></td>
+          <td>2018-11-01 11:11:42</td>
+          <td class="td-manage">
+            </a> <a title="编辑" onclick="x_admin_show('编辑','admin-edit.html')" href="javascript:;"> <i class="layui-icon">&#xe642;</i>
+          </a> <a title="删除" onclick="member_del(this,'要删除的id')" href="javascript:;"> <i class="layui-icon">&#xe640;</i>
+          </a>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="layui-unselect layui-form-checkbox" lay-skin="primary" data-id='2'>
+              <i class="layui-icon">&#xe605;</i>
+            </div>
+          </td>
+          <td>H.-J. Ye, D.-C. Zhan, Y. Jiang, Z.-H. Zhou. Rectify Heterogeneous Model with Semantic Mapping. In: Proceedings of the 35th International Conference on Machine Learning (ICML'18), Stockholm, Sweden, 2018. </td>
+          <td>Kiven</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td class="td-status"><span class="layui-btn layui-btn-normal layui-btn-mini">展示</span></td>
+          <td>2018-11-01 11:11:42</td>
+          <td class="td-manage">
+            </a> <a title="编辑" onclick="x_admin_show('编辑','admin-edit.html')" href="javascript:;"> <i class="layui-icon">&#xe642;</i>
+          </a> <a title="删除" onclick="member_del(this,'要删除的id')" href="javascript:;"> <i class="layui-icon">&#xe640;</i>
+          </a>
+          </td>
         </tr>
       </tbody>
     </table>

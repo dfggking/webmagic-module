@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.webmagic.mapper.ScientificResearchProjectMapper" >
+  <resultMap id="BaseResultMap" type="com.webmagic.dto.ScientificResearchProject" >
+    <result column="id" property="id" jdbcType="INTEGER" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="content" property="content" jdbcType="VARCHAR" />
+    <result column="from_time" property="fromTime" jdbcType="TIMESTAMP" />
+    <result column="to_time" property="toTime" jdbcType="TIMESTAMP" />
+    <result column="level" property="level" jdbcType="TINYINT" />
+  </resultMap>
+  <insert id="insert" parameterType="com.webmagic.dto.ScientificResearchProject" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into scientific_research_project (`title`, `content`, `from_time`, 
+      `to_time`, `level`)
+    values (#{title,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, #{fromTime,jdbcType=TIMESTAMP}, 
+      #{toTime,jdbcType=TIMESTAMP}, #{level,jdbcType=TINYINT})
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select `id`, `title`, `content`, `from_time`, `to_time`, `level`
+    from scientific_research_project
+  </select>
+</mapper>

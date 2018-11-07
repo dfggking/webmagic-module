@@ -35,7 +35,7 @@
       <div class="swiper-wrapper">
         <c:forEach items="${swipers}" var="swiper">
           <div class="swiper-slide">
-            <img class="swiper-img" src="${swiper.filePath}">
+            <img class="swiper-img" src="/uploads/${swiper.fileName}">
           </div>
         </c:forEach>
       </div>

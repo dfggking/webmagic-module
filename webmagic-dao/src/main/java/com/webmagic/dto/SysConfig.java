@@ -3,7 +3,7 @@ package com.webmagic.dto;
 public class SysConfig {
     private Integer id;
 
-    private Integer seqId;
+    private String fileSavePosition;
 
     public Integer getId() {
         return id;
@@ -13,11 +13,11 @@ public class SysConfig {
         this.id = id;
     }
 
-    public Integer getSeqId() {
-        return seqId;
+    public String getFileSavePosition() {
+        return fileSavePosition;
     }
 
-    public void setSeqId(Integer seqId) {
-        this.seqId = seqId;
+    public void setFileSavePosition(String fileSavePosition) {
+        this.fileSavePosition = fileSavePosition;
     }
 }

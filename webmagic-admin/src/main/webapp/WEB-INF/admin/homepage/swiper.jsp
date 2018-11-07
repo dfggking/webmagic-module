@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -32,7 +33,6 @@
         <div><img src="/images/swiper.jpg" alt=""></div>
       </div>
     </div>
-    <form class="layui-form layui-form-pane" action="">
       <div class="layui-upload">
         <button type="button" class="layui-btn layui-btn-normal" id="J_add_image">选择多文件</button>
         <div class="layui-upload-list">
@@ -40,20 +40,23 @@
             <thead>
               <tr>
                 <th>缩略图</th>
-                <th>名称</th>
-                <th>大小</th>
-                <th>状态</th>
                 <th>操作</th>
               </tr>
             </thead>
             <tbody id="J_image_list">
-
+              <c:forEach items="${list}" var="img">
+                <tr id="upload-${img.id}">
+                  <td class="img-td"><img src="${sysConfig}/uploads/${img.fileName}" style="max-width:800px;" /></td>
+                  <td>
+                    <button class="layui-btn layui-btn-xs layui-btn-danger demo-delete" onclick="imgDel(this, ${img.id})">删除</button>
+                  </td>
+                </tr>
+              </c:forEach>
             </tbody>
           </table>
         </div>
         <button type="button" class="layui-btn" id="J_upload_image_action">开始上传</button>
       </div>
-    </form>
   </div>
   <script>
     layui.use(['upload', 'carousel'], function() {
@@ -75,13 +78,9 @@
           //读取本地文件
           obj.preview(function(index, file, result){
             var tr = $(['<tr id="upload-'+ index +'">'
-              ,'<td class="img-td"><img src="'+ result +'" /></td>'
-              ,'<td>'+ file.name +'</td>'
-              ,'<td>'+ (file.size/1014).toFixed(1) +'kb</td>'
-              ,'<td>等待上传</td>'
+              ,'<td class="img-td"><img src="'+ result +'" style="max-width:800px;" /></td>'
               ,'<td>'
-              ,'<button class="layui-btn layui-btn-xs demo-reload layui-hide">重传</button>'
-              ,'<button class="layui-btn layui-btn-xs layui-btn-danger demo-delete">删除</button>'
+              ,'<button class="layui-btn layui-btn-xs layui-btn-danger demo-delete" type="button" onclick="imgDel('+ this +', "")">删除</button>'
               ,'</td>'
               ,'</tr>'].join(''));
 
@@ -96,9 +95,7 @@
               tr.remove();
               uploadListIns.config.elem.next()[0].value = ''; //清空 input file 值，以免删除后出现同名文件不可选
             });
-
-            imageListView.append(tr);
-
+            imageListView.prepend(tr);
           });
         }
         ,done: function(res, index, upload){
@@ -118,8 +115,36 @@
           tds.eq(3).find('.demo-reload').removeClass('layui-hide'); //显示重传
         }
       });
+
     });
 
+    function imgDel(obj, id) {
+      if (id) {
+        $('#upload-' + id).remove();
+        $.ajax({
+          url: 'swiper/del',
+          data: {
+            id: id
+          },
+          success: function(args){
+            if ("success" == args.result) {
+              //发异步删除数据
+              $(obj).parents("tr").remove();
+              layer.msg('已删除!', {
+                icon : 1,
+                time : 1000
+              });
+              layer.close(index);
+            }
+          },
+          error: function (args) {
+            console.info(args)
+          }
+        })
+      } else {
+
+      }
+    }
   </script>
 </body>
 
