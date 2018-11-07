@@ -13,7 +13,7 @@ public class ScientificResearchProject {
 
     private Date toTime;
 
-    private Byte level;
+    private Integer level;
 
     public Integer getId() {
         return id;
@@ -55,11 +55,11 @@ public class ScientificResearchProject {
         this.toTime = toTime;
     }
 
-    public Byte getLevel() {
+    public Integer getLevel() {
         return level;
     }
 
-    public void setLevel(Byte level) {
+    public void setLevel(Integer level) {
         this.level = level;
     }
 }

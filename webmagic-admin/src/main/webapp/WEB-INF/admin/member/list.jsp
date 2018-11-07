@@ -58,8 +58,8 @@
           <td>${member.institute}</td>
           <td class="td-status"><span class="layui-btn layui-btn-normal layui-btn-mini">展示</span></td>
           <td class="td-manage">
-            <a title="编辑" onclick="member_edit(this, '${member.id}')" href="javascript:;"> <i class="layui-icon">&#xe642;</i></a>
-            <a title="删除" onclick="member_del(this, '${member.id}')" href="javascript:;"> <i class="layui-icon">&#xe640;</i>
+            <a title="编辑" onclick="member_edit(this, '${member.id}')" href="javascript:"> <i class="layui-icon">&#xe642;</i></a>
+            <a title="删除" onclick="member_del(this, '${member.id}')" href="javascript:"> <i class="layui-icon">&#xe640;</i>
           </a>
           </td>
         </tr>
@@ -85,14 +85,12 @@
       /*用户-删除*/
       function member_del(obj, id) {
         layer.confirm('确认要删除吗？', function(index) {
-          alert(111)
           $.ajax({
             url: '/member/del',
             data: {
               id: id
             },
             success: function(args){
-              console.info(args);
               if ("success" == args) {
                 //发异步删除数据
                 $(obj).parents("tr").remove();
@@ -101,7 +99,6 @@
                   icon : 1,
                   time : 1000
                 });
-
               }
             },
             error: function(args){

@@ -29,11 +29,8 @@
       </form>
     </div>
     <xblock>
-    <button class="layui-btn layui-btn-danger" onclick="delAll()">
-      <i class="layui-icon"></i>批量删除
-    </button>
     <button class="layui-btn" onclick="x_admin_show('添加用户','./admin-add.html')">
-      <i class="layui-icon"></i>添加
+      <i class="layui-icon"></i>添加
     </button>
     <span class="x-right" style="line-height: 40px">共有数据：88 条</span> </xblock>
     <table class="layui-table">
@@ -64,19 +61,19 @@
             <td>${srp.content}</td>
             <td><fmt:formatDate value="${srp.fromTime}" type="date" pattern="yyyy-MM-dd"/></td>
             <td><fmt:formatDate value="${srp.toTime}" type="date" pattern="yyyy-MM-dd"/></td>
-            <c:if test="srp.level == 1">
+            <c:if test="${srp.level} == 1">
               <td>省级</td>
             </c:if>
-            <c:if test="srp.level == 2">
+            <c:if test="${srp.level} eq 2">
               <td>市级</td>
             </c:if>
-            <c:if test="srp.level == 3">
+            <c:if test="${srp.level} eq 3">
               <td>校级</td>
             </c:if>
             <td class="td-status"><span class="layui-btn layui-btn-normal layui-btn-mini">已启用</span></td>
             <td class="td-manage">
-              <a title="编辑" onclick="x_admin_show('编辑','admin-edit.html')" href="javascript:;"> <i class="layui-icon">&#xe642;</i></a>
-              <a title="删除" onclick="member_del(this,'要删除的id')" href="javascript:;"> <i class="layui-icon">&#xe640;</i></a>
+              <a title="编辑" onclick="x_admin_show('编辑','admin-edit.html')" href="javascript:"> <i class="layui-icon">&#xe642;</i></a>
+              <a title="删除" onclick="member_del(this,'要删除的id')" href="javascript:"> <i class="layui-icon">&#xe640;</i></a>
             </td>
           </tr>
         </c:forEach>
@@ -112,7 +109,7 @@
           if ($(obj).attr('title') == '启用') {
 
             //发异步把用户状态进行更改
-            $(obj).attr('title', '停用')
+            $(obj).attr('title', '停用');
             $(obj).find('i').html('&#xe62f;');
 
             $(obj).parents("tr").find(".td-status").find('span').addClass('layui-btn-disabled').html('已停用');
@@ -122,7 +119,7 @@
             });
 
           } else {
-            $(obj).attr('title', '启用')
+            $(obj).attr('title', '启用');
             $(obj).find('i').html('&#xe601;');
 
             $(obj).parents("tr").find(".td-status").find('span').removeClass('layui-btn-disabled').html('已启用');

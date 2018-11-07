@@ -5,6 +5,8 @@ public class SysConfig {
 
     private String fileSavePosition;
 
+    private String webUrl;
+
     public Integer getId() {
         return id;
     }
@@ -19,5 +21,13 @@ public class SysConfig {
 
     public void setFileSavePosition(String fileSavePosition) {
         this.fileSavePosition = fileSavePosition;
+    }
+
+    public String getWebUrl() {
+        return webUrl;
+    }
+
+    public void setWebUrl(String webUrl) {
+        this.webUrl = webUrl;
     }
 }

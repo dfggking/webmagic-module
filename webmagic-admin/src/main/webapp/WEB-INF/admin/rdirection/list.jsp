@@ -31,9 +31,6 @@
     </form>
   </div>
   <xblock>
-    <button class="layui-btn layui-btn-danger" onclick="delAll()">
-      <i class="layui-icon"></i>批量删除
-    </button>
     <button class="layui-btn" onclick="x_admin_show('添加用户','./admin-add.html')">
       <i class="layui-icon"></i>添加
     </button>
@@ -53,8 +50,8 @@
           <td>${rd.content}</td>
           <td class="td-status"><span class="layui-btn layui-btn-normal layui-btn-mini">展示</span></td>
           <td class="td-manage" style="min-width: 60px;">
-            </a> <a title="编辑" onclick="x_admin_show('编辑','admin-edit.html')" href="javascript:;"> <i class="layui-icon">&#xe642;</i>
-          </a> <a title="删除" onclick="member_del(this,'要删除的id')" href="javascript:;"> <i class="layui-icon">&#xe640;</i>
+            </a> <a title="编辑" onclick="x_admin_show('编辑','admin-edit.html')" href="javascript:"> <i class="layui-icon">&#xe642;</i>
+          </a> <a title="删除" onclick="member_del(this,'要删除的id')" href="javascript:"> <i class="layui-icon">&#xe640;</i>
           </a>
           </td>
         </tr>
@@ -65,8 +62,8 @@
           <td>${rd.content}</td>
           <td class="td-status"><span class="layui-btn layui-btn-normal layui-btn-mini">展示</span></td>
           <td class="td-manage" style="min-width: 60px;">
-            </a> <a title="编辑" onclick="x_admin_show('编辑','admin-edit.html')" href="javascript:;"> <i class="layui-icon">&#xe642;</i>
-          </a> <a title="删除" onclick="member_del(this,'要删除的id')" href="javascript:;"> <i class="layui-icon">&#xe640;</i>
+            </a> <a title="编辑" onclick="x_admin_show('编辑','admin-edit.html')" href="javascript:"> <i class="layui-icon">&#xe642;</i>
+          </a> <a title="删除" onclick="member_del(this,'要删除的id')" href="javascript:"> <i class="layui-icon">&#xe640;</i>
           </a>
           </td>
         </tr>
@@ -77,8 +74,8 @@
           <td>${rd.content}</td>
           <td class="td-status"><span class="layui-btn layui-btn-normal layui-btn-mini">展示</span></td>
           <td class="td-manage" style="min-width: 60px;">
-            </a> <a title="编辑" onclick="x_admin_show('编辑','admin-edit.html')" href="javascript:;"> <i class="layui-icon">&#xe642;</i>
-          </a> <a title="删除" onclick="member_del(this,'要删除的id')" href="javascript:;"> <i class="layui-icon">&#xe640;</i>
+            </a> <a title="编辑" onclick="x_admin_show('编辑','admin-edit.html')" href="javascript:"> <i class="layui-icon">&#xe642;</i>
+          </a> <a title="删除" onclick="member_del(this,'要删除的id')" href="javascript:"> <i class="layui-icon">&#xe640;</i>
           </a>
           </td>
         </tr>
@@ -126,7 +123,7 @@
       if ($(obj).attr('title') == '启用') {
 
         //发异步把用户状态进行更改
-        $(obj).attr('title', '停用')
+        $(obj).attr('title', '停用');
         $(obj).find('i').html('&#xe62f;');
 
         $(obj).parents("tr").find(".td-status").find('span').addClass('layui-btn-disabled').html('已停用');
@@ -136,7 +133,7 @@
         });
 
       } else {
-        $(obj).attr('title', '启用')
+        $(obj).attr('title', '启用');
         $(obj).find('i').html('&#xe601;');
 
         $(obj).parents("tr").find(".td-status").find('span').removeClass('layui-btn-disabled').html('已启用');

@@ -35,7 +35,6 @@ public class MemberController extends BaseController {
 
     @RequestMapping("list")
     public ModelAndView list() {
-
         List<Member> memberList=  memberMapper.selectAll();
         ModelAndView mv = new ModelAndView();
         mv.addObject(RESULT, SUCCESS);
@@ -54,8 +53,9 @@ public class MemberController extends BaseController {
         ModelAndView mv = new ModelAndView();
         if (avatar != null ) {
             String fileName = avatar.getOriginalFilename();
-            String newFileName = fileName + UUID.randomUUID();
-            File targetFile = new File(request.getSession().getServletContext().getRealPath(""), newFileName);
+            String newFileName = UUID.randomUUID() + fileName;
+            SysConfig sysConfig = sysConfigMapper.selectByPrimaryKey(1);
+            File targetFile = new File(sysConfig.getFileSavePosition() + "/uploads/avatar/", newFileName);
             File fileParent = targetFile.getParentFile();
             if(!fileParent.exists()){
                 fileParent.mkdirs();
@@ -64,8 +64,7 @@ public class MemberController extends BaseController {
                 avatar.transferTo(targetFile);
                 Member memberDTO = new Member();
                 BeanUtils.copyProperties(memberDTO, member);
-                SysConfig sysConfig = sysConfigMapper.selectByPrimaryKey(1);
-                memberDTO.setAvatarUrl(sysConfig.getFileSavePosition() + newFileName);
+                memberDTO.setAvatarUrl(sysConfig.getWebUrl() +"/uploads/avatar/"+ newFileName);
                 memberMapper.insert(memberDTO);
                 mv.addObject(RESULT, SUCCESS);
                 mv.setViewName("/member/addPage");

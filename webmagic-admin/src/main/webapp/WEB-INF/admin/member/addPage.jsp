@@ -62,9 +62,12 @@
     var $ = layui.jquery
       , upload = layui.upload;
 
+    $('#J_avatar_select').click(function(){
+      $('#J_avatar_file').click();
+    });
     //普通图片上传
     var uploadInst = upload.render({
-      elem: '#J_avatar_select',
+      elem: '#J_avatar_file',
       auto: false,
       accept: 'image',
       acceptMime: 'image/jpg, image/png, image/jpeg',

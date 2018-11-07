@@ -46,7 +46,7 @@
             <tbody id="J_image_list">
               <c:forEach items="${list}" var="img">
                 <tr id="upload-${img.id}">
-                  <td class="img-td"><img src="${sysConfig}/uploads/${img.fileName}" style="max-width:800px;" /></td>
+                  <td class="img-td"><img src="${sysConfig.webUrl}/uploads/${img.fileName}" style="max-width:800px;" /></td>
                   <td>
                     <button class="layui-btn layui-btn-xs layui-btn-danger demo-delete" onclick="imgDel(this, ${img.id})">删除</button>
                   </td>
