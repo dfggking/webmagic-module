@@ -85,27 +85,37 @@
       /*用户-删除*/
       function member_del(obj, id) {
         layer.confirm('确认要删除吗？', function(index) {
+          alert(111)
           $.ajax({
             url: '/member/del',
             data: {
               id: id
             },
             success: function(args){
-              if ("success" == args.result) {
+              console.info(args);
+              if ("success" == args) {
                 //发异步删除数据
                 $(obj).parents("tr").remove();
+                layer.close(index);
                 layer.msg('已删除!', {
                   icon : 1,
                   time : 1000
                 });
-                layer.close(index);
+
               }
             },
-            error: function (args) {
+            error: function(args){
               console.info(args)
-
+            },
+            compute: function(args){
+              //发异步删除数据
+              $(obj).parents("tr").remove();
+              layer.close(index);
+              layer.msg('已删除!', {
+                icon : 1,
+                time : 1000
+              });
             }
-
           })
 
         });
