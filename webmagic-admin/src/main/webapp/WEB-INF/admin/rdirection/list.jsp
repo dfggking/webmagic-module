@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -6,11 +7,11 @@
 </head>
 <body>
 <div class="x-nav">
-    <span class="layui-breadcrumb">
-      <a href="">首页</a>
-      <a href="">研究方向</a>
-      <a><cite>研究列表</cite></a>
-    </span>
+  <span class="layui-breadcrumb">
+    <a href="">首页</a>
+    <a href="">研究方向</a>
+    <a><cite>研究列表</cite></a>
+  </span>
   <a class="layui-btn layui-btn-small" style="line-height: 1.6em; margin-top: 3px; float: right"
      href="javascript:location.replace(location.href);" title="刷新">
     <i class="layui-icon layui-icon-refresh" style="line-height: 38px"></i>
@@ -23,9 +24,7 @@
   </fieldset>
   <div class="layui-row">
     <form class="layui-form layui-col-md12 x-so">
-      <input class="layui-input" placeholder="开始日" name="start" id="start"> <input class="layui-input" placeholder="截止日"
-                                                                                   name="end" id="end">
-      <input type="text" name="username" placeholder="请输入用户名" autocomplete="off" class="layui-input">
+      <input type="text" name="username" placeholder="请输入研究方向" autocomplete="off" class="layui-input" style="min-width: 200px;">
       <button class="layui-btn" lay-submit="" lay-filter="sreach">
         <i class="layui-icon">&#xe615;</i>
       </button>
@@ -48,22 +47,47 @@
       <th>操作</th>
     </thead>
     <tbody>
-    <tr>
-      <td>研究方向</td>
-      <td>研究内容</td>
-      <td class="td-status"><span class="layui-btn layui-btn-normal layui-btn-mini">展示</span></td>
-      <td class="td-manage">
-        </a> <a title="编辑" onclick="x_admin_show('编辑','admin-edit.html')" href="javascript:;"> <i class="layui-icon">&#xe642;</i>
-        </a> <a title="删除" onclick="member_del(this,'要删除的id')" href="javascript:;"> <i class="layui-icon">&#xe640;</i>
-        </a>
-      </td>
-    </tr>
+      <c:forEach items="${list}" var="rd">
+        <tr>
+          <td style="min-width: 150px;">${rd.title}</td>
+          <td>${rd.content}</td>
+          <td class="td-status"><span class="layui-btn layui-btn-normal layui-btn-mini">展示</span></td>
+          <td class="td-manage" style="min-width: 60px;">
+            </a> <a title="编辑" onclick="x_admin_show('编辑','admin-edit.html')" href="javascript:;"> <i class="layui-icon">&#xe642;</i>
+          </a> <a title="删除" onclick="member_del(this,'要删除的id')" href="javascript:;"> <i class="layui-icon">&#xe640;</i>
+          </a>
+          </td>
+        </tr>
+      </c:forEach>
+      <c:forEach items="${list}" var="rd">
+        <tr>
+          <td style="min-width: 150px;">${rd.title}</td>
+          <td>${rd.content}</td>
+          <td class="td-status"><span class="layui-btn layui-btn-normal layui-btn-mini">展示</span></td>
+          <td class="td-manage" style="min-width: 60px;">
+            </a> <a title="编辑" onclick="x_admin_show('编辑','admin-edit.html')" href="javascript:;"> <i class="layui-icon">&#xe642;</i>
+          </a> <a title="删除" onclick="member_del(this,'要删除的id')" href="javascript:;"> <i class="layui-icon">&#xe640;</i>
+          </a>
+          </td>
+        </tr>
+      </c:forEach>
+      <c:forEach items="${list}" var="rd">
+        <tr>
+          <td style="min-width: 150px;">${rd.title}</td>
+          <td>${rd.content}</td>
+          <td class="td-status"><span class="layui-btn layui-btn-normal layui-btn-mini">展示</span></td>
+          <td class="td-manage" style="min-width: 60px;">
+            </a> <a title="编辑" onclick="x_admin_show('编辑','admin-edit.html')" href="javascript:;"> <i class="layui-icon">&#xe642;</i>
+          </a> <a title="删除" onclick="member_del(this,'要删除的id')" href="javascript:;"> <i class="layui-icon">&#xe640;</i>
+          </a>
+          </td>
+        </tr>
+      </c:forEach>
     </tbody>
   </table>
   <div class="page">
     <div>
-      <a class="prev" href="">&lt;&lt;</a> <a class="num" href="">1</a> <span class="current">2</span> <a class="num"
-                                                                                                          href="">3</a>
+      <a class="prev" href="">&lt;&lt;</a> <a class="num" href="">1</a> <span class="current">2</span> <a class="num" href="">3</a>
       <a class="num"
          href="">489</a> <a class="next" href="">&gt;&gt;</a>
     </div>
@@ -73,7 +97,9 @@
   </fieldset>
   <div class="layui-form-item layui-form-text" style="position:relative;">
     <div class="layui-input-block" style="margin-left:0;margin-right: 110px;">
-      <textarea placeholder="请输入内容" class="layui-textarea" style="min-height: 150px;"></textarea>
+      <textarea placeholder="请输入内容" class="layui-textarea" style="min-height: 150px;">
+        大数据与信息安全研究所主要以大数据分析处理和大数据隐私保护理论为基础，开展面向大数据的多方位研究。基于当今打造智慧城市信息社会的要求，以大规模数据信息为基础，以高效率的数据存储、传输和计算能力为支撑，利用数据挖掘和知识发现等人工智能技术手段，同时又对大数据面临的用户隐私泄露、非授权访问等安全挑战，开展大数据的应用和大数据安全关键技术的研究。研究内容涉及大数据、物联网、信息安全、数据挖掘等领域，为构建物联网环境下受强保护的大数据管理系统，打造智慧城市提供理论和技术支持。研究所汇集安徽大学、日本函馆未来大学、西安电子科技大学、江苏大学等相关研究领域的学者。目前，现有固定员工7人，其中教授1人、副教授4人、讲师2人。博士和硕士研究生近50人。研究所重视学术交流，已与国内外多所大学合作研究并联合培养研究生。
+      </textarea>
     </div>
     <button class="layui-btn" style="position: absolute;right: 10px;top:50%;margin-top:-19px;">修改</button>
   </div>

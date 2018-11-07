@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.webmagic.mapper.ResearchDirectionMapper" >
+  <resultMap id="BaseResultMap" type="com.webmagic.dto.ResearchDirection" >
+    <result column="id" property="id" jdbcType="INTEGER" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="content" property="content" jdbcType="VARCHAR" />
+    <result column="is_show" property="isShow" jdbcType="BIT" />
+  </resultMap>
+  <insert id="insert" parameterType="com.webmagic.dto.ResearchDirection" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into research_direction (`title`, `content`, `is_show`
+      )
+    values (#{title,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, #{isShow,jdbcType=BIT}
+      )
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select `id`, `title`, `content`, `is_show`
+    from research_direction
+  </select>
+</mapper>

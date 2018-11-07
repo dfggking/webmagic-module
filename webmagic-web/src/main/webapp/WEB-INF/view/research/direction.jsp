@@ -45,18 +45,46 @@
         
       </p>
     </div>
-    <div class="research-panel">
-      <header>软件工程技术</header>
-      <div class="panel-body">
-        <p>主要研究复杂软件系统开发、运行与维护的理论、方法、技术及相应的支撑工具、平台与环境。重点培养学生掌握扎实的软件工程基础理论和专业知识，具备运用先进的工程化方法、技术和工具从事软件需求分析、设计、实现和维护等工程实践活动的能力，以及软件项目组织与管理能力，成为能适应软件产业和技术发展要求的研究、开发与管理人才。</p>
-      </div>
-      <div class="panel-footer">
-        <div class="more">
-          <a href="">详情</a>
+    <c:forEach items="${list}" var="rd">
+      <div class="research-panel">
+        <header>${rd.title}</header>
+        <div class="panel-body">
+          <p>${rd.content}</p>
+        </div>
+        <div class="panel-footer">
+          <div class="more">
+            <a href="">详情</a>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="research-panel">
+    </c:forEach>
+    <c:forEach items="${list}" var="rd">
+      <div class="research-panel">
+        <header>${rd.title}</header>
+        <div class="panel-body">
+          <p>${rd.content}</p>
+        </div>
+        <div class="panel-footer">
+          <div class="more">
+            <a href="">详情</a>
+          </div>
+        </div>
+      </div>
+    </c:forEach>
+    <c:forEach items="${list}" var="rd">
+      <div class="research-panel">
+        <header>${rd.title}</header>
+        <div class="panel-body">
+          <p>${rd.content}</p>
+        </div>
+        <div class="panel-footer">
+          <div class="more">
+            <a href="">详情</a>
+          </div>
+        </div>
+      </div>
+    </c:forEach>
+    <%--<div class="research-panel">
       <header>大数据技术</header>
       <div class="panel-body">
         <p>软件工程是一门研究用工程化方法构建和维护有效的、实用的和高质量的软件的学科。它涉及程序设计语言、数据库、软件开发工具、系统平台、标准、设计模式等方面。在现代社会中，软件应用于多个方面。典型的软件有电子邮件、嵌入式系统、人机界面、办公套件、操作系统、编译器、数据库、游戏等。</p>
@@ -110,7 +138,7 @@
           <a href="">详情</a>
         </div>
       </div>
-    </div>
+    </div>--%>
 
     <div class="research-footer">
       <img src="/images/researchDirectionFooter.jpg">

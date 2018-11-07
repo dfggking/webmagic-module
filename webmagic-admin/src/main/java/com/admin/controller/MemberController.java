@@ -5,7 +5,9 @@ import com.admin.vo.MemberVO;
 import com.admin.vo.ResultMap;
 import com.sun.org.apache.xpath.internal.operations.Mod;
 import com.webmagic.dto.Member;
+import com.webmagic.dto.SysConfig;
 import com.webmagic.mapper.MemberMapper;
+import com.webmagic.mapper.SysConfigMapper;
 import org.apache.commons.beanutils.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -27,6 +29,9 @@ import java.util.UUID;
 public class MemberController extends BaseController {
     @Autowired
     private MemberMapper memberMapper;
+    @Autowired
+    private SysConfigMapper sysConfigMapper;
+
 
     @RequestMapping("list")
     public ModelAndView list() {
@@ -59,7 +64,8 @@ public class MemberController extends BaseController {
                 avatar.transferTo(targetFile);
                 Member memberDTO = new Member();
                 BeanUtils.copyProperties(memberDTO, member);
-                memberDTO.setAvatarUrl(targetFile.getPath());
+                SysConfig sysConfig = sysConfigMapper.selectByPrimaryKey(1);
+                memberDTO.setAvatarUrl(sysConfig.getFileSavePosition() + newFileName);
                 memberMapper.insert(memberDTO);
                 mv.addObject(RESULT, SUCCESS);
                 mv.setViewName("/member/addPage");

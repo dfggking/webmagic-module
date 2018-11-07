@@ -1,4 +1,6 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,18 +10,19 @@
   <div class="x-nav">
     <span class="layui-breadcrumb">
       <a href="">首页</a>
-      <a href="">演示</a>
-      <a><cite>导航元素</cite></a>
+      <a href="">科研项目</a>
+      <a><cite>项目列表</cite></a>
     </span>
-    <a class="layui-btn layui-btn-small" style="line-height: 1.6em; margin-top: 3px; float: right" href="javascript:location.replace(location.href);" title="刷新">
-      <i class="layui-icon" style="line-height: 30px">ဂ</i>
+    <a class="layui-btn layui-btn-small" style="line-height: 1.6em; margin-top: 3px; float: right"
+       href="javascript:location.replace(location.href);" title="刷新">
+      <i class="layui-icon layui-icon-refresh" style="line-height: 38px"></i>
     </a>
   </div>
   <div class="x-body">
     <div class="layui-row">
       <form class="layui-form layui-col-md12 x-so">
         <input class="layui-input" placeholder="开始日" name="start" id="start"> <input class="layui-input" placeholder="截止日" name="end" id="end">
-        <input type="text" name="username" placeholder="请输入用户名" autocomplete="off" class="layui-input">
+        <input type="text" name="username" placeholder="请输入项目名" autocomplete="off" class="layui-input">
         <button class="layui-btn" lay-submit="" lay-filter="sreach">
           <i class="layui-icon">&#xe615;</i>
         </button>
@@ -41,34 +44,42 @@
               <i class="layui-icon">&#xe605;</i>
             </div>
           </th>
-          <th>ID</th>
-          <th>登录名</th>
-          <th>手机</th>
-          <th>邮箱</th>
-          <th>角色</th>
-          <th>加入时间</th>
+          <th>项目名</th>
+          <th>内容</th>
+          <th>开始时间</th>
+          <th>结束时间</th>
+          <th>级别</th>
           <th>状态</th>
           <th>操作</th>
       </thead>
       <tbody>
-        <tr>
-          <td>
-            <div class="layui-unselect layui-form-checkbox" lay-skin="primary" data-id='2'>
-              <i class="layui-icon">&#xe605;</i>
-            </div>
-          </td>
-          <td>1</td>
-          <td>admin</td>
-          <td>18925139194</td>
-          <td>113664000@qq.com</td>
-          <td>超级管理员</td>
-          <td>2017-01-01 11:11:42</td>
-          <td class="td-status"><span class="layui-btn layui-btn-normal layui-btn-mini">已启用</span></td>
-          <td class="td-manage"><a onclick="member_stop(this,'10001')" href="javascript:;" title="启用"> <i class="layui-icon">&#xe601;</i>
-          </a> <a title="编辑" onclick="x_admin_show('编辑','admin-edit.html')" href="javascript:;"> <i class="layui-icon">&#xe642;</i>
-          </a> <a title="删除" onclick="member_del(this,'要删除的id')" href="javascript:;"> <i class="layui-icon">&#xe640;</i>
-          </a></td>
-        </tr>
+        <c:forEach items="${list}" var="srp">
+          <tr>
+            <td>
+              <div class="layui-unselect layui-form-checkbox" lay-skin="primary" data-id='2'>
+                <i class="layui-icon">&#xe605;</i>
+              </div>
+            </td>
+            <td>${srp.title}</td>
+            <td>${srp.content}</td>
+            <td><fmt:formatDate value="${srp.fromTime}" type="date" pattern="yyyy-MM-dd"/></td>
+            <td><fmt:formatDate value="${srp.toTime}" type="date" pattern="yyyy-MM-dd"/></td>
+            <c:if test="srp.level == 1">
+              <td>省级</td>
+            </c:if>
+            <c:if test="srp.level == 2">
+              <td>市级</td>
+            </c:if>
+            <c:if test="srp.level == 3">
+              <td>校级</td>
+            </c:if>
+            <td class="td-status"><span class="layui-btn layui-btn-normal layui-btn-mini">已启用</span></td>
+            <td class="td-manage">
+              <a title="编辑" onclick="x_admin_show('编辑','admin-edit.html')" href="javascript:;"> <i class="layui-icon">&#xe642;</i></a>
+              <a title="删除" onclick="member_del(this,'要删除的id')" href="javascript:;"> <i class="layui-icon">&#xe640;</i></a>
+            </td>
+          </tr>
+        </c:forEach>
       </tbody>
     </table>
     <div class="page">

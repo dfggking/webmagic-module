@@ -59,10 +59,11 @@
           </a>
           <ul class="sub-menu">
             <li><a _href="./wconfig/page"><i class="iconfont">&#xe6a7;</i><cite>网站配置</cite></a></li>
-            <li><a _href="./wconfig/page"><i class="iconfont">&#xe6a7;</i><cite>用户管理</cite></a></li>
+            <li><a _href="./sysconfig/page"><i class="iconfont">&#xe6a7;</i><cite>系统配置</cite></a></li>
+            <%--<li><a _href="./wconfig/page"><i class="iconfont">&#xe6a7;</i><cite>用户管理</cite></a></li>
             <li><a _href="./wconfig/page"><i class="iconfont">&#xe6a7;</i><cite>角色管理</cite></a></li>
             <li><a _href="./wconfig/page"><i class="iconfont">&#xe6a7;</i><cite>系统菜单</cite></a></li>
-            <li><a _href="./wconfig/page"><i class="iconfont">&#xe6a7;</i><cite>学院管理</cite></a></li>
+            <li><a _href="./wconfig/page"><i class="iconfont">&#xe6a7;</i><cite>学院管理</cite></a></li>--%>
           </ul>
         </li>
         <li>
@@ -109,7 +110,7 @@
                 <i class="iconfont">&#xe6b5;</i><cite>科研项目</cite><i class="iconfont nav_right">&#xe697;</i>
               </a>
               <ul class="sub-menu">
-                <li><a _href="./rproject/list"><i class="iconfont">&#xe6a7;</i><cite>项目列表</cite></a></li>
+                <li><a _href="./srproject/list"><i class="iconfont">&#xe6a7;</i><cite>项目列表</cite></a></li>
               </ul>
             </li>
             <li>

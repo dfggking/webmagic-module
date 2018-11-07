@@ -3,7 +3,7 @@
 <mapper namespace="com.webmagic.mapper.SysConfigMapper" >
   <resultMap id="BaseResultMap" type="com.webmagic.dto.SysConfig" >
     <id column="id" property="id" jdbcType="INTEGER" />
-    <result column="seq_id" property="seqId" jdbcType="INTEGER" />
+    <result column="file_save_position" property="fileSavePosition" jdbcType="VARCHAR" />
   </resultMap>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from sys_config
@@ -13,21 +13,21 @@
     <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
       SELECT LAST_INSERT_ID()
     </selectKey>
-    insert into sys_config (`seq_id`)
-    values (#{seqId,jdbcType=INTEGER})
+    insert into sys_config (`file_save_position`)
+    values (#{fileSavePosition,jdbcType=VARCHAR})
   </insert>
   <update id="updateByPrimaryKey" parameterType="com.webmagic.dto.SysConfig" >
     update sys_config
-    set `seq_id` = #{seqId,jdbcType=INTEGER}
+    set `file_save_position` = #{fileSavePosition,jdbcType=VARCHAR}
     where `id` = #{id,jdbcType=INTEGER}
   </update>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
-    select `id`, `seq_id`
+    select `id`, `file_save_position`
     from sys_config
     where `id` = #{id,jdbcType=INTEGER}
   </select>
   <select id="selectAll" resultMap="BaseResultMap" >
-    select `id`, `seq_id`
+    select `id`, `file_save_position`
     from sys_config
   </select>
 </mapper>
