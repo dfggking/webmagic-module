@@ -1,6 +1,6 @@
 package com.webmagic.mapper;
 
-import com.webmagic.dto.ResearchDirection;
+import com.webmagic.model.ResearchDirection;
 import java.util.List;
 
 public interface ResearchDirectionMapper {

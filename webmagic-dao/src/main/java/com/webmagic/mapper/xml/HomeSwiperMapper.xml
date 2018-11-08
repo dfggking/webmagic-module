@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.webmagic.mapper.HomeSwiperMapper" >
-  <resultMap id="BaseResultMap" type="com.webmagic.dto.HomeSwiper" >
+  <resultMap id="BaseResultMap" type="com.webmagic.model.HomeSwiper" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="file_name" property="fileName" jdbcType="VARCHAR" />
     <result column="file_path" property="filePath" jdbcType="VARCHAR" />
@@ -10,14 +10,14 @@
     delete from home_swiper
     where `id` = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.webmagic.dto.HomeSwiper" >
+  <insert id="insert" parameterType="com.webmagic.model.HomeSwiper" >
     <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
       SELECT LAST_INSERT_ID()
     </selectKey>
     insert into home_swiper (`file_name`, `file_path`)
     values (#{fileName,jdbcType=VARCHAR}, #{filePath,jdbcType=VARCHAR})
   </insert>
-  <update id="updateByPrimaryKey" parameterType="com.webmagic.dto.HomeSwiper" >
+  <update id="updateByPrimaryKey" parameterType="com.webmagic.model.HomeSwiper" >
     update home_swiper
     set `file_name` = #{fileName,jdbcType=VARCHAR},
       `file_path` = #{filePath,jdbcType=VARCHAR}

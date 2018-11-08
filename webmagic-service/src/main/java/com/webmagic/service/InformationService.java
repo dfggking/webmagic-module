@@ -1,7 +1,7 @@
 package com.webmagic.service;
 
-import com.webmagic.dto.Institute;
-import com.webmagic.dto.InstituteInformation;
+import com.webmagic.model.Institute;
+import com.webmagic.model.InstituteInformation;
 
 import java.util.List;
 

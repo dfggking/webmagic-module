@@ -1,7 +1,7 @@
 package com.webmagic.controller;
 
 import com.webmagic.controller.base.BaseController;
-import com.webmagic.dto.Member;
+import com.webmagic.model.Member;
 import com.webmagic.mapper.MemberMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

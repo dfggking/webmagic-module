@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.webmagic.mapper.SysDicTypeMapper" >
-  <resultMap id="BaseResultMap" type="com.webmagic.dto.SysDicType" >
+  <resultMap id="BaseResultMap" type="com.webmagic.model.SysDicType" >
     <id column="id" property="id" jdbcType="CHAR" />
     <result column="seq_id" property="seqId" jdbcType="CHAR" />
     <result column="code" property="code" jdbcType="VARCHAR" />
@@ -12,7 +12,7 @@
     delete from sys_dic_type
     where `id` = #{id,jdbcType=CHAR}
   </delete>
-  <insert id="insert" parameterType="com.webmagic.dto.SysDicType" >
+  <insert id="insert" parameterType="com.webmagic.model.SysDicType" >
     <selectKey resultType="java.lang.String" keyProperty="id" order="AFTER" >
       SELECT LAST_INSERT_ID()
     </selectKey>
@@ -21,7 +21,7 @@
     values (#{seqId,jdbcType=CHAR}, #{code,jdbcType=VARCHAR}, #{status,jdbcType=BIT}, 
       #{text,jdbcType=VARCHAR})
   </insert>
-  <update id="updateByPrimaryKey" parameterType="com.webmagic.dto.SysDicType" >
+  <update id="updateByPrimaryKey" parameterType="com.webmagic.model.SysDicType" >
     update sys_dic_type
     set `seq_id` = #{seqId,jdbcType=CHAR},
       `code` = #{code,jdbcType=VARCHAR},

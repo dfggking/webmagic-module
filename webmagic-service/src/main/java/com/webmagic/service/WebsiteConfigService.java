@@ -1,6 +1,6 @@
 package com.webmagic.service;
 
-import com.webmagic.dto.WebsiteConfig;
+import com.webmagic.model.WebsiteConfig;
 
 import java.util.List;
 

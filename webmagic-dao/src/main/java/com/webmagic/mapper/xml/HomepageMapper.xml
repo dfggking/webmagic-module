@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.webmagic.mapper.HomepageMapper" >
-  <resultMap id="BaseResultMap" type="com.webmagic.dto.Homepage" >
+  <resultMap id="BaseResultMap" type="com.webmagic.model.Homepage" >
     <id column="id" property="id" jdbcType="CHAR" />
     <result column="swiper_img1" property="swiperImg1" jdbcType="VARCHAR" />
     <result column="swiper_img2" property="swiperImg2" jdbcType="VARCHAR" />
@@ -11,7 +11,7 @@
     delete from homepage
     where `id` = #{id,jdbcType=CHAR}
   </delete>
-  <insert id="insert" parameterType="com.webmagic.dto.Homepage" >
+  <insert id="insert" parameterType="com.webmagic.model.Homepage" >
     <selectKey resultType="java.lang.String" keyProperty="id" order="AFTER" >
       SELECT LAST_INSERT_ID()
     </selectKey>
@@ -20,7 +20,7 @@
     values (#{swiperImg1,jdbcType=VARCHAR}, #{swiperImg2,jdbcType=VARCHAR}, #{swiperImg3,jdbcType=VARCHAR}
       )
   </insert>
-  <update id="updateByPrimaryKey" parameterType="com.webmagic.dto.Homepage" >
+  <update id="updateByPrimaryKey" parameterType="com.webmagic.model.Homepage" >
     update homepage
     set `swiper_img1` = #{swiperImg1,jdbcType=VARCHAR},
       `swiper_img2` = #{swiperImg2,jdbcType=VARCHAR},

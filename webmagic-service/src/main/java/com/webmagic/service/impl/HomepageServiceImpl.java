@@ -1,6 +1,6 @@
 package com.webmagic.service.impl;
 
-import com.webmagic.dto.Homepage;
+import com.webmagic.model.Homepage;
 import com.webmagic.mapper.HomepageMapper;
 import com.webmagic.service.HomepageService;
 import org.springframework.beans.factory.annotation.Autowired;

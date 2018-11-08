@@ -1,6 +1,6 @@
 package com.webmagic.mapper;
 
-import com.webmagic.dto.Homepage;
+import com.webmagic.model.Homepage;
 import java.util.List;
 
 public interface HomepageMapper {

@@ -1,9 +1,5 @@
 package com.webmagic.service.base;
 
-import com.webmagic.mybatis.Mapper;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import java.util.List;
 
 public interface BaseService<T> {

@@ -1,6 +1,6 @@
 package com.webmagic.service.impl;
 
-import com.webmagic.dto.User;
+import com.webmagic.model.User;
 import com.webmagic.service.UserService;
 import org.springframework.stereotype.Service;
 

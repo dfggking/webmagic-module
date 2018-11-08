@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.webmagic.mapper.SysConfigMapper" >
-  <resultMap id="BaseResultMap" type="com.webmagic.dto.SysConfig" >
+  <resultMap id="BaseResultMap" type="com.webmagic.model.SysConfig" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="file_save_position" property="fileSavePosition" jdbcType="VARCHAR" />
     <result column="web_url" property="webUrl" jdbcType="VARCHAR" />
@@ -10,14 +10,14 @@
     delete from sys_config
     where `id` = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.webmagic.dto.SysConfig" >
+  <insert id="insert" parameterType="com.webmagic.model.SysConfig" >
     <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
       SELECT LAST_INSERT_ID()
     </selectKey>
     insert into sys_config (`file_save_position`, `web_url`)
     values (#{fileSavePosition,jdbcType=VARCHAR}, #{webUrl,jdbcType=VARCHAR})
   </insert>
-  <update id="updateByPrimaryKey" parameterType="com.webmagic.dto.SysConfig" >
+  <update id="updateByPrimaryKey" parameterType="com.webmagic.model.SysConfig" >
     update sys_config
     set `file_save_position` = #{fileSavePosition,jdbcType=VARCHAR},
       `web_url` = #{webUrl,jdbcType=VARCHAR}

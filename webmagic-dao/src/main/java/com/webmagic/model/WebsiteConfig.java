@@ -1,4 +1,4 @@
-package com.webmagic.dto;
+package com.webmagic.model;
 
 public class WebsiteConfig {
     private Integer id;

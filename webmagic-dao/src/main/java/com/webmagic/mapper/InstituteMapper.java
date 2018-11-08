@@ -1,6 +1,6 @@
 package com.webmagic.mapper;
 
-import com.webmagic.dto.Institute;
+import com.webmagic.model.Institute;
 import java.util.List;
 
 public interface InstituteMapper {

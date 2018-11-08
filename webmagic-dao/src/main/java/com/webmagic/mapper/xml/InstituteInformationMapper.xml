@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.webmagic.mapper.InstituteInformationMapper" >
-  <resultMap id="BaseResultMap" type="com.webmagic.dto.InstituteInformation" >
+  <resultMap id="BaseResultMap" type="com.webmagic.model.InstituteInformation" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="title" property="title" jdbcType="VARCHAR" />
     <result column="summary" property="summary" jdbcType="VARCHAR" />
@@ -14,7 +14,7 @@
     delete from institute_information
     where `id` = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.webmagic.dto.InstituteInformation" >
+  <insert id="insert" parameterType="com.webmagic.model.InstituteInformation" >
     <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
       SELECT LAST_INSERT_ID()
     </selectKey>
@@ -25,7 +25,7 @@
       #{type,jdbcType=VARCHAR}, #{mainImg,jdbcType=VARCHAR}, #{createAt,jdbcType=TIMESTAMP}
       )
   </insert>
-  <update id="updateByPrimaryKey" parameterType="com.webmagic.dto.InstituteInformation" >
+  <update id="updateByPrimaryKey" parameterType="com.webmagic.model.InstituteInformation" >
     update institute_information
     set `title` = #{title,jdbcType=VARCHAR},
       `summary` = #{summary,jdbcType=VARCHAR},

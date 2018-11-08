@@ -1,4 +1,4 @@
-package com.webmagic.dto;
+package com.webmagic.model;
 
 import java.util.Date;
 
@@ -13,7 +13,7 @@ public class ScientificResearchProject {
 
     private Date toTime;
 
-    private Integer level;
+    private Byte level;
 
     public Integer getId() {
         return id;
@@ -55,11 +55,11 @@ public class ScientificResearchProject {
         this.toTime = toTime;
     }
 
-    public Integer getLevel() {
+    public Byte getLevel() {
         return level;
     }
 
-    public void setLevel(Integer level) {
+    public void setLevel(Byte level) {
         this.level = level;
     }
 }

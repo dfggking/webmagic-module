@@ -1,6 +1,6 @@
 package com.webmagic.service.impl;
 
-import com.webmagic.dto.InstituteInformation;
+import com.webmagic.model.InstituteInformation;
 import com.webmagic.mapper.InstituteInformationMapper;
 import com.webmagic.service.InformationService;
 import org.springframework.beans.factory.annotation.Autowired;

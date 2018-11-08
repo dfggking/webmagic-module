@@ -1,6 +1,6 @@
 package com.webmagic.mapper;
 
-import com.webmagic.dto.HomeSwiper;
+import com.webmagic.model.HomeSwiper;
 import java.util.List;
 
 public interface HomeSwiperMapper {

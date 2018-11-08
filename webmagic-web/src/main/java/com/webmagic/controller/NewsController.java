@@ -2,7 +2,7 @@ package com.webmagic.controller;
 
 import com.dfgg.util.CopyUtils;
 import com.webmagic.controller.base.BaseController;
-import com.webmagic.dto.InstituteInformation;
+import com.webmagic.model.InstituteInformation;
 import com.webmagic.service.InformationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

@@ -1,7 +1,7 @@
 package com.webmagic.controller;
 
 import com.webmagic.controller.base.BaseController;
-import com.webmagic.dto.WebsiteConfig;
+import com.webmagic.model.WebsiteConfig;
 import com.webmagic.service.WebsiteConfigService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

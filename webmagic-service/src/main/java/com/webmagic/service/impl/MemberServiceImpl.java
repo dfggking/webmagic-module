@@ -1,15 +1,15 @@
 package com.webmagic.service.impl;
 
 import com.webmagic.mapper.MemberMapper;
-import com.webmagic.dto.Member;
+import com.webmagic.model.Member;
 import com.webmagic.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 @Service
-public class MemberServiceImpl  implements MemberService {
-
+public class MemberServiceImpl implements MemberService {
+    
     @Autowired
     private MemberMapper memberMapper;
 

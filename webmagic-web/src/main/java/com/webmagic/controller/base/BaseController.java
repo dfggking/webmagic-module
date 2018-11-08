@@ -1,7 +1,7 @@
 package com.webmagic.controller.base;
 
 import com.dfgg.util.Constants;
-import com.webmagic.dto.User;
+import com.webmagic.model.User;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
 import javax.servlet.http.HttpServletRequest;

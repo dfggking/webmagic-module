@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.webmagic.mapper.MemberMapper" >
-  <resultMap id="BaseResultMap" type="com.webmagic.dto.Member" >
+  <resultMap id="BaseResultMap" type="com.webmagic.model.Member" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="name" property="name" jdbcType="VARCHAR" />
     <result column="major1" property="major1" jdbcType="VARCHAR" />
@@ -15,7 +15,7 @@
     delete from member
     where `id` = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.webmagic.dto.Member" >
+  <insert id="insert" parameterType="com.webmagic.model.Member" >
     <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
       SELECT LAST_INSERT_ID()
     </selectKey>
@@ -26,7 +26,7 @@
       #{blogUrl,jdbcType=VARCHAR}, #{avatarUrl,jdbcType=VARCHAR}, #{institute,jdbcType=VARCHAR}, 
       #{isShow,jdbcType=BIT})
   </insert>
-  <update id="updateByPrimaryKey" parameterType="com.webmagic.dto.Member" >
+  <update id="updateByPrimaryKey" parameterType="com.webmagic.model.Member" >
     update member
     set `name` = #{name,jdbcType=VARCHAR},
       `major1` = #{major1,jdbcType=VARCHAR},

@@ -1,6 +1,6 @@
 package com.webmagic.service;
 
-import com.webmagic.dto.Homepage;
+import com.webmagic.model.Homepage;
 
 public interface HomepageService {
 	

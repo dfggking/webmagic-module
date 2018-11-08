@@ -1,6 +1,6 @@
 package com.webmagic.mapper;
 
-import com.webmagic.dto.ScientificResearchProject;
+import com.webmagic.model.ScientificResearchProject;
 import java.util.List;
 
 public interface ScientificResearchProjectMapper {

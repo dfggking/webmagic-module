@@ -1,7 +1,7 @@
 package com.webmagic.service.impl;
 
-import com.webmagic.dto.Institute;
-import com.webmagic.dto.User;
+import com.webmagic.model.Institute;
+import com.webmagic.model.User;
 import com.webmagic.mapper.InstituteMapper;
 import com.webmagic.service.InstituteService;
 import org.springframework.beans.factory.annotation.Autowired;

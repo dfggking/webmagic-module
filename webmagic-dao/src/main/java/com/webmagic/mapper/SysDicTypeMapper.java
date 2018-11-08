@@ -1,6 +1,6 @@
 package com.webmagic.mapper;
 
-import com.webmagic.dto.SysDicType;
+import com.webmagic.model.SysDicType;
 import java.util.List;
 
 public interface SysDicTypeMapper {

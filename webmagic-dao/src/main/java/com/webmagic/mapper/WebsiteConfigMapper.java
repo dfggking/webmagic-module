@@ -1,6 +1,6 @@
 package com.webmagic.mapper;
 
-import com.webmagic.dto.WebsiteConfig;
+import com.webmagic.model.WebsiteConfig;
 import java.util.List;
 
 public interface WebsiteConfigMapper {

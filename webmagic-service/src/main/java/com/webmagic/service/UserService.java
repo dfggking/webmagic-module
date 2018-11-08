@@ -1,6 +1,6 @@
 package com.webmagic.service;
 
-import com.webmagic.dto.User;
+import com.webmagic.model.User;
 
 import java.util.List;
 
