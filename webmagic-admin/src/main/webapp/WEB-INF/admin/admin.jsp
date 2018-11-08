@@ -15,7 +15,7 @@
       <i title="展开左侧栏" class="iconfont">&#xe699;</i>
     </div>
     <ul class="layui-nav left fast-add" lay-filter="">
-      <li class="layui-nav-item"><a href="javascript:;">+新增</a>
+      <li class="layui-nav-item"><a href="javascript:">+新增</a>
         <dl class="layui-nav-child">
           <!-- 二级菜单 -->
           <dd>
@@ -30,7 +30,7 @@
         </dl></li>
     </ul>
     <ul class="layui-nav right" lay-filter="">
-      <li class="layui-nav-item"><a href="javascript:;">admin</a>
+      <li class="layui-nav-item"><a href="javascript:">admin</a>
         <dl class="layui-nav-child">
           <!-- 二级菜单 -->
           <dd>
@@ -54,7 +54,7 @@
     <div id="side-nav">
       <ul id="nav">
         <li>
-          <a href="javascript:;">
+          <a href="javascript:">
             <i class="iconfont">&#xe6b8;</i><cite>系统管理</cite><i class="iconfont nav_right">&#xe697;</i>
           </a>
           <ul class="sub-menu">
@@ -67,12 +67,12 @@
           </ul>
         </li>
         <li>
-          <a href="javascript:;">
+          <a href="javascript:">
             <i class="iconfont">&#xe699;</i><cite>模块管理</cite><i class="iconfont nav_right">&#xe697;</i>
           </a>
           <ul class="sub-menu">
             <li>
-              <a href="javascript:;">
+              <a href="javascript:">
                 <i class="iconfont">&#xe6b5;</i><cite>网站首页</cite><i class="iconfont nav_right">&#xe697;</i>
               </a>
               <ul class="sub-menu">
@@ -82,7 +82,7 @@
               </ul>
             </li>
             <li>
-              <a href="javascript:;">
+              <a href="javascript:">
                 <i class="iconfont">&#xe6b5;</i><cite>团队成员</cite><i class="iconfont nav_right">&#xe697;</i>
               </a>
               <ul class="sub-menu">
@@ -90,7 +90,7 @@
               </ul>
             </li>
             <li>
-              <a href="javascript:;">
+              <a href="javascript:">
                 <i class="iconfont">&#xe6b5;</i><cite>研究方向</cite><i class="iconfont nav_right">&#xe697;</i>
               </a>
               <ul class="sub-menu">
@@ -98,7 +98,7 @@
               </ul>
             </li>
             <li>
-              <a href="javascript:;">
+              <a href="javascript:">
                 <i class="iconfont">&#xe6b5;</i><cite>论文著作</cite><i class="iconfont nav_right">&#xe697;</i>
               </a>
               <ul class="sub-menu">
@@ -106,7 +106,7 @@
               </ul>
             </li>
             <li>
-              <a href="javascript:;">
+              <a href="javascript:">
                 <i class="iconfont">&#xe6b5;</i><cite>科研项目</cite><i class="iconfont nav_right">&#xe697;</i>
               </a>
               <ul class="sub-menu">
@@ -114,7 +114,7 @@
               </ul>
             </li>
             <li>
-              <a href="javascript:;">
+              <a href="javascript:">
                 <i class="iconfont">&#xe6b5;</i><cite>新闻动态</cite><i class="iconfont nav_right">&#xe697;</i>
               </a>
               <ul class="sub-menu">
@@ -122,7 +122,7 @@
               </ul>
             </li>
             <li>
-              <a href="javascript:;">
+              <a href="javascript:">
                 <i class="iconfont">&#xe6b5;</i><cite>课程教学</cite><i class="iconfont nav_right">&#xe697;</i>
               </a>
               <ul class="sub-menu">
@@ -130,7 +130,7 @@
               </ul>
             </li>
             <li>
-              <a href="javascript:;">
+              <a href="javascript:">
                 <i class="iconfont">&#xe6b5;</i><cite>数据与代码</cite><i class="iconfont nav_right">&#xe697;</i>
               </a>
               <ul class="sub-menu">
@@ -139,7 +139,7 @@
               </ul>
             </li>
             <li>
-              <a href="javascript:;">
+              <a href="javascript:">
                 <i class="iconfont">&#xe6b5;</i><cite>招生信息</cite><i class="iconfont nav_right">&#xe697;</i>
               </a>
               <ul class="sub-menu">

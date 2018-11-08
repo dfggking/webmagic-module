@@ -1,7 +1,7 @@
 package com.admin.controller;
 
 import com.admin.controller.base.BaseController;
-import com.webmagic.dto.SysConfig;
+import com.webmagic.model.SysConfig;
 import com.webmagic.mapper.SysConfigMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

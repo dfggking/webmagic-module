@@ -1,7 +1,7 @@
 package com.admin.controller;
 
 import com.admin.controller.base.BaseController;
-import com.webmagic.dto.ScientificResearchProject;
+import com.webmagic.model.ScientificResearchProject;
 import com.webmagic.mapper.ScientificResearchProjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

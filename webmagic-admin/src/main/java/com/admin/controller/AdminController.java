@@ -13,20 +13,14 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping("/")
 public class AdminController {
 	
-	@RequestMapping("login")
-	public ModelAndView login() {
-		ModelAndView mv = new ModelAndView();
-		return mv;
-	}
-	
 	@RequestMapping("")
 	public ModelAndView _default() {
 		ModelAndView mv = new ModelAndView("redirect:/login");
 		return mv;
 	}
 	
-	@RequestMapping("index")
-	public ModelAndView index() {
+	@RequestMapping("admin")
+	public ModelAndView admin() {
 		ModelAndView mv = new ModelAndView();
 		return mv;
 	}

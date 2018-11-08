@@ -1,7 +1,7 @@
 package com.admin.controller;
 
 import com.admin.controller.base.BaseController;
-import com.webmagic.dto.Institute;
+import com.webmagic.model.Institute;
 import com.webmagic.service.InstituteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,7 +23,7 @@ public class InstituteController extends BaseController {
 	
 	@RequestMapping("update")
     @ResponseBody
-	public Map<String, String> update(String intruductionStr) throws UnsupportedEncodingException {
+	public Map<String, String> update(String intruductionStr) {
 		
 		Institute institute = new Institute();
 		institute.setId(0);

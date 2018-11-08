@@ -4,7 +4,7 @@ import com.admin.controller.base.BaseController;
 import com.admin.vo.InstituteInformationVO;
 import com.admin.vo.ResultMap;
 import com.dfgg.util.CopyUtils;
-import com.webmagic.dto.*;
+import com.webmagic.model.*;
 import com.webmagic.mapper.HomeSwiperMapper;
 import com.webmagic.mapper.SysConfigMapper;
 import com.webmagic.service.HomepageService;

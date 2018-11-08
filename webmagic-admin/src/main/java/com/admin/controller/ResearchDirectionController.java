@@ -1,7 +1,7 @@
 package com.admin.controller;
 
 import com.admin.controller.base.BaseController;
-import com.webmagic.dto.ResearchDirection;
+import com.webmagic.model.ResearchDirection;
 import com.webmagic.mapper.ResearchDirectionMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

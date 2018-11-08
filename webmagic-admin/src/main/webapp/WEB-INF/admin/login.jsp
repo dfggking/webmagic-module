@@ -20,10 +20,10 @@
   <div class="login layui-anim layui-anim-up">
     <div class="message">MiDAS-后台管理</div>
     <div id="darkbannerwrap"></div>
-    <form method="post" class="layui-form" >
-      <input name="username" placeholder="用户名"  type="text" lay-verify="required" class="layui-input" >
+    <form method="post" action="/j_spring_security_check" class="layui-form" >
+      <input name="username" type="text" lay-verify="required" class="layui-input" placeholder="用户名">
       <hr class="hr15">
-      <input name="password" lay-verify="required" placeholder="密码"  type="password" class="layui-input">
+      <input name="password" type="password" lay-verify="required" class="layui-input" placeholder="密码">
       <hr class="hr15">
       <input value="登录" lay-submit lay-filter="login" style="width:100%;" type="submit">
       <hr class="hr20" >
@@ -31,19 +31,7 @@
   </div>
   <script>
     $(function() {
-      layui.use('form', function(){
-        var form = layui.form;
-        // layer.msg('玩命卖萌中', function(){
-        //   //关闭后的操作
-        //   });
-        //监听提交
-        form.on('submit(login)', function(data){
-          layer.msg(JSON.stringify(data.field),function(){
-            location.href='index'
-          });
-          return false;
-        });
-      });
+
     });
   </script>
 </body>
