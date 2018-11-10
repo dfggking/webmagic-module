@@ -7,6 +7,11 @@
   <script type="text/javascript" charset="utf-8" src="/third-party/umeditor/umeditor.config.js"></script>
   <script type="text/javascript" charset="utf-8" src="/third-party/umeditor/umeditor.min.js"></script>
   <script type="text/javascript" src="/third-party/umeditor/lang/zh-cn/zh-cn.js"></script>
+  <style rel="stylesheet">
+    .x-body .layui-form{
+      margin-top: 20px;
+    }
+  </style>
 </head>
 <body>
   <div class="x-nav">
@@ -20,23 +25,17 @@
     </a>
   </div>
   <div class="x-body">
-    <blockquote class="layui-elem-quote">
-      研究所资讯
-    </blockquote>
-
-    <table class="layui-hide" id="J_list"></table>
-
+    <table class="layui-hide" id="J_list" lay-filter="J_list" lay-data="{id: 'idTest'}"></table>
   </div>
-
   <script>
     layui.use('table', function(){
       var table = layui.table;
 
       table.render({
-        elem: '#J_list'
+        elem: '#J_list',
+        id: 'idTest'
         ,url:'/homepage/institute/info/list'
         ,parseData: function(res){ //res 即为原始返回的数据
-          console.info(res);
           return {
             "code": res.status, //解析接口状态
             "msg": res.message, //解析提示文本
@@ -46,10 +45,9 @@
         }
         ,cellMinWidth: 100 //全局定义常规单元格的最小宽度，layui 2.2.1 新增
         ,cols: [[
-          {field:'id', width:80, title: 'ID', sort: true}
-          ,{field:'title', width:600, title: '标题'}
+          {field:'title', title: '标题'}
           ,{field:'content', width:120,title: '内容'}
-          ,{field:'type', title: '类别'}
+          ,{field:'type', width: 100, title: '类别'}
           ,{field:'createAt', width:165, title: '创建时间'}
           ,{fixed: 'right', title:'操作', toolbar: '#bar', width:150}
         ]]
@@ -62,26 +60,94 @@
         var checkStatus = table.checkStatus(obj.config.id);
         switch(obj.event){
           case 'addData':
-            var data = checkStatus.data;
-            layer.alert(JSON.stringify(data));
+            var index = layer.open({
+              type: 2
+              ,title: '添加研究所资讯'
+              ,area: ['500px', '500px']
+              ,shade: 0
+              ,maxmin: true
+              ,content: '/homepage/institute/addInfoPage'
+              ,btn: ['提交', '关闭']
+              ,yes: function(){
+                window.frames[0].document.getElementById("J_info_submit_btn").click();
+              }
+              ,btn2: function(){
+
+                layer.closeAll();
+              },
+              end: function(){
+                table.reload('idTest', {});
+              }
+            });
+            layer.full(index);
             break;
           case 'getCheckLength':
-            var data = checkStatus.data;
-            layer.msg('选中了：'+ data.length + ' 个');
             break;
           case 'isAll':
-            layer.msg(checkStatus.isAll ? '全选': '未全选');
             break;
         };
       });
 
-
       //监听单元格编辑
       table.on('edit(J_list)', function(obj){
-        var value = obj.value //得到修改后的值
-          ,data = obj.data //得到所在行所有键值
-          ,field = obj.field; //得到字段
-        layer.msg('[ID: '+ data.id +'] ' + field + ' 字段更改为：'+ value);
+        var index = layer.open({
+          type: 2
+          ,title: '添加研究所资讯'
+          ,area: ['500px', '500px']
+          ,shade: 0
+          ,maxmin: true
+          ,content: '/homepage/institute/addInfoPage'
+          ,btn: ['提交', '关闭']
+          ,yes: function(){
+            window.frames[0].document.getElementById("J_info_submit_btn").click();
+          }
+          ,btn2: function(){
+
+            layer.closeAll();
+          }
+        });
+        layer.full(index);
+      });
+
+      table.on('tool(J_list)', function(obj){
+        var data = obj.data;
+        if(obj.event === 'del'){
+          layer.confirm('确定删除该资讯吗', function(index){
+            $.post('/homepage/institute/info/del', {
+              id: data.id
+            }, function(args){
+              console.info(args)
+              if ('' ==args.result) {
+              }
+              obj.del();
+              layer.close(index);
+              layer.msg('删除成功', {
+                icon : 1
+              });
+            });
+
+          });
+        } else if(obj.event === 'edit'){
+          var index = layer.open({
+            type: 2
+            ,title: '修改研究所资讯'
+            ,area: ['500px', '500px']
+            ,shade: 0
+            ,maxmin: true
+            ,content: '/homepage/institute/editInfoPage?id=' + data.id
+            ,btn: ['提交', '关闭']
+            ,yes: function(){
+              window.frames[0].document.getElementById("J_info_submit_btn").click();
+            }
+            ,btn2: function(){
+              layer.closeAll();
+            },
+            end: function(){
+              table.reload('idTest', {});
+            }
+          });
+          layer.full(index);
+        }
       });
     });
   </script>

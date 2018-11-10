@@ -12,13 +12,10 @@
     where `id` = #{id,jdbcType=CHAR}
   </delete>
   <insert id="insert" parameterType="com.webmagic.model.Homepage" >
-    <selectKey resultType="java.lang.String" keyProperty="id" order="AFTER" >
-      SELECT LAST_INSERT_ID()
-    </selectKey>
-    insert into homepage (`swiper_img1`, `swiper_img2`, `swiper_img3`
-      )
-    values (#{swiperImg1,jdbcType=VARCHAR}, #{swiperImg2,jdbcType=VARCHAR}, #{swiperImg3,jdbcType=VARCHAR}
-      )
+    insert into homepage (`id`, `swiper_img1`, `swiper_img2`, 
+      `swiper_img3`)
+    values (#{id,jdbcType=CHAR}, #{swiperImg1,jdbcType=VARCHAR}, #{swiperImg2,jdbcType=VARCHAR}, 
+      #{swiperImg3,jdbcType=VARCHAR})
   </insert>
   <update id="updateByPrimaryKey" parameterType="com.webmagic.model.Homepage" >
     update homepage

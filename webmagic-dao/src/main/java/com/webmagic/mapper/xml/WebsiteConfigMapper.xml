@@ -15,15 +15,12 @@
     where `id` = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.webmagic.model.WebsiteConfig" >
-    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
-      SELECT LAST_INSERT_ID()
-    </selectKey>
-    insert into website_config (`website_title`, `keyword`, `description`, 
-      `email`, `copyright`, `address`
-      )
-    values (#{websiteTitle,jdbcType=VARCHAR}, #{keyword,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, 
-      #{email,jdbcType=VARCHAR}, #{copyright,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}
-      )
+    insert into website_config (`id`, `website_title`, `keyword`, 
+      `description`, `email`, `copyright`, 
+      `address`)
+    values (#{id,jdbcType=INTEGER}, #{websiteTitle,jdbcType=VARCHAR}, #{keyword,jdbcType=VARCHAR}, 
+      #{description,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{copyright,jdbcType=VARCHAR}, 
+      #{address,jdbcType=VARCHAR})
   </insert>
   <update id="updateByPrimaryKey" parameterType="com.webmagic.model.WebsiteConfig" >
     update website_config

@@ -8,13 +8,10 @@
     <result column="roles" property="roles" jdbcType="VARCHAR" />
   </resultMap>
   <insert id="insert" parameterType="com.webmagic.model.User" >
-    <selectKey resultType="java.lang.String" keyProperty="id" order="AFTER" >
-      SELECT LAST_INSERT_ID()
-    </selectKey>
-    insert into user (`username`, `password`, `roles`
-      )
-    values (#{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{roles,jdbcType=VARCHAR}
-      )
+    insert into user (`id`, `username`, `password`, 
+      `roles`)
+    values (#{id,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{roles,jdbcType=VARCHAR})
   </insert>
   <select id="selectAll" resultMap="BaseResultMap" >
     select `id`, `username`, `password`, `roles`

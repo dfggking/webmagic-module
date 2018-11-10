@@ -20,7 +20,7 @@
   <div class="login layui-anim layui-anim-up">
     <div class="message">MiDAS-后台管理</div>
     <div id="darkbannerwrap"></div>
-    <form method="post" action="/j_spring_security_check" class="layui-form" >
+    <form method="post" action="/login" class="layui-form" >
       <input name="username" type="text" lay-verify="required" class="layui-input" placeholder="用户名">
       <hr class="hr15">
       <input name="password" type="password" lay-verify="required" class="layui-input" placeholder="密码">

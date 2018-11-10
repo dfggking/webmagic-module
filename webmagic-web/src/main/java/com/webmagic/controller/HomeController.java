@@ -3,10 +3,8 @@ package com.webmagic.controller;
 import com.dfgg.util.CopyUtils;
 import com.sun.org.apache.xpath.internal.operations.Mod;
 import com.webmagic.controller.base.BaseController;
-import com.webmagic.model.HomeSwiper;
-import com.webmagic.model.Institute;
-import com.webmagic.model.InstituteInformation;
-import com.webmagic.model.WebsiteConfig;
+import com.webmagic.mapper.WebsiteLogMapper;
+import com.webmagic.model.*;
 import com.webmagic.mapper.HomeSwiperMapper;
 import com.webmagic.service.InformationService;
 import com.webmagic.service.InstituteService;
@@ -34,6 +32,8 @@ public class HomeController extends BaseController {
     private InformationService informationService;
 	@Autowired
 	private HomeSwiperMapper homeSwiperMapper;
+	@Autowired
+    private WebsiteLogMapper logMapper;
  
 	@RequestMapping("")
 	public ModelAndView _default() {
@@ -48,9 +48,7 @@ public class HomeController extends BaseController {
         InstituteInformation info = new InstituteInformation();
         List<InstituteInformation> list = informationService.select(info);
         List<InstituteInformationVO> list2 = CopyUtils.copyList(list);
-		
 		List<HomeSwiper> swipers = homeSwiperMapper.selectAll();
-        
         ModelAndView mv = new ModelAndView();
 		mv.addObject(RESULT, SUCCESS);
 		mv.addObject(ENTITY, wc);
@@ -58,6 +56,11 @@ public class HomeController extends BaseController {
 		Institute institute = instituteService.get(0);
 		mv.addObject("institute", institute);
 		mv.addObject("swipers", swipers);
+
+        WebsiteLog log = logMapper.selectByPrimaryKey("0");
+        long count = log.getVisite();
+        log.setVisite(++count);
+        logMapper.updateByPrimaryKey(log);
 		return mv;
 	}
 }

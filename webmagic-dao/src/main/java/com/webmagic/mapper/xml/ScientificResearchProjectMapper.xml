@@ -10,13 +10,12 @@
     <result column="level" property="level" jdbcType="TINYINT" />
   </resultMap>
   <insert id="insert" parameterType="com.webmagic.model.ScientificResearchProject" >
-    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
-      SELECT LAST_INSERT_ID()
-    </selectKey>
-    insert into scientific_research_project (`title`, `content`, `from_time`, 
-      `to_time`, `level`)
-    values (#{title,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, #{fromTime,jdbcType=TIMESTAMP}, 
-      #{toTime,jdbcType=TIMESTAMP}, #{level,jdbcType=TINYINT})
+    insert into scientific_research_project (`id`, `title`, `content`, 
+      `from_time`, `to_time`, `level`
+      )
+    values (#{id,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, 
+      #{fromTime,jdbcType=TIMESTAMP}, #{toTime,jdbcType=TIMESTAMP}, #{level,jdbcType=TINYINT}
+      )
   </insert>
   <select id="selectAll" resultMap="BaseResultMap" >
     select `id`, `title`, `content`, `from_time`, `to_time`, `level`

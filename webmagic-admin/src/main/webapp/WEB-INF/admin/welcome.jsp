@@ -11,11 +11,11 @@
       clearTimeout(t);//清除定时器
       dt = new Date();
       var y=dt.getFullYear();
-      var M=dt.getMonth();
-      var d=dt.getDate();
-      var h=dt.getHours();//获取时
-      var m=dt.getMinutes();//获取分
-      var s=dt.getSeconds();//获取秒
+      var M=dt.getMonth()+1 < 10 ? '0'+dt.getMonth()+1: dt.getMonth()+1;
+      var d=dt.getDate() < 10 ? '0'+dt.getDate(): dt.getDate();
+      var h=dt.getHours() < 10 ? '0'+dt.getHours(): dt.getHours();//获取时
+      var m=dt.getMinutes() < 10 ?'0'+dt.getMinutes() : dt.getMinutes();//获取分
+      var s=dt.getSeconds()< 10 ? '0'+dt.getSeconds(): dt.getSeconds();//获取秒
       document.getElementById("showTime").innerHTML =  "当前时间:"+y+"-"+M+"-"+d+" "+h+":"+m+":"+s;
       t = setTimeout(time,1000); //设定定时器，循环执行
     }
@@ -39,37 +39,37 @@
                     <li class="layui-col-xs2"><a href="javascript:;" class="x-admin-backlog-body">
                         <h3>新闻动态</h3>
                         <p>
-                          <cite>66</cite>
+                          <cite>${infoCount}</cite>
                         </p>
                     </a></li>
                     <li class="layui-col-xs2"><a href="javascript:;" class="x-admin-backlog-body">
                         <h3>成员数</h3>
                         <p>
-                          <cite>12</cite>
+                          <cite>${memberCount}</cite>
                         </p>
                     </a></li>
                     <li class="layui-col-xs2"><a href="javascript:;" class="x-admin-backlog-body">
                         <h3>访问量</h3>
                         <p>
-                          <cite>1099</cite>
+                          <cite>${visitCount}</cite>
                         </p>
                     </a></li>
                     <li class="layui-col-xs2"><a href="javascript:;" class="x-admin-backlog-body">
                         <h3>论文数</h3>
                         <p>
-                          <cite>167</cite>
+                          <cite>${thesisCount}</cite>
                         </p>
                     </a></li>
                     <li class="layui-col-xs2"><a href="javascript:;" class="x-admin-backlog-body">
                         <h3>数据与代码</h3>
                         <p>
-                          <cite>67</cite>
+                          <cite>${dataCount}</cite>
                         </p>
                     </a></li>
                     <li class="layui-col-xs2"><a href="javascript:;" class="x-admin-backlog-body">
                         <h3>科研项目</h3>
                         <p>
-                          <cite>30</cite>
+                          <cite>${srpCount}</cite>
                         </p>
                     </a></li>
                   </ul>
@@ -95,7 +95,7 @@
         </table>
       </div>
     </fieldset>
-    <fieldset class="layui-elem-field">
+    <%--<fieldset class="layui-elem-field">
       <legend>系统信息</legend>
       <div class="layui-field-box">
         <table class="layui-table">
@@ -127,7 +127,7 @@
           </tbody>
         </table>
       </div>
-    </fieldset>
+    </fieldset>--%>
     <fieldset class="layui-elem-field">
       <legend>开发团队</legend>
       <div class="layui-field-box">

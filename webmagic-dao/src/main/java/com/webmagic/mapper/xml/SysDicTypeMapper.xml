@@ -13,12 +13,9 @@
     where `id` = #{id,jdbcType=CHAR}
   </delete>
   <insert id="insert" parameterType="com.webmagic.model.SysDicType" >
-    <selectKey resultType="java.lang.String" keyProperty="id" order="AFTER" >
-      SELECT LAST_INSERT_ID()
-    </selectKey>
-    insert into sys_dic_type (`seq_id`, `code`, `status`, 
+    insert into sys_dic_type (`id`, `seq_id`, `code`, `status`, 
       `text`)
-    values (#{seqId,jdbcType=CHAR}, #{code,jdbcType=VARCHAR}, #{status,jdbcType=BIT}, 
+    values (#{id,jdbcType=CHAR}, #{seqId,jdbcType=CHAR}, #{code,jdbcType=VARCHAR}, #{status,jdbcType=BIT}, 
       #{text,jdbcType=VARCHAR})
   </insert>
   <update id="updateByPrimaryKey" parameterType="com.webmagic.model.SysDicType" >

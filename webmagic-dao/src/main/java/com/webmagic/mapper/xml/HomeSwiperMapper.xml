@@ -11,11 +11,10 @@
     where `id` = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.webmagic.model.HomeSwiper" >
-    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
-      SELECT LAST_INSERT_ID()
-    </selectKey>
-    insert into home_swiper (`file_name`, `file_path`)
-    values (#{fileName,jdbcType=VARCHAR}, #{filePath,jdbcType=VARCHAR})
+    insert into home_swiper (`id`, `file_name`, `file_path`
+      )
+    values (#{id,jdbcType=INTEGER}, #{fileName,jdbcType=VARCHAR}, #{filePath,jdbcType=VARCHAR}
+      )
   </insert>
   <update id="updateByPrimaryKey" parameterType="com.webmagic.model.HomeSwiper" >
     update home_swiper

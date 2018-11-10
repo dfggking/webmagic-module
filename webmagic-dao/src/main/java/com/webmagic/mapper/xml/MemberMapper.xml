@@ -16,15 +16,12 @@
     where `id` = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.webmagic.model.Member" >
-    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
-      SELECT LAST_INSERT_ID()
-    </selectKey>
-    insert into member (`name`, `major1`, `major2`, 
-      `blog_url`, `avatar_url`, `institute`, 
-      `is_show`)
-    values (#{name,jdbcType=VARCHAR}, #{major1,jdbcType=VARCHAR}, #{major2,jdbcType=VARCHAR}, 
-      #{blogUrl,jdbcType=VARCHAR}, #{avatarUrl,jdbcType=VARCHAR}, #{institute,jdbcType=VARCHAR}, 
-      #{isShow,jdbcType=BIT})
+    insert into member (`id`, `name`, `major1`, 
+      `major2`, `blog_url`, `avatar_url`, 
+      `institute`, `is_show`)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{major1,jdbcType=VARCHAR}, 
+      #{major2,jdbcType=VARCHAR}, #{blogUrl,jdbcType=VARCHAR}, #{avatarUrl,jdbcType=VARCHAR}, 
+      #{institute,jdbcType=VARCHAR}, #{isShow,jdbcType=BIT})
   </insert>
   <update id="updateByPrimaryKey" parameterType="com.webmagic.model.Member" >
     update member

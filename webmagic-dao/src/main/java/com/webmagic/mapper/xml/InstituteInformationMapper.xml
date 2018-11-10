@@ -2,46 +2,43 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.webmagic.mapper.InstituteInformationMapper" >
   <resultMap id="BaseResultMap" type="com.webmagic.model.InstituteInformation" >
-    <id column="id" property="id" jdbcType="INTEGER" />
+    <id column="id" property="id" jdbcType="VARCHAR" />
     <result column="title" property="title" jdbcType="VARCHAR" />
     <result column="summary" property="summary" jdbcType="VARCHAR" />
-    <result column="content" property="content" jdbcType="VARCHAR" />
     <result column="type" property="type" jdbcType="VARCHAR" />
     <result column="main_img" property="mainImg" jdbcType="VARCHAR" />
     <result column="create_at" property="createAt" jdbcType="TIMESTAMP" />
+    <result column="content" property="content" jdbcType="LONGVARCHAR" />
   </resultMap>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from institute_information
-    where `id` = #{id,jdbcType=INTEGER}
+    where `id` = #{id,jdbcType=VARCHAR}
   </delete>
   <insert id="insert" parameterType="com.webmagic.model.InstituteInformation" >
-    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
-      SELECT LAST_INSERT_ID()
-    </selectKey>
-    insert into institute_information (`title`, `summary`, `content`, 
-      `type`, `main_img`, `create_at`
-      )
-    values (#{title,jdbcType=VARCHAR}, #{summary,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, 
-      #{type,jdbcType=VARCHAR}, #{mainImg,jdbcType=VARCHAR}, #{createAt,jdbcType=TIMESTAMP}
-      )
+    insert into institute_information (`id`, `title`, `summary`, 
+      `type`, `main_img`, `create_at`, 
+      `content`)
+    values (#{id,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, #{summary,jdbcType=VARCHAR}, 
+      #{type,jdbcType=VARCHAR}, #{mainImg,jdbcType=VARCHAR}, #{createAt,jdbcType=TIMESTAMP}, 
+      #{content,jdbcType=LONGVARCHAR})
   </insert>
   <update id="updateByPrimaryKey" parameterType="com.webmagic.model.InstituteInformation" >
     update institute_information
     set `title` = #{title,jdbcType=VARCHAR},
       `summary` = #{summary,jdbcType=VARCHAR},
-      `content` = #{content,jdbcType=VARCHAR},
       `type` = #{type,jdbcType=VARCHAR},
       `main_img` = #{mainImg,jdbcType=VARCHAR},
-      `create_at` = #{createAt,jdbcType=TIMESTAMP}
-    where `id` = #{id,jdbcType=INTEGER}
+      `create_at` = #{createAt,jdbcType=TIMESTAMP},
+      `content` = #{content,jdbcType=LONGVARCHAR}
+    where `id` = #{id,jdbcType=VARCHAR}
   </update>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
-    select `id`, `title`, `summary`, `content`, `type`, `main_img`, `create_at`
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select `id`, `title`, `summary`, `type`, `main_img`, `create_at`, `content`
     from institute_information
-    where `id` = #{id,jdbcType=INTEGER}
+    where `id` = #{id,jdbcType=VARCHAR}
   </select>
   <select id="selectAll" resultMap="BaseResultMap" >
-    select `id`, `title`, `summary`, `content`, `type`, `main_img`, `create_at`
-    from institute_information
+    select `id`, `title`, `summary`, `type`, `main_img`, `create_at`, `content`
+    from institute_information order by create_at desc
   </select>
 </mapper>

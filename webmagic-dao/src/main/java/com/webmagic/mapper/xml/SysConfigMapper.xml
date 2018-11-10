@@ -11,11 +11,10 @@
     where `id` = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.webmagic.model.SysConfig" >
-    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
-      SELECT LAST_INSERT_ID()
-    </selectKey>
-    insert into sys_config (`file_save_position`, `web_url`)
-    values (#{fileSavePosition,jdbcType=VARCHAR}, #{webUrl,jdbcType=VARCHAR})
+    insert into sys_config (`id`, `file_save_position`, `web_url`
+      )
+    values (#{id,jdbcType=INTEGER}, #{fileSavePosition,jdbcType=VARCHAR}, #{webUrl,jdbcType=VARCHAR}
+      )
   </insert>
   <update id="updateByPrimaryKey" parameterType="com.webmagic.model.SysConfig" >
     update sys_config

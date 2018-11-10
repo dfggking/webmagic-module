@@ -3,7 +3,10 @@ package com.admin.controller;
 import com.admin.controller.base.BaseController;
 import com.admin.vo.InstituteInformationVO;
 import com.admin.vo.ResultMap;
+import com.baomidou.mybatisplus.toolkit.IdWorker;
 import com.dfgg.util.CopyUtils;
+import com.webmagic.mapper.InfoTypeMapper;
+import com.webmagic.mapper.InstituteInformationMapper;
 import com.webmagic.model.*;
 import com.webmagic.mapper.HomeSwiperMapper;
 import com.webmagic.mapper.SysConfigMapper;
@@ -39,6 +42,10 @@ public class HomepageController extends BaseController {
 	private HomeSwiperMapper homeSwiperMapper;
 	@Autowired
     private SysConfigMapper sysConfigMapper;
+	@Autowired
+    private InfoTypeMapper infoTypeMapper;
+	@Autowired
+    private InstituteInformationMapper infoMapper;
 	
 	@RequestMapping("swiper")
 	public ModelAndView swiper(ModelAndView mv){
@@ -66,7 +73,6 @@ public class HomepageController extends BaseController {
 				file.transferTo(targetFile);
 				HomeSwiper homeSwiper = new HomeSwiper();
 				homeSwiper.setFilePath(targetFile.getPath());
-
 				homeSwiper.setFileName(newFileName);
 				homeSwiperMapper.insert(homeSwiper);
 			}
@@ -99,6 +105,14 @@ public class HomepageController extends BaseController {
 		ModelAndView mv = new ModelAndView();
 		return mv;
 	}
+
+    @RequestMapping("institute/addInfoPage")
+    public ModelAndView addInfoPage() {
+        List<InfoType> infoTypes = infoTypeMapper.selectAll();
+        ModelAndView mv = new ModelAndView();
+        mv.addObject(LIST, infoTypes);
+        return mv;
+    }
 	
 	@RequestMapping("institute/info/list")
 	@ResponseBody
@@ -119,5 +133,78 @@ public class HomepageController extends BaseController {
 		
 		return resultMap;
 	}
-	
+
+    @RequestMapping(value = "institute/info/add", method = RequestMethod.POST)
+    public ModelAndView addInfo(MultipartFile img, InstituteInformation info) {
+        ModelAndView mv = new ModelAndView("/homepage/institute/addInfoPage");
+        SysConfig sysConfig = sysConfigMapper.selectByPrimaryKey(1);
+        if (img != null) {
+            String fileName = img.getOriginalFilename();
+            String newFileName = UUID.randomUUID() + fileName;
+            File targetFile = new File(sysConfig.getFileSavePosition() + "/uploads/infoimg/", newFileName);
+            File fileParent = targetFile.getParentFile();
+            if (!fileParent.exists()) {
+                fileParent.mkdirs();
+            }
+            try {
+                img.transferTo(targetFile);
+            } catch (IOException e) {
+                e.printStackTrace();
+                mv.addObject(RESULT, FAILED);
+            }
+            info.setMainImg(sysConfig.getWebUrl() + "/uploads/infoimg/" + newFileName);
+        } else {
+            info.setMainImg(sysConfig.getWebUrl() +"/images/news/3.jpg");
+        }
+        info.setId(IdWorker.getIdStr());
+        info.setCreateAt(new Date());
+        infoMapper.insert(info);
+        mv.addObject(RESULT, SUCCESS);
+        return mv;
+    }
+
+    @RequestMapping("institute/editInfoPage")
+    public ModelAndView editInfoPage(String id) {
+        InstituteInformation info = infoMapper.selectByPrimaryKey(id);
+        List<InfoType> infoTypes = infoTypeMapper.selectAll();
+        ModelAndView mv = new ModelAndView();
+        mv.addObject(LIST, infoTypes);
+        mv.addObject(ENTITY, info);
+        return mv;
+    }
+
+    @RequestMapping(value = "institute/info/edit", method = RequestMethod.POST)
+    public ModelAndView editInfo(MultipartFile img, InstituteInformation info) {
+        ModelAndView mv = new ModelAndView("redirect:/homepage/institute/editInfoPage");
+        mv.addObject("id", info.getId());
+        SysConfig sysConfig = sysConfigMapper.selectByPrimaryKey(1);
+        if (img != null) {
+            String fileName = img.getOriginalFilename();
+            String newFileName = UUID.randomUUID() + fileName;
+            File targetFile = new File(sysConfig.getFileSavePosition() + "/uploads/infoimg/", newFileName);
+            File fileParent = targetFile.getParentFile();
+            if (!fileParent.exists()) {
+                fileParent.mkdirs();
+            }
+            try {
+                img.transferTo(targetFile);
+            } catch (IOException e) {
+                e.printStackTrace();
+                mv.addObject(RESULT, FAILED);
+            }
+            info.setMainImg(sysConfig.getWebUrl() + "/uploads/infoimg/" + newFileName);
+        } else {
+            info.setMainImg(sysConfig.getWebUrl() +"/images/news/3.jpg");
+        }
+        info.setCreateAt(new Date());
+        infoMapper.updateByPrimaryKey(info);
+        return mv;
+    }
+
+    @RequestMapping("institute/info/del")
+    @ResponseBody
+    public String delInfo(String id) {
+        int count = infoMapper.deleteByPrimaryKey(id);
+	    return SUCCESS;
+    }
 }

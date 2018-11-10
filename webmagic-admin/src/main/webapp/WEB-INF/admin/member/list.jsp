@@ -43,7 +43,7 @@
           <th>专业一</th>
           <th>专业二</th>
           <th>学院</th>
-          <th>状态</th>
+          <%--<th>状态</th>--%>
           <th>操作</th>
       </thead>
       <tbody>
@@ -56,7 +56,7 @@
           <td>${member.major1}</td>
           <td>${member.major2}</td>
           <td>${member.institute}</td>
-          <td class="td-status"><span class="layui-btn layui-btn-normal layui-btn-mini">展示</span></td>
+          <%--<td class="td-status"><span class="layui-btn layui-btn-normal layui-btn-mini">展示</span></td>--%>
           <td class="td-manage">
             <a title="编辑" onclick="member_edit(this, '${member.id}')" href="javascript:"> <i class="layui-icon">&#xe642;</i></a>
             <a title="删除" onclick="member_del(this, '${member.id}')" href="javascript:"> <i class="layui-icon">&#xe640;</i>

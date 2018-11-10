@@ -23,7 +23,7 @@
   </div>
   <div class="x-body">
     <blockquote class="layui-elem-quote">
-      请在此编辑系统配置信息
+      暂由系统管理人员负责配置
     </blockquote>
 
     <form class="layui-form layui-form-pane" action="/wconfig/update">
@@ -36,9 +36,9 @@
           <input type="text" name="fileSavePosition" value="${entity.fileSavePosition}" autocomplete="off" readonly placeholder="请输入文件保存路径" class="layui-input">
         </div>
       </div>
-      <div class="layui-form-item">
+      <%--<div class="layui-form-item">
         <button class="layui-btn" lay-submit="" lay-filter="demo2" style="margin-top: 50px;">确认保存</button>
-      </div>
+      </div>--%>
     </form>
   </div>
 </body>

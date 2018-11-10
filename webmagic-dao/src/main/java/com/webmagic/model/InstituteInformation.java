@@ -3,13 +3,11 @@ package com.webmagic.model;
 import java.util.Date;
 
 public class InstituteInformation {
-    private Integer id;
+    private String id;
 
     private String title;
 
     private String summary;
-
-    private String content;
 
     private String type;
 
@@ -17,11 +15,13 @@ public class InstituteInformation {
 
     private Date createAt;
 
-    public Integer getId() {
+    private String content;
+
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -39,14 +39,6 @@ public class InstituteInformation {
 
     public void setSummary(String summary) {
         this.summary = summary;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
     }
 
     public String getType() {
@@ -71,5 +63,13 @@ public class InstituteInformation {
 
     public void setCreateAt(Date createAt) {
         this.createAt = createAt;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
     }
 }
