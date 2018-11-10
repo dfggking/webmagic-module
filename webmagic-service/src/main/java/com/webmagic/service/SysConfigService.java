@@ -1,16 +1,16 @@
 package com.webmagic.service;
 
 import com.baomidou.mybatisplus.service.IService;
-import com.webmagic.model.Institute;
+import com.webmagic.model.SysConfig;
 
 /**
  * <p>
- * 研究所表 服务类
+ * 系统配置表 服务类
  * </p>
  *
  * @author dfggking
  * @since 2018-11-09
  */
-public interface InstituteService extends IService<Institute> {
+public interface SysConfigService extends IService<SysConfig> {
 
 }

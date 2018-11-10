@@ -23,7 +23,7 @@ public class ResearchDirectionController extends BaseController {
 
 	@RequestMapping("direction")
 	public ModelAndView index() {
-        List<ResearchDirection> list = rdMapper.selectAll();
+        List<ResearchDirection> list = rdMapper.selectList(null);
         ModelAndView mv = new ModelAndView();
         mv.addObject(RESULT, SUCCESS);
         mv.addObject(LIST, list);

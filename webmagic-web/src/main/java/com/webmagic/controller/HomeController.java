@@ -3,12 +3,14 @@ package com.webmagic.controller;
 import com.dfgg.util.CopyUtils;
 import com.sun.org.apache.xpath.internal.operations.Mod;
 import com.webmagic.controller.base.BaseController;
+import com.webmagic.mapper.InstituteInformationMapper;
+import com.webmagic.mapper.InstituteMapper;
+import com.webmagic.mapper.WebsiteConfigMapper;
 import com.webmagic.model.HomeSwiper;
 import com.webmagic.model.Institute;
 import com.webmagic.model.InstituteInformation;
 import com.webmagic.model.WebsiteConfig;
 import com.webmagic.mapper.HomeSwiperMapper;
-import com.webmagic.service.InformationService;
 import com.webmagic.service.InstituteService;
 import com.webmagic.service.WebsiteConfigService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,11 +29,11 @@ import static java.awt.SystemColor.info;
 public class HomeController extends BaseController {
 	
 	@Autowired
-	private WebsiteConfigService websiteConfigService;
+	private WebsiteConfigMapper websiteConfigMapper;
 	@Autowired
-	private InstituteService instituteService;
+	private InstituteMapper instituteMapper;
     @Autowired
-    private InformationService informationService;
+    private InstituteInformationMapper informationMapper;
 	@Autowired
 	private HomeSwiperMapper homeSwiperMapper;
  
@@ -43,19 +45,19 @@ public class HomeController extends BaseController {
 	
 	@RequestMapping("index")
 	public ModelAndView index() {
-		WebsiteConfig wc = websiteConfigService.get();
+		WebsiteConfig wc = websiteConfigMapper.selectById(0);
 
         InstituteInformation info = new InstituteInformation();
-        List<InstituteInformation> list = informationService.select(info);
+		List<InstituteInformation> list = informationMapper.selectList(null);
         List<InstituteInformationVO> list2 = CopyUtils.copyList(list);
 		
-		List<HomeSwiper> swipers = homeSwiperMapper.selectAll();
+		List<HomeSwiper> swipers = homeSwiperMapper.selectList(null);
         
         ModelAndView mv = new ModelAndView();
 		mv.addObject(RESULT, SUCCESS);
 		mv.addObject(ENTITY, wc);
         mv.addObject("info_list", list2);
-		Institute institute = instituteService.get(0);
+		Institute institute = instituteMapper.selectById(0);
 		mv.addObject("institute", institute);
 		mv.addObject("swipers", swipers);
 		return mv;

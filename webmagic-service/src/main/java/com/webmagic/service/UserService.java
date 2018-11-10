@@ -1,18 +1,16 @@
 package com.webmagic.service;
 
+import com.baomidou.mybatisplus.service.IService;
 import com.webmagic.model.User;
 
-import java.util.List;
+/**
+ * <p>
+ * 用户表 服务类
+ * </p>
+ *
+ * @author dfggking
+ * @since 2018-11-09
+ */
+public interface UserService extends IService<User> {
 
-public interface UserService {
-
-    Integer insert(User user);
-
-    Integer delete(User user);
-
-    Integer update(User user);
-
-    List<User> select(User user);
-
-    User get(Integer id);
 }

@@ -23,8 +23,8 @@ public class TeamMemberController extends BaseController {
 
 	@RequestMapping("list")
 	public ModelAndView list() {
-
-        List<Member> list = memberMapper.selectAll();
+		
+		List<Member> list = memberMapper.selectList(null);
 		ModelAndView mv = new ModelAndView();
 		mv.addObject(RESULT, SUCCESS);
 		mv.addObject(LIST, list);

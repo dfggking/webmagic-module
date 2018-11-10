@@ -1,20 +1,16 @@
 package com.webmagic.service;
 
+import com.baomidou.mybatisplus.service.IService;
 import com.webmagic.model.WebsiteConfig;
 
-import java.util.List;
+/**
+ * <p>
+ * 网站配置表 服务类
+ * </p>
+ *
+ * @author dfggking
+ * @since 2018-11-09
+ */
+public interface WebsiteConfigService extends IService<WebsiteConfig> {
 
-public interface WebsiteConfigService {
-
-    Integer insert(WebsiteConfig wc);
-
-    Integer delete(WebsiteConfig wc);
-
-    Integer update(WebsiteConfig wc);
-
-    List<WebsiteConfig> select(WebsiteConfig wc);
-
-    WebsiteConfig get();
-
-    WebsiteConfig get(Integer id);
 }

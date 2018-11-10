@@ -1,36 +1,20 @@
 package com.webmagic.service.impl;
 
+import com.baomidou.mybatisplus.service.impl.ServiceImpl;
+import com.webmagic.mapper.UserMapper;
 import com.webmagic.model.User;
 import com.webmagic.service.UserService;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
+/**
+ * <p>
+ * 用户表 服务实现类
+ * </p>
+ *
+ * @author dfggking
+ * @since 2018-11-09
+ */
 @Service
-public class UserServiceImpl implements UserService {
+public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements UserService {
 
-    @Override
-    public Integer insert(User user) {
-        return null;
-    }
-
-    @Override
-    public Integer delete(User user) {
-        return null;
-    }
-
-    @Override
-    public Integer update(User user) {
-        return null;
-    }
-
-    @Override
-    public List<User> select(User user) {
-        return null;
-    }
-
-    @Override
-    public User get(Integer id) {
-        return null;
-    }
 }
