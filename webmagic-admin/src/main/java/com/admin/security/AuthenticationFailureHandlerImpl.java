@@ -10,7 +10,11 @@ import java.io.IOException;
 
 public class AuthenticationFailureHandlerImpl implements AuthenticationFailureHandler {
     @Override
-    public void onAuthenticationFailure(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, AuthenticationException e) {
-    
+    public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response,
+             AuthenticationException e) throws ServletException, IOException {
+        // AuthenticationException 存放着异常信息，获取出来，放到 Request 中，转发到登录页面。
+        request.setAttribute("error", e.getMessage());
+        request.setAttribute("message", "用户名或者密码错误");
+        request.getRequestDispatcher("/login").forward(request, response);
     }
 }

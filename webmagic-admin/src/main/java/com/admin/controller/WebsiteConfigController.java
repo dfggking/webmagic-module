@@ -1,6 +1,7 @@
 package com.admin.controller;
 
 import com.admin.controller.base.BaseController;
+import com.webmagic.mapper.WebsiteConfigMapper;
 import com.webmagic.model.WebsiteConfig;
 import com.webmagic.service.WebsiteConfigService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,11 +15,11 @@ import org.springframework.web.servlet.ModelAndView;
 public class WebsiteConfigController extends BaseController {
 
     @Autowired
-    private WebsiteConfigService websiteConfigService;
+    private WebsiteConfigMapper websiteConfigMapper;
 
 	@RequestMapping("page")
 	public ModelAndView config() {
-        WebsiteConfig wc = websiteConfigService.get();
+        WebsiteConfig wc = websiteConfigMapper.selectById(0);
 		ModelAndView mv = new ModelAndView();
 		mv.addObject(RESULT, SUCCESS);
         mv.addObject(ENTITY, wc);
@@ -28,14 +29,14 @@ public class WebsiteConfigController extends BaseController {
 	@RequestMapping("add")
     public ModelAndView add(WebsiteConfig wc) {
         ModelAndView mv = new ModelAndView();
-        websiteConfigService.insert(wc);
+        websiteConfigMapper.insert(wc);
 	    return mv;
     }
 
     @RequestMapping("update")
     @ResponseBody
     public String update(WebsiteConfig wc) {
-        websiteConfigService.update(wc);
+        websiteConfigMapper.updateById(wc);
         return SUCCESS;
     }
 }

@@ -17,7 +17,7 @@ public class SysConfigController extends BaseController {
 
     @RequestMapping("page")
     public ModelAndView page(ModelAndView mv) {
-        SysConfig sc = sysConfigMapper.selectByPrimaryKey(1);
+        SysConfig sc = sysConfigMapper.selectById(1);
         mv.addObject(RESULT, SUCCESS);
         mv.addObject(ENTITY, sc);
         return mv;

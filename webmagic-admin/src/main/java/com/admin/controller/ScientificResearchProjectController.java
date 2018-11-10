@@ -23,7 +23,7 @@ public class ScientificResearchProjectController extends BaseController {
 
     @RequestMapping("list")
     public ModelAndView list(HttpServletRequest request, ModelAndView mv) {
-        List<ScientificResearchProject> list = srpMapper.selectAll();
+        List<ScientificResearchProject> list = srpMapper.selectList(null);
         mv.addObject(RESULT, SUCCESS);
         mv.addObject(LIST, list);
         return mv;

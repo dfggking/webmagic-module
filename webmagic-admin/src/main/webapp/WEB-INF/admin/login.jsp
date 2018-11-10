@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -25,14 +26,12 @@
       <hr class="hr15">
       <input name="password" type="password" lay-verify="required" class="layui-input" placeholder="密码">
       <hr class="hr15">
+      <c:if test="${message != null && message != ''}">
+        <p style="margin-bottom: 10px;color: #f00;">${message}</p>
+      </c:if>
       <input value="登录" lay-submit lay-filter="login" style="width:100%;" type="submit">
       <hr class="hr20" >
     </form>
   </div>
-  <script>
-    $(function() {
-
-    });
-  </script>
 </body>
 </html>

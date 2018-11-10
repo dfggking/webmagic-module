@@ -1,0 +1,357 @@
+[DF]2018-11-06 01:01:38,969[INFO] org.springframework.test.context.support.AbstractTestContextBootstrapper.getDefaultTestExecutionListenerClassNames(248) - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener];
+[DF]2018-11-06 01:01:38,988[INFO] org.springframework.test.context.support.AbstractTestContextBootstrapper.getTestExecutionListeners(177) - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@4b1c1ea0, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@17579e0f, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@4d41cee, org.springframework.test.context.support.DirtiesContextTestExecutionListener@3712b94, org.springframework.test.context.transaction.TransactionalTestExecutionListener@2833cc44, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@33f88ab];
+[DF]2018-11-06 01:01:39,063[INFO] org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(316) - Loading XML bean definitions from class path resource [dispatcherServlet.xml];
+[DF]2018-11-06 01:01:39,339[INFO] org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(316) - Loading XML bean definitions from class path resource [applicationContext.xml];
+[DF]2018-11-06 01:01:39,361[INFO] org.springframework.context.support.AbstractApplicationContext.prepareRefresh(590) - Refreshing org.springframework.context.support.GenericApplicationContext@5f3a4b84: startup date [Tue Nov 06 01:01:39 CST 2018]; root of context hierarchy;
+[DF]2018-11-06 01:01:39,738[INFO] org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(547) - Mapped "{[/index]}" onto public org.springframework.web.servlet.ModelAndView com.admin.controller.AdminController.index();
+[DF]2018-11-06 01:01:39,739[INFO] org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(547) - Mapped "{[/login]}" onto public org.springframework.web.servlet.ModelAndView com.admin.controller.AdminController.login();
+[DF]2018-11-06 01:01:39,740[INFO] org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(547) - Mapped "{[/member-list]}" onto public org.springframework.web.servlet.ModelAndView com.admin.controller.AdminController.memberList();
+[DF]2018-11-06 01:01:39,740[INFO] org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(547) - Mapped "{[/]}" onto public org.springframework.web.servlet.ModelAndView com.admin.controller.AdminController._default();
+[DF]2018-11-06 01:01:39,741[INFO] org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(547) - Mapped "{[/welcome]}" onto public org.springframework.web.servlet.ModelAndView com.admin.controller.AdminController.welcome();
+[DF]2018-11-06 01:01:39,742[INFO] org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(547) - Mapped "{[/admission/list]}" onto public org.springframework.web.servlet.ModelAndView com.admin.controller.AdmissionController.list();
+[DF]2018-11-06 01:01:39,743[INFO] org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(547) - Mapped "{[/course/list]}" onto public org.springframework.web.servlet.ModelAndView com.admin.controller.CourseController.list();
+[DF]2018-11-06 01:01:39,745[INFO] org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(547) - Mapped "{[/datacode/code/list]}" onto public org.springframework.web.servlet.ModelAndView com.admin.controller.DataCodeController.codeList();
+[DF]2018-11-06 01:01:39,745[INFO] org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(547) - Mapped "{[/datacode/data/list]}" onto public org.springframework.web.servlet.ModelAndView com.admin.controller.DataCodeController.datalist();
+[DF]2018-11-06 01:01:39,750[INFO] org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(547) - Mapped "{[/homepage/institute/info/list]}" onto public java.util.Map<java.lang.String, java.lang.Object> com.admin.controller.HomepageController.infoList(com.admin.vo.InstituteInformationVO,int,int) throws java.lang.reflect.InvocationTargetException,java.lang.IllegalAccessException;
+[DF]2018-11-06 01:01:39,751[INFO] org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(547) - Mapped "{[/homepage/swiper]}" onto public org.springframework.web.servlet.ModelAndView com.admin.controller.HomepageController.swiper(org.springframework.web.servlet.ModelAndView);
+[DF]2018-11-06 01:01:39,751[INFO] org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(547) - Mapped "{[/homepage/swiper/update],methods=[POST]}" onto public com.admin.vo.ResultMap com.admin.controller.HomepageController.swiperConfig(org.springframework.web.multipart.MultipartFile,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse);
+[DF]2018-11-06 01:01:39,752[INFO] org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(547) - Mapped "{[/homepage/institute/introduce]}" onto public org.springframework.web.servlet.ModelAndView com.admin.controller.HomepageController.introduce();
+[DF]2018-11-06 01:01:39,752[INFO] org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(547) - Mapped "{[/homepage/institute/information]}" onto public org.springframework.web.servlet.ModelAndView com.admin.controller.HomepageController.information();
+[DF]2018-11-06 01:01:39,754[INFO] org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(547) - Mapped "{[/institute/update]}" onto public java.util.Map<java.lang.String, java.lang.String> com.admin.controller.InstituteController.update(java.lang.String) throws java.io.UnsupportedEncodingException;
+[DF]2018-11-06 01:01:39,758[INFO] org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(547) - Mapped "{[/member/add],methods=[POST]}" onto public org.springframework.web.servlet.ModelAndView com.admin.controller.MemberController.add(org.springframework.web.multipart.MultipartFile,com.admin.vo.MemberVO,javax.servlet.http.HttpServletRequest);
+[DF]2018-11-06 01:01:39,759[INFO] org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(547) - Mapped "{[/member/list]}" onto public org.springframework.web.servlet.ModelAndView com.admin.controller.MemberController.list();
+[DF]2018-11-06 01:01:39,759[INFO] org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(547) - Mapped "{[/member/addPage]}" onto public org.springframework.web.servlet.ModelAndView com.admin.controller.MemberController.addPage();
+[DF]2018-11-06 01:01:39,760[INFO] org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(547) - Mapped "{[/member/del],methods=[GET]}" onto public com.admin.vo.ResultMap com.admin.controller.MemberController.del(int);
+[DF]2018-11-06 01:01:39,760[INFO] org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(547) - Mapped "{[/news/list]}" onto public org.springframework.web.servlet.ModelAndView com.admin.controller.NewsController.list();
+[DF]2018-11-06 01:01:39,761[INFO] org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(547) - Mapped "{[/rdirection/list]}" onto public org.springframework.web.servlet.ModelAndView com.admin.controller.ResearchDirectionController.list();
+[DF]2018-11-06 01:01:39,762[INFO] org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(547) - Mapped "{[/thesis/list]}" onto public org.springframework.web.servlet.ModelAndView com.admin.controller.ThesisController.list();
+[DF]2018-11-06 01:01:39,764[INFO] org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(547) - Mapped "{[/wconfig/add]}" onto public org.springframework.web.servlet.ModelAndView com.admin.controller.WebsiteConfigController.add(com.webmagic.model.WebsiteConfig);
+[DF]2018-11-06 01:01:39,764[INFO] org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(547) - Mapped "{[/wconfig/update]}" onto public java.lang.String com.admin.controller.WebsiteConfigController.update(com.webmagic.model.WebsiteConfig);
+[DF]2018-11-06 01:01:39,765[INFO] org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(547) - Mapped "{[/wconfig/page]}" onto public org.springframework.web.servlet.ModelAndView com.admin.controller.WebsiteConfigController.config();
+[DF]2018-11-06 01:01:39,863[INFO] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.initControllerAdviceCache(574) - Looking for @ControllerAdvice: org.springframework.context.support.GenericApplicationContext@5f3a4b84: startup date [Tue Nov 06 01:01:39 CST 2018]; root of context hierarchy;
+[DF]2018-11-06 01:01:39,892[INFO] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.initControllerAdviceCache(574) - Looking for @ControllerAdvice: org.springframework.context.support.GenericApplicationContext@5f3a4b84: startup date [Tue Nov 06 01:01:39 CST 2018]; root of context hierarchy;
+[DF]2018-11-06 01:01:40,333[INFO] org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler(373) - Mapped URL path [/**] onto handler 'org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler#0';
+[DF]2018-11-06 01:01:40,382[INFO] org.springframework.context.support.AbstractApplicationContext.doClose(993) - Closing org.springframework.context.support.GenericApplicationContext@5f3a4b84: startup date [Tue Nov 06 01:01:39 CST 2018]; root of context hierarchy;
+[DF]2018-11-06 01:01:53,531[INFO] org.springframework.test.context.support.AbstractTestContextBootstrapper.getDefaultTestExecutionListenerClassNames(248) - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener];
+[DF]2018-11-06 01:01:53,553[INFO] org.springframework.test.context.support.AbstractTestContextBootstrapper.getTestExecutionListeners(177) - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@4b1c1ea0, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@17579e0f, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@4d41cee, org.springframework.test.context.support.DirtiesContextTestExecutionListener@3712b94, org.springframework.test.context.transaction.TransactionalTestExecutionListener@2833cc44, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@33f88ab];
+[DF]2018-11-06 01:01:53,618[INFO] org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(316) - Loading XML bean definitions from class path resource [dispatcherServlet.xml];
+[DF]2018-11-06 01:01:53,923[INFO] org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(316) - Loading XML bean definitions from class path resource [applicationContext.xml];
+[DF]2018-11-06 01:01:53,950[INFO] org.springframework.context.support.AbstractApplicationContext.prepareRefresh(590) - Refreshing org.springframework.context.support.GenericApplicationContext@5f3a4b84: startup date [Tue Nov 06 01:01:53 CST 2018]; root of context hierarchy;
+[DF]2018-11-06 01:01:54,368[INFO] org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(547) - Mapped "{[/index]}" onto public org.springframework.web.servlet.ModelAndView com.admin.controller.AdminController.index();
+[DF]2018-11-06 01:01:54,369[INFO] org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(547) - Mapped "{[/welcome]}" onto public org.springframework.web.servlet.ModelAndView com.admin.controller.AdminController.welcome();
+[DF]2018-11-06 01:01:54,370[INFO] org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(547) - Mapped "{[/login]}" onto public org.springframework.web.servlet.ModelAndView com.admin.controller.AdminController.login();
+[DF]2018-11-06 01:01:54,371[INFO] org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(547) - Mapped "{[/]}" onto public org.springframework.web.servlet.ModelAndView com.admin.controller.AdminController._default();
+[DF]2018-11-06 01:01:54,372[INFO] org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(547) - Mapped "{[/member-list]}" onto public org.springframework.web.servlet.ModelAndView com.admin.controller.AdminController.memberList();
+[DF]2018-11-06 01:01:54,373[INFO] org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(547) - Mapped "{[/admission/list]}" onto public org.springframework.web.servlet.ModelAndView com.admin.controller.AdmissionController.list();
+[DF]2018-11-06 01:01:54,374[INFO] org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(547) - Mapped "{[/course/list]}" onto public org.springframework.web.servlet.ModelAndView com.admin.controller.CourseController.list();
+[DF]2018-11-06 01:01:54,376[INFO] org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(547) - Mapped "{[/datacode/data/list]}" onto public org.springframework.web.servlet.ModelAndView com.admin.controller.DataCodeController.datalist();
+[DF]2018-11-06 01:01:54,377[INFO] org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(547) - Mapped "{[/datacode/code/list]}" onto public org.springframework.web.servlet.ModelAndView com.admin.controller.DataCodeController.codeList();
+[DF]2018-11-06 01:01:54,383[INFO] org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(547) - Mapped "{[/homepage/swiper]}" onto public org.springframework.web.servlet.ModelAndView com.admin.controller.HomepageController.swiper(org.springframework.web.servlet.ModelAndView);
+[DF]2018-11-06 01:01:54,384[INFO] org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(547) - Mapped "{[/homepage/swiper/update],methods=[POST]}" onto public com.admin.vo.ResultMap com.admin.controller.HomepageController.swiperConfig(org.springframework.web.multipart.MultipartFile,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse);
+[DF]2018-11-06 01:01:54,385[INFO] org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(547) - Mapped "{[/homepage/institute/introduce]}" onto public org.springframework.web.servlet.ModelAndView com.admin.controller.HomepageController.introduce();
+[DF]2018-11-06 01:01:54,386[INFO] org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(547) - Mapped "{[/homepage/institute/information]}" onto public org.springframework.web.servlet.ModelAndView com.admin.controller.HomepageController.information();
+[DF]2018-11-06 01:01:54,386[INFO] org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(547) - Mapped "{[/homepage/institute/info/list]}" onto public java.util.Map<java.lang.String, java.lang.Object> com.admin.controller.HomepageController.infoList(com.admin.vo.InstituteInformationVO,int,int) throws java.lang.reflect.InvocationTargetException,java.lang.IllegalAccessException;
+[DF]2018-11-06 01:01:54,388[INFO] org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(547) - Mapped "{[/institute/update]}" onto public java.util.Map<java.lang.String, java.lang.String> com.admin.controller.InstituteController.update(java.lang.String) throws java.io.UnsupportedEncodingException;
+[DF]2018-11-06 01:01:54,395[INFO] org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(547) - Mapped "{[/member/add],methods=[POST]}" onto public org.springframework.web.servlet.ModelAndView com.admin.controller.MemberController.add(org.springframework.web.multipart.MultipartFile,com.admin.vo.MemberVO,javax.servlet.http.HttpServletRequest);
+[DF]2018-11-06 01:01:54,396[INFO] org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(547) - Mapped "{[/member/list]}" onto public org.springframework.web.servlet.ModelAndView com.admin.controller.MemberController.list();
+[DF]2018-11-06 01:01:54,396[INFO] org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(547) - Mapped "{[/member/addPage]}" onto public org.springframework.web.servlet.ModelAndView com.admin.controller.MemberController.addPage();
+[DF]2018-11-06 01:01:54,397[INFO] org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(547) - Mapped "{[/member/del],methods=[GET]}" onto public com.admin.vo.ResultMap com.admin.controller.MemberController.del(int);
+[DF]2018-11-06 01:01:54,398[INFO] org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(547) - Mapped "{[/news/list]}" onto public org.springframework.web.servlet.ModelAndView com.admin.controller.NewsController.list();
+[DF]2018-11-06 01:01:54,400[INFO] org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(547) - Mapped "{[/rdirection/list]}" onto public org.springframework.web.servlet.ModelAndView com.admin.controller.ResearchDirectionController.list();
+[DF]2018-11-06 01:01:54,401[INFO] org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(547) - Mapped "{[/thesis/list]}" onto public org.springframework.web.servlet.ModelAndView com.admin.controller.ThesisController.list();
+[DF]2018-11-06 01:01:54,404[INFO] org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(547) - Mapped "{[/wconfig/add]}" onto public org.springframework.web.servlet.ModelAndView com.admin.controller.WebsiteConfigController.add(com.webmagic.model.WebsiteConfig);
+[DF]2018-11-06 01:01:54,404[INFO] org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(547) - Mapped "{[/wconfig/update]}" onto public java.lang.String com.admin.controller.WebsiteConfigController.update(com.webmagic.model.WebsiteConfig);
+[DF]2018-11-06 01:01:54,405[INFO] org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(547) - Mapped "{[/wconfig/page]}" onto public org.springframework.web.servlet.ModelAndView com.admin.controller.WebsiteConfigController.config();
+[DF]2018-11-06 01:01:54,531[INFO] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.initControllerAdviceCache(574) - Looking for @ControllerAdvice: org.springframework.context.support.GenericApplicationContext@5f3a4b84: startup date [Tue Nov 06 01:01:53 CST 2018]; root of context hierarchy;
+[DF]2018-11-06 01:01:54,571[INFO] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.initControllerAdviceCache(574) - Looking for @ControllerAdvice: org.springframework.context.support.GenericApplicationContext@5f3a4b84: startup date [Tue Nov 06 01:01:53 CST 2018]; root of context hierarchy;
+[DF]2018-11-06 01:01:55,033[INFO] org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler(373) - Mapped URL path [/**] onto handler 'org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler#0';
+[DF]2018-11-06 01:01:55,078[INFO] org.springframework.context.support.AbstractApplicationContext.doClose(993) - Closing org.springframework.context.support.GenericApplicationContext@5f3a4b84: startup date [Tue Nov 06 01:01:53 CST 2018]; root of context hierarchy;
+[DF]2018-11-06 01:09:37,777[INFO] org.springframework.test.context.support.AbstractTestContextBootstrapper.getDefaultTestExecutionListenerClassNames(248) - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener];
+[DF]2018-11-06 01:09:37,799[INFO] org.springframework.test.context.support.AbstractTestContextBootstrapper.getTestExecutionListeners(177) - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@4b1c1ea0, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@17579e0f, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@4d41cee, org.springframework.test.context.support.DirtiesContextTestExecutionListener@3712b94, org.springframework.test.context.transaction.TransactionalTestExecutionListener@2833cc44, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@33f88ab];
+[DF]2018-11-06 01:09:37,853[INFO] org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(316) - Loading XML bean definitions from class path resource [dispatcherServlet.xml];
+[DF]2018-11-06 01:09:38,116[INFO] org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(316) - Loading XML bean definitions from class path resource [applicationContext.xml];
+[DF]2018-11-06 01:09:38,136[INFO] org.springframework.context.support.AbstractApplicationContext.prepareRefresh(590) - Refreshing org.springframework.context.support.GenericApplicationContext@5f3a4b84: startup date [Tue Nov 06 01:09:38 CST 2018]; root of context hierarchy;
+[DF]2018-11-06 01:09:38,484[WARN] org.springframework.context.support.AbstractApplicationContext.refresh(558) - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping': Invocation of init method failed; nested exception is org.springframework.beans.factory.CannotLoadBeanClassException: Cannot find class [com.alibaba.fastjson.support.config.FastJsonConfig] for bean with name 'fastJsonConfig' defined in class path resource [dispatcherServlet.xml]; nested exception is java.lang.ClassNotFoundException: com.alibaba.fastjson.support.config.FastJsonConfig
+Related cause: org.springframework.beans.factory.CannotLoadBeanClassException: Cannot find class [com.alibaba.fastjson.support.config.FastJsonConfig] for bean with name 'fastJsonConfig' defined in class path resource [dispatcherServlet.xml]; nested exception is java.lang.ClassNotFoundException: com.alibaba.fastjson.support.config.FastJsonConfig;
+[DF]2018-11-06 01:09:38,487[ERROR] org.springframework.test.context.TestContextManager.prepareTestInstance(250) - Caught exception while allowing TestExecutionListener [org.springframework.test.context.support.DependencyInjectionTestExecutionListener@4d41cee] to prepare test instance [com.test.dao.TestCURD@2f943d71];
+java.lang.IllegalStateException: Failed to load ApplicationContext
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:125)
+	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:108)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:117)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:83)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:246)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:227)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:289)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:291)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:246)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:97)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:190)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping': Invocation of init method failed; nested exception is org.springframework.beans.factory.CannotLoadBeanClassException: Cannot find class [com.alibaba.fastjson.support.config.FastJsonConfig] for bean with name 'fastJsonConfig' defined in class path resource [dispatcherServlet.xml]; nested exception is java.lang.ClassNotFoundException: com.alibaba.fastjson.support.config.FastJsonConfig
+Related cause: org.springframework.beans.factory.CannotLoadBeanClassException: Cannot find class [com.alibaba.fastjson.support.config.FastJsonConfig] for bean with name 'fastJsonConfig' defined in class path resource [dispatcherServlet.xml]; nested exception is java.lang.ClassNotFoundException: com.alibaba.fastjson.support.config.FastJsonConfig
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1706)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:579)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:501)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:317)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:228)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:315)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:760)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:869)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:550)
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:128)
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:60)
+	at org.springframework.test.context.support.AbstractDelegatingSmartContextLoader.delegateLoading(AbstractDelegatingSmartContextLoader.java:107)
+	at org.springframework.test.context.support.AbstractDelegatingSmartContextLoader.loadContext(AbstractDelegatingSmartContextLoader.java:243)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:99)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:117)
+	... 31 more
+Caused by: org.springframework.beans.factory.CannotLoadBeanClassException: Cannot find class [com.alibaba.fastjson.support.config.FastJsonConfig] for bean with name 'fastJsonConfig' defined in class path resource [dispatcherServlet.xml]; nested exception is java.lang.ClassNotFoundException: com.alibaba.fastjson.support.config.FastJsonConfig
+	at org.springframework.beans.factory.support.AbstractBeanFactory.resolveBeanClass(AbstractBeanFactory.java:1380)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.determineTargetType(AbstractAutowireCapableBeanFactory.java:666)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.predictBeanType(AbstractAutowireCapableBeanFactory.java:633)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.isFactoryBean(AbstractBeanFactory.java:1489)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doGetBeanNamesForType(DefaultListableBeanFactory.java:420)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeanNamesForType(DefaultListableBeanFactory.java:398)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeanNamesForType(DefaultListableBeanFactory.java:384)
+	at org.springframework.context.support.AbstractApplicationContext.getBeanNamesForType(AbstractApplicationContext.java:1186)
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.initHandlerMethods(AbstractHandlerMethodMapping.java:203)
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.afterPropertiesSet(AbstractHandlerMethodMapping.java:188)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping.afterPropertiesSet(RequestMappingHandlerMapping.java:129)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1765)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1702)
+	... 46 more
+Caused by: java.lang.ClassNotFoundException: com.alibaba.fastjson.support.config.FastJsonConfig
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:381)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:424)
+	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:349)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:357)
+	at org.springframework.util.ClassUtils.forName(ClassUtils.java:274)
+	at org.springframework.beans.factory.support.AbstractBeanDefinition.resolveBeanClass(AbstractBeanDefinition.java:437)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doResolveBeanClass(AbstractBeanFactory.java:1428)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.resolveBeanClass(AbstractBeanFactory.java:1372)
+	... 58 more
+[DF]2018-11-06 01:09:49,969[INFO] org.springframework.test.context.support.AbstractTestContextBootstrapper.getDefaultTestExecutionListenerClassNames(248) - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener];
+[DF]2018-11-06 01:09:49,986[INFO] org.springframework.test.context.support.AbstractTestContextBootstrapper.getTestExecutionListeners(177) - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@4b1c1ea0, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@17579e0f, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@4d41cee, org.springframework.test.context.support.DirtiesContextTestExecutionListener@3712b94, org.springframework.test.context.transaction.TransactionalTestExecutionListener@2833cc44, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@33f88ab];
+[DF]2018-11-06 01:09:50,038[INFO] org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(316) - Loading XML bean definitions from class path resource [dispatcherServlet.xml];
+[DF]2018-11-06 01:09:50,280[INFO] org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(316) - Loading XML bean definitions from class path resource [applicationContext.xml];
+[DF]2018-11-06 01:09:50,302[INFO] org.springframework.context.support.AbstractApplicationContext.prepareRefresh(590) - Refreshing org.springframework.context.support.GenericApplicationContext@5f3a4b84: startup date [Tue Nov 06 01:09:50 CST 2018]; root of context hierarchy;
+[DF]2018-11-06 01:09:50,618[WARN] org.springframework.context.support.AbstractApplicationContext.refresh(558) - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping': Invocation of init method failed; nested exception is org.springframework.beans.factory.CannotLoadBeanClassException: Cannot find class [com.alibaba.fastjson.support.config.FastJsonConfig] for bean with name 'fastJsonConfig' defined in class path resource [dispatcherServlet.xml]; nested exception is java.lang.ClassNotFoundException: com.alibaba.fastjson.support.config.FastJsonConfig
+Related cause: org.springframework.beans.factory.CannotLoadBeanClassException: Cannot find class [com.alibaba.fastjson.support.config.FastJsonConfig] for bean with name 'fastJsonConfig' defined in class path resource [dispatcherServlet.xml]; nested exception is java.lang.ClassNotFoundException: com.alibaba.fastjson.support.config.FastJsonConfig;
+[DF]2018-11-06 01:09:50,620[ERROR] org.springframework.test.context.TestContextManager.prepareTestInstance(250) - Caught exception while allowing TestExecutionListener [org.springframework.test.context.support.DependencyInjectionTestExecutionListener@4d41cee] to prepare test instance [com.test.dao.TestCURD@2f943d71];
+java.lang.IllegalStateException: Failed to load ApplicationContext
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:125)
+	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:108)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:117)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:83)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:246)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:227)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:289)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:291)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:246)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:97)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:190)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping': Invocation of init method failed; nested exception is org.springframework.beans.factory.CannotLoadBeanClassException: Cannot find class [com.alibaba.fastjson.support.config.FastJsonConfig] for bean with name 'fastJsonConfig' defined in class path resource [dispatcherServlet.xml]; nested exception is java.lang.ClassNotFoundException: com.alibaba.fastjson.support.config.FastJsonConfig
+Related cause: org.springframework.beans.factory.CannotLoadBeanClassException: Cannot find class [com.alibaba.fastjson.support.config.FastJsonConfig] for bean with name 'fastJsonConfig' defined in class path resource [dispatcherServlet.xml]; nested exception is java.lang.ClassNotFoundException: com.alibaba.fastjson.support.config.FastJsonConfig
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1706)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:579)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:501)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:317)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:228)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:315)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:760)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:869)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:550)
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:128)
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:60)
+	at org.springframework.test.context.support.AbstractDelegatingSmartContextLoader.delegateLoading(AbstractDelegatingSmartContextLoader.java:107)
+	at org.springframework.test.context.support.AbstractDelegatingSmartContextLoader.loadContext(AbstractDelegatingSmartContextLoader.java:243)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:99)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:117)
+	... 31 more
+Caused by: org.springframework.beans.factory.CannotLoadBeanClassException: Cannot find class [com.alibaba.fastjson.support.config.FastJsonConfig] for bean with name 'fastJsonConfig' defined in class path resource [dispatcherServlet.xml]; nested exception is java.lang.ClassNotFoundException: com.alibaba.fastjson.support.config.FastJsonConfig
+	at org.springframework.beans.factory.support.AbstractBeanFactory.resolveBeanClass(AbstractBeanFactory.java:1380)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.determineTargetType(AbstractAutowireCapableBeanFactory.java:666)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.predictBeanType(AbstractAutowireCapableBeanFactory.java:633)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.isFactoryBean(AbstractBeanFactory.java:1489)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doGetBeanNamesForType(DefaultListableBeanFactory.java:420)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeanNamesForType(DefaultListableBeanFactory.java:398)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeanNamesForType(DefaultListableBeanFactory.java:384)
+	at org.springframework.context.support.AbstractApplicationContext.getBeanNamesForType(AbstractApplicationContext.java:1186)
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.initHandlerMethods(AbstractHandlerMethodMapping.java:203)
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.afterPropertiesSet(AbstractHandlerMethodMapping.java:188)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping.afterPropertiesSet(RequestMappingHandlerMapping.java:129)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1765)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1702)
+	... 46 more
+Caused by: java.lang.ClassNotFoundException: com.alibaba.fastjson.support.config.FastJsonConfig
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:381)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:424)
+	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:349)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:357)
+	at org.springframework.util.ClassUtils.forName(ClassUtils.java:274)
+	at org.springframework.beans.factory.support.AbstractBeanDefinition.resolveBeanClass(AbstractBeanDefinition.java:437)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doResolveBeanClass(AbstractBeanFactory.java:1428)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.resolveBeanClass(AbstractBeanFactory.java:1372)
+	... 58 more
+[DF]2018-11-06 01:10:05,794[INFO] org.springframework.test.context.support.AbstractTestContextBootstrapper.getDefaultTestExecutionListenerClassNames(248) - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener];
+[DF]2018-11-06 01:10:05,811[INFO] org.springframework.test.context.support.AbstractTestContextBootstrapper.getTestExecutionListeners(177) - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@4b1c1ea0, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@17579e0f, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@4d41cee, org.springframework.test.context.support.DirtiesContextTestExecutionListener@3712b94, org.springframework.test.context.transaction.TransactionalTestExecutionListener@2833cc44, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@33f88ab];
+[DF]2018-11-06 01:10:05,866[INFO] org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(316) - Loading XML bean definitions from class path resource [dispatcherServlet.xml];
+[DF]2018-11-06 01:10:06,127[INFO] org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(316) - Loading XML bean definitions from class path resource [applicationContext.xml];
+[DF]2018-11-06 01:10:06,147[INFO] org.springframework.context.support.AbstractApplicationContext.prepareRefresh(590) - Refreshing org.springframework.context.support.GenericApplicationContext@5f3a4b84: startup date [Tue Nov 06 01:10:06 CST 2018]; root of context hierarchy;
+[DF]2018-11-06 01:10:06,474[WARN] org.springframework.context.support.AbstractApplicationContext.refresh(558) - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping': Invocation of init method failed; nested exception is org.springframework.beans.factory.CannotLoadBeanClassException: Cannot find class [com.alibaba.fastjson.support.config.FastJsonConfig] for bean with name 'fastJsonConfig' defined in class path resource [dispatcherServlet.xml]; nested exception is java.lang.ClassNotFoundException: com.alibaba.fastjson.support.config.FastJsonConfig
+Related cause: org.springframework.beans.factory.CannotLoadBeanClassException: Cannot find class [com.alibaba.fastjson.support.config.FastJsonConfig] for bean with name 'fastJsonConfig' defined in class path resource [dispatcherServlet.xml]; nested exception is java.lang.ClassNotFoundException: com.alibaba.fastjson.support.config.FastJsonConfig;
+[DF]2018-11-06 01:10:06,476[ERROR] org.springframework.test.context.TestContextManager.prepareTestInstance(250) - Caught exception while allowing TestExecutionListener [org.springframework.test.context.support.DependencyInjectionTestExecutionListener@4d41cee] to prepare test instance [com.test.dao.TestCURD@2f943d71];
+java.lang.IllegalStateException: Failed to load ApplicationContext
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:125)
+	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:108)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:117)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:83)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:246)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:227)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:289)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:291)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:246)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:97)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:190)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping': Invocation of init method failed; nested exception is org.springframework.beans.factory.CannotLoadBeanClassException: Cannot find class [com.alibaba.fastjson.support.config.FastJsonConfig] for bean with name 'fastJsonConfig' defined in class path resource [dispatcherServlet.xml]; nested exception is java.lang.ClassNotFoundException: com.alibaba.fastjson.support.config.FastJsonConfig
+Related cause: org.springframework.beans.factory.CannotLoadBeanClassException: Cannot find class [com.alibaba.fastjson.support.config.FastJsonConfig] for bean with name 'fastJsonConfig' defined in class path resource [dispatcherServlet.xml]; nested exception is java.lang.ClassNotFoundException: com.alibaba.fastjson.support.config.FastJsonConfig
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1706)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:579)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:501)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:317)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:228)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:315)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:760)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:869)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:550)
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:128)
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:60)
+	at org.springframework.test.context.support.AbstractDelegatingSmartContextLoader.delegateLoading(AbstractDelegatingSmartContextLoader.java:107)
+	at org.springframework.test.context.support.AbstractDelegatingSmartContextLoader.loadContext(AbstractDelegatingSmartContextLoader.java:243)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:99)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:117)
+	... 31 more
+Caused by: org.springframework.beans.factory.CannotLoadBeanClassException: Cannot find class [com.alibaba.fastjson.support.config.FastJsonConfig] for bean with name 'fastJsonConfig' defined in class path resource [dispatcherServlet.xml]; nested exception is java.lang.ClassNotFoundException: com.alibaba.fastjson.support.config.FastJsonConfig
+	at org.springframework.beans.factory.support.AbstractBeanFactory.resolveBeanClass(AbstractBeanFactory.java:1380)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.determineTargetType(AbstractAutowireCapableBeanFactory.java:666)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.predictBeanType(AbstractAutowireCapableBeanFactory.java:633)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.isFactoryBean(AbstractBeanFactory.java:1489)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doGetBeanNamesForType(DefaultListableBeanFactory.java:420)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeanNamesForType(DefaultListableBeanFactory.java:398)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeanNamesForType(DefaultListableBeanFactory.java:384)
+	at org.springframework.context.support.AbstractApplicationContext.getBeanNamesForType(AbstractApplicationContext.java:1186)
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.initHandlerMethods(AbstractHandlerMethodMapping.java:203)
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.afterPropertiesSet(AbstractHandlerMethodMapping.java:188)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping.afterPropertiesSet(RequestMappingHandlerMapping.java:129)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1765)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1702)
+	... 46 more
+Caused by: java.lang.ClassNotFoundException: com.alibaba.fastjson.support.config.FastJsonConfig
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:381)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:424)
+	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:349)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:357)
+	at org.springframework.util.ClassUtils.forName(ClassUtils.java:274)
+	at org.springframework.beans.factory.support.AbstractBeanDefinition.resolveBeanClass(AbstractBeanDefinition.java:437)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doResolveBeanClass(AbstractBeanFactory.java:1428)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.resolveBeanClass(AbstractBeanFactory.java:1372)
+	... 58 more
+[DF]2018-11-06 01:10:43,635[INFO] org.springframework.test.context.support.AbstractTestContextBootstrapper.getDefaultTestExecutionListenerClassNames(248) - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener];
+[DF]2018-11-06 01:10:43,655[INFO] org.springframework.test.context.support.AbstractTestContextBootstrapper.getTestExecutionListeners(177) - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@4b1c1ea0, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@17579e0f, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@4d41cee, org.springframework.test.context.support.DirtiesContextTestExecutionListener@3712b94, org.springframework.test.context.transaction.TransactionalTestExecutionListener@2833cc44, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@33f88ab];
+[DF]2018-11-06 01:10:43,718[INFO] org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(316) - Loading XML bean definitions from class path resource [dispatcherServlet.xml];
+[DF]2018-11-06 01:10:44,026[INFO] org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(316) - Loading XML bean definitions from class path resource [applicationContext.xml];
+[DF]2018-11-06 01:10:44,050[INFO] org.springframework.context.support.AbstractApplicationContext.prepareRefresh(590) - Refreshing org.springframework.context.support.GenericApplicationContext@5f3a4b84: startup date [Tue Nov 06 01:10:44 CST 2018]; root of context hierarchy;
+[DF]2018-11-06 01:10:44,492[INFO] org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(547) - Mapped "{[/index]}" onto public org.springframework.web.servlet.ModelAndView com.admin.controller.AdminController.index();
+[DF]2018-11-06 01:10:44,494[INFO] org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(547) - Mapped "{[/login]}" onto public org.springframework.web.servlet.ModelAndView com.admin.controller.AdminController.login();
+[DF]2018-11-06 01:10:44,495[INFO] org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(547) - Mapped "{[/welcome]}" onto public org.springframework.web.servlet.ModelAndView com.admin.controller.AdminController.welcome();
+[DF]2018-11-06 01:10:44,496[INFO] org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(547) - Mapped "{[/]}" onto public org.springframework.web.servlet.ModelAndView com.admin.controller.AdminController._default();
+[DF]2018-11-06 01:10:44,497[INFO] org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(547) - Mapped "{[/member-list]}" onto public org.springframework.web.servlet.ModelAndView com.admin.controller.AdminController.memberList();
+[DF]2018-11-06 01:10:44,500[INFO] org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(547) - Mapped "{[/admission/list]}" onto public org.springframework.web.servlet.ModelAndView com.admin.controller.AdmissionController.list();
+[DF]2018-11-06 01:10:44,503[INFO] org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(547) - Mapped "{[/course/list]}" onto public org.springframework.web.servlet.ModelAndView com.admin.controller.CourseController.list();
+[DF]2018-11-06 01:10:44,516[INFO] org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(547) - Mapped "{[/datacode/data/list]}" onto public org.springframework.web.servlet.ModelAndView com.admin.controller.DataCodeController.datalist();
+[DF]2018-11-06 01:10:44,517[INFO] org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(547) - Mapped "{[/datacode/code/list]}" onto public org.springframework.web.servlet.ModelAndView com.admin.controller.DataCodeController.codeList();
+[DF]2018-11-06 01:10:44,529[INFO] org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(547) - Mapped "{[/homepage/institute/info/list]}" onto public java.util.Map<java.lang.String, java.lang.Object> com.admin.controller.HomepageController.infoList(com.admin.vo.InstituteInformationVO,int,int) throws java.lang.reflect.InvocationTargetException,java.lang.IllegalAccessException;
+[DF]2018-11-06 01:10:44,530[INFO] org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(547) - Mapped "{[/homepage/swiper]}" onto public org.springframework.web.servlet.ModelAndView com.admin.controller.HomepageController.swiper(org.springframework.web.servlet.ModelAndView);
+[DF]2018-11-06 01:10:44,533[INFO] org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(547) - Mapped "{[/homepage/swiper/update],methods=[POST]}" onto public com.admin.vo.ResultMap com.admin.controller.HomepageController.swiperConfig(org.springframework.web.multipart.MultipartFile,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse);
+[DF]2018-11-06 01:10:44,535[INFO] org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(547) - Mapped "{[/homepage/institute/introduce]}" onto public org.springframework.web.servlet.ModelAndView com.admin.controller.HomepageController.introduce();
+[DF]2018-11-06 01:10:44,536[INFO] org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(547) - Mapped "{[/homepage/institute/information]}" onto public org.springframework.web.servlet.ModelAndView com.admin.controller.HomepageController.information();
+[DF]2018-11-06 01:10:44,540[INFO] org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(547) - Mapped "{[/institute/update]}" onto public java.util.Map<java.lang.String, java.lang.String> com.admin.controller.InstituteController.update(java.lang.String) throws java.io.UnsupportedEncodingException;
+[DF]2018-11-06 01:10:44,550[INFO] org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(547) - Mapped "{[/member/add],methods=[POST]}" onto public org.springframework.web.servlet.ModelAndView com.admin.controller.MemberController.add(org.springframework.web.multipart.MultipartFile,com.admin.vo.MemberVO,javax.servlet.http.HttpServletRequest);
+[DF]2018-11-06 01:10:44,551[INFO] org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(547) - Mapped "{[/member/list]}" onto public org.springframework.web.servlet.ModelAndView com.admin.controller.MemberController.list();
+[DF]2018-11-06 01:10:44,552[INFO] org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(547) - Mapped "{[/member/addPage]}" onto public org.springframework.web.servlet.ModelAndView com.admin.controller.MemberController.addPage();
+[DF]2018-11-06 01:10:44,553[INFO] org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(547) - Mapped "{[/member/del],methods=[GET]}" onto public com.admin.vo.ResultMap com.admin.controller.MemberController.del(int);
+[DF]2018-11-06 01:10:44,554[INFO] org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(547) - Mapped "{[/news/list]}" onto public org.springframework.web.servlet.ModelAndView com.admin.controller.NewsController.list();
+[DF]2018-11-06 01:10:44,556[INFO] org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(547) - Mapped "{[/rdirection/list]}" onto public org.springframework.web.servlet.ModelAndView com.admin.controller.ResearchDirectionController.list();
+[DF]2018-11-06 01:10:44,558[INFO] org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(547) - Mapped "{[/thesis/list]}" onto public org.springframework.web.servlet.ModelAndView com.admin.controller.ThesisController.list();
+[DF]2018-11-06 01:10:44,561[INFO] org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(547) - Mapped "{[/wconfig/add]}" onto public org.springframework.web.servlet.ModelAndView com.admin.controller.WebsiteConfigController.add(com.webmagic.model.WebsiteConfig);
+[DF]2018-11-06 01:10:44,562[INFO] org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(547) - Mapped "{[/wconfig/update]}" onto public java.lang.String com.admin.controller.WebsiteConfigController.update(com.webmagic.model.WebsiteConfig);
+[DF]2018-11-06 01:10:44,563[INFO] org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(547) - Mapped "{[/wconfig/page]}" onto public org.springframework.web.servlet.ModelAndView com.admin.controller.WebsiteConfigController.config();
+[DF]2018-11-06 01:10:44,697[INFO] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.initControllerAdviceCache(574) - Looking for @ControllerAdvice: org.springframework.context.support.GenericApplicationContext@5f3a4b84: startup date [Tue Nov 06 01:10:44 CST 2018]; root of context hierarchy;
+[DF]2018-11-06 01:10:44,740[INFO] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.initControllerAdviceCache(574) - Looking for @ControllerAdvice: org.springframework.context.support.GenericApplicationContext@5f3a4b84: startup date [Tue Nov 06 01:10:44 CST 2018]; root of context hierarchy;
+[DF]2018-11-06 01:10:45,256[INFO] org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler(373) - Mapped URL path [/**] onto handler 'org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler#0';
+[DF]2018-11-06 01:10:45,304[INFO] org.springframework.context.support.AbstractApplicationContext.doClose(993) - Closing org.springframework.context.support.GenericApplicationContext@5f3a4b84: startup date [Tue Nov 06 01:10:44 CST 2018]; root of context hierarchy;

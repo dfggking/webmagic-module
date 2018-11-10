@@ -35,7 +35,7 @@ public class MemberController extends BaseController {
 
     @RequestMapping("list")
     public ModelAndView list() {
-        List<Member> memberList=  memberMapper.selectAll();
+        List<Member> memberList=  memberMapper.selectList(null);
         ModelAndView mv = new ModelAndView();
         mv.addObject(RESULT, SUCCESS);
         mv.addObject(LIST, memberList);
@@ -54,7 +54,7 @@ public class MemberController extends BaseController {
         if (avatar != null ) {
             String fileName = avatar.getOriginalFilename();
             String newFileName = UUID.randomUUID() + fileName;
-            SysConfig sysConfig = sysConfigMapper.selectByPrimaryKey(1);
+            SysConfig sysConfig = sysConfigMapper.selectById(1);
             File targetFile = new File(sysConfig.getFileSavePosition() + "/uploads/avatar/", newFileName);
             File fileParent = targetFile.getParentFile();
             if(!fileParent.exists()){
@@ -82,7 +82,7 @@ public class MemberController extends BaseController {
     @RequestMapping(value = "del", method = RequestMethod.GET)
     @ResponseBody
     public String del(int id){
-        memberMapper.deleteByPrimaryKey(id);
+        memberMapper.selectById(id);
         return SUCCESS;
     }
 }

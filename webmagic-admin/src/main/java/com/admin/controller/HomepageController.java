@@ -3,12 +3,12 @@ package com.admin.controller;
 import com.admin.controller.base.BaseController;
 import com.admin.vo.InstituteInformationVO;
 import com.admin.vo.ResultMap;
-import com.dfgg.util.CopyUtils;
-import com.webmagic.model.*;
 import com.webmagic.mapper.HomeSwiperMapper;
 import com.webmagic.mapper.SysConfigMapper;
+import com.webmagic.model.HomeSwiper;
+import com.webmagic.model.InstituteInformation;
+import com.webmagic.model.SysConfig;
 import com.webmagic.service.HomepageService;
-import com.webmagic.service.InformationService;
 import com.webmagic.service.InstituteService;
 import org.apache.commons.beanutils.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +24,10 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
-import java.util.*;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.UUID;
 
 @Controller
 @RequestMapping("homepage")
@@ -34,16 +37,14 @@ public class HomepageController extends BaseController {
 	@Autowired
 	private InstituteService instituteService;
 	@Autowired
-	private InformationService informationService;
-	@Autowired
 	private HomeSwiperMapper homeSwiperMapper;
 	@Autowired
     private SysConfigMapper sysConfigMapper;
 	
 	@RequestMapping("swiper")
 	public ModelAndView swiper(ModelAndView mv){
-        SysConfig sysConfig = sysConfigMapper.selectByPrimaryKey(1);
-        List<HomeSwiper> list = homeSwiperMapper.selectAll();
+        SysConfig sysConfig = sysConfigMapper.selectById(1);
+        List<HomeSwiper> list = homeSwiperMapper.selectList(null);
         mv.addObject(LIST, list);
         mv.addObject("sysConfig", sysConfig);
         mv.addObject(RESULT, SUCCESS);
@@ -57,7 +58,7 @@ public class HomepageController extends BaseController {
 			String fileName = file.getOriginalFilename();
 			if (file != null && fileName != null && fileName.length() > 0) {
 				String newFileName = UUID.randomUUID() + fileName;
-                SysConfig sysConfig = sysConfigMapper.selectByPrimaryKey(1);
+                SysConfig sysConfig = sysConfigMapper.selectById(1);
 				File targetFile = new File(sysConfig.getFileSavePosition() + "/uploads", newFileName);
 				File fileParent = targetFile.getParentFile();
 				if(!fileParent.exists()){
@@ -80,17 +81,15 @@ public class HomepageController extends BaseController {
 
     @RequestMapping("swiper/del")
 	public ModelAndView delSwiper(Integer id){
-        homeSwiperMapper.deleteByPrimaryKey(id);
+        homeSwiperMapper.selectById(id);
         ModelAndView mv = new ModelAndView();
         mv.setViewName("homepage/swiper");
         return mv;
     }
 	@RequestMapping("institute/introduce")
 	public ModelAndView introduce() {
-		Institute institute = instituteService.get(0);
 		ModelAndView mv = new ModelAndView();
 		mv.addObject(RESULT, SUCCESS);
-		mv.addObject(ENTITY, institute);
 		return mv;
 	}
 	
@@ -106,16 +105,14 @@ public class HomepageController extends BaseController {
 		InstituteInformation info = new InstituteInformation();
 		BeanUtils.copyProperties(info, infoVO);
 		
-		List<InstituteInformation> list = informationService.select(info);
-		List<InstituteInformationVO> list2 = CopyUtils.copyList(list);
 		
 		Map<String, Object> resultMap = new HashMap<>();
-		resultMap.put("status", 0);
-		resultMap.put("message", "");
-		resultMap.put("total", list.size());
-		Map<String, Object> item = new HashMap<>();
-		item.put("item", list2);
-		resultMap.put("data", item);
+//		resultMap.put("status", 0);
+//		resultMap.put("message", "");
+//		resultMap.put("total", list.size());
+//		Map<String, Object> item = new HashMap<>();
+//		item.put("item", list2);
+//		resultMap.put("data", item);
 		
 		return resultMap;
 	}

@@ -1,6 +1,7 @@
 package com.admin.controller;
 
 import com.admin.controller.base.BaseController;
+import com.webmagic.mapper.InstituteMapper;
 import com.webmagic.model.Institute;
 import com.webmagic.service.InstituteService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +20,7 @@ import java.util.Map;
 public class InstituteController extends BaseController {
 	
 	@Autowired
-	private InstituteService instituteService;
+	private InstituteMapper instituteMapper;
 	
 	@RequestMapping("update")
     @ResponseBody
@@ -28,7 +29,7 @@ public class InstituteController extends BaseController {
 		Institute institute = new Institute();
 		institute.setId(0);
 		institute.setIntroduction(intruductionStr);
-		instituteService.update(institute);
+		instituteMapper.updateById(institute);
         Map<String, String> resultMap = new HashMap<>();
         resultMap.put(RESULT, SUCCESS);
 		return resultMap;

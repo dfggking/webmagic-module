@@ -40,7 +40,7 @@
             <a onclick="x_admin_show('切换帐号','http://www.baidu.com')">切换帐号</a>
           </dd>
           <dd>
-            <a href="./login.html">退出</a>
+            <a href="/j_spring_security_logout">退出</a>
           </dd>
         </dl></li>
       <li class="layui-nav-item to-index"><a target="_blank" href="/index">前台首页</a></li>

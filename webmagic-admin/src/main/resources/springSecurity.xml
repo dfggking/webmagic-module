@@ -11,11 +11,13 @@
     1、设置放行资源，如登录注册页面，静态资源css、js等等
         security="none" 设置此资源不被拦截.
     -->
-  <security:http pattern="/login" security="none" />
+  <security:http pattern="/login" security="none"></security:http>
   
   <security:http auto-config="true" use-expressions="true">
+    <security:csrf disabled="true"/>
     <security:form-login
       login-page="/login"
+      default-target-url="/admin"
       login-processing-url="/j_spring_security_check"
       username-parameter="username"
       password-parameter="password"
@@ -23,15 +25,13 @@
       authentication-failure-handler-ref="authenticationFailureHandlerImpl"
     />
     <security:logout
+      logout-url="/j_spring_security_logout"
       logout-success-url="/login"
-      logout-url="/logout"
       invalidate-session="true"
-      delete-cookies="JSESSIONID"
     />
-    <security:intercept-url pattern="/**" access="isAuthenticated()"/>
-    <security:intercept-url pattern="/sys" access="hasRole('ROLE_ADMIN')"/>
-    <security:access-denied-handler error-page="/error/403" />
-    
+    <security:intercept-url pattern="/*" access="isAuthenticated()"/>
+    <!--<security:intercept-url pattern="/*" access="hasRole('ROLE_ADMIN')"/>-->
+    <security:access-denied-handler error-page="/403.jsp" />
   </security:http>
   
   
@@ -40,17 +40,14 @@
   <!-- 认证失败后的处理类 -->
   <bean id="authenticationFailureHandlerImpl" class="com.admin.security.AuthenticationFailureHandlerImpl"/>
   
-  <security:authentication-manager>
+  <security:authentication-manager alias="authenticationManager">
     <security:authentication-provider user-service-ref="userDetailsServiceImpl">
-      <security:password-encoder ref="myMessageDigestPasswordEncoder"/>
+      <security:password-encoder hash="md5">
+        <security:salt-source user-property="username"/>
+      </security:password-encoder>
     </security:authentication-provider>
   </security:authentication-manager>
   
-  <bean id="myMessageDigestPasswordEncoder" class="com.admin.security.MyMessageDigestPasswordEncoder">
-    <constructor-arg name="algorithm" value="md5"/>
-  </bean>
-  
   <bean id="userDetailsServiceImpl" class="com.admin.security.UserDetailsServiceImpl"></bean>
  
-  
 </beans>
