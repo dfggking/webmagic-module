@@ -1,19 +1,33 @@
 package com.webmagic.model;
 
 import java.util.Date;
+import com.baomidou.mybatisplus.annotations.TableId;
+import com.baomidou.mybatisplus.enums.IdType;
+import com.baomidou.mybatisplus.activerecord.Model;
+import java.io.Serializable;
 
-public class ScientificResearchProject {
+/**
+ * <p>
+ * 
+ * </p>
+ *
+ * @author dfggking
+ * @since 2018-11-09
+ */
+public class ScientificResearchProject extends Model<ScientificResearchProject> {
+
+    private static final long serialVersionUID = 1L;
+
     private Integer id;
-
     private String title;
-
     private String content;
-
     private Date fromTime;
-
     private Date toTime;
+    /**
+     * 1.省级；2.市级；3.校级
+     */
+    private Integer level;
 
-    private Byte level;
 
     public Integer getId() {
         return id;
@@ -55,11 +69,28 @@ public class ScientificResearchProject {
         this.toTime = toTime;
     }
 
-    public Byte getLevel() {
+    public Integer getLevel() {
         return level;
     }
 
-    public void setLevel(Byte level) {
+    public void setLevel(Integer level) {
         this.level = level;
+    }
+
+    @Override
+    protected Serializable pkVal() {
+        return null;
+    }
+
+    @Override
+    public String toString() {
+        return "ScientificResearchProject{" +
+        "id=" + id +
+        ", title=" + title +
+        ", content=" + content +
+        ", fromTime=" + fromTime +
+        ", toTime=" + toTime +
+        ", level=" + level +
+        "}";
     }
 }

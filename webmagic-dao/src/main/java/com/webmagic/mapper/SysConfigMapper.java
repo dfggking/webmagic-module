@@ -1,16 +1,16 @@
 package com.webmagic.mapper;
 
 import com.webmagic.model.SysConfig;
-import java.util.List;
+import com.baomidou.mybatisplus.mapper.BaseMapper;
 
-public interface SysConfigMapper {
-    int deleteByPrimaryKey(Integer id);
+/**
+ * <p>
+ * 系统配置表 Mapper 接口
+ * </p>
+ *
+ * @author dfggking
+ * @since 2018-11-09
+ */
+public interface SysConfigMapper extends BaseMapper<SysConfig> {
 
-    int insert(SysConfig record);
-
-    SysConfig selectByPrimaryKey(Integer id);
-
-    List<SysConfig> selectAll();
-
-    int updateByPrimaryKey(SysConfig record);
 }

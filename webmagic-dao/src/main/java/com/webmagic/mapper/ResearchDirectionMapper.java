@@ -1,10 +1,16 @@
 package com.webmagic.mapper;
 
 import com.webmagic.model.ResearchDirection;
-import java.util.List;
+import com.baomidou.mybatisplus.mapper.BaseMapper;
 
-public interface ResearchDirectionMapper {
-    int insert(ResearchDirection record);
+/**
+ * <p>
+ *  Mapper 接口
+ * </p>
+ *
+ * @author dfggking
+ * @since 2018-11-09
+ */
+public interface ResearchDirectionMapper extends BaseMapper<ResearchDirection> {
 
-    List<ResearchDirection> selectAll();
 }

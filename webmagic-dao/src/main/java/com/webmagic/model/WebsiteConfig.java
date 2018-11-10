@@ -1,19 +1,48 @@
 package com.webmagic.model;
 
-public class WebsiteConfig {
+import com.baomidou.mybatisplus.enums.IdType;
+import com.baomidou.mybatisplus.annotations.TableId;
+import com.baomidou.mybatisplus.annotations.TableId;
+import com.baomidou.mybatisplus.enums.IdType;
+import com.baomidou.mybatisplus.activerecord.Model;
+import java.io.Serializable;
+
+/**
+ * <p>
+ * 网站配置表
+ * </p>
+ *
+ * @author dfggking
+ * @since 2018-11-09
+ */
+public class WebsiteConfig extends Model<WebsiteConfig> {
+
+    private static final long serialVersionUID = 1L;
+
+    @TableId(value = "id", type = IdType.AUTO)
     private Integer id;
-
+    /**
+     * 网站title
+     */
     private String websiteTitle;
-
     private String keyword;
-
+    /**
+     * 网站description
+     */
     private String description;
-
+    /**
+     * 联系Email
+     */
     private String email;
-
+    /**
+     * copyright
+     */
     private String copyright;
-
+    /**
+     * 联系地址
+     */
     private String address;
+
 
     public Integer getId() {
         return id;
@@ -69,5 +98,23 @@ public class WebsiteConfig {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    @Override
+    protected Serializable pkVal() {
+        return this.id;
+    }
+
+    @Override
+    public String toString() {
+        return "WebsiteConfig{" +
+        "id=" + id +
+        ", websiteTitle=" + websiteTitle +
+        ", keyword=" + keyword +
+        ", description=" + description +
+        ", email=" + email +
+        ", copyright=" + copyright +
+        ", address=" + address +
+        "}";
     }
 }

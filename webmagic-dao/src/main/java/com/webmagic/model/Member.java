@@ -1,21 +1,46 @@
 package com.webmagic.model;
 
-public class Member {
+import com.baomidou.mybatisplus.enums.IdType;
+import com.baomidou.mybatisplus.annotations.TableId;
+import com.baomidou.mybatisplus.annotations.TableId;
+import com.baomidou.mybatisplus.enums.IdType;
+import com.baomidou.mybatisplus.activerecord.Model;
+import java.io.Serializable;
+
+/**
+ * <p>
+ * 成员信息表
+ * </p>
+ *
+ * @author dfggking
+ * @since 2018-11-09
+ */
+public class Member extends Model<Member> {
+
+    private static final long serialVersionUID = 1L;
+
+    @TableId(value = "id", type = IdType.AUTO)
     private Integer id;
-
+    /**
+     * 姓名
+     */
     private String name;
-
+    /**
+     * 专业(可能有多个，用逗号分隔)
+     */
     private String major1;
-
     private String major2;
-
+    /**
+     * 个人网站网址
+     */
     private String blogUrl;
-
+    /**
+     * 头像路径
+     */
     private String avatarUrl;
-
     private String institute;
+    private Integer isShow;
 
-    private Boolean isShow;
 
     public Integer getId() {
         return id;
@@ -73,11 +98,30 @@ public class Member {
         this.institute = institute;
     }
 
-    public Boolean getIsShow() {
+    public Integer getIsShow() {
         return isShow;
     }
 
-    public void setIsShow(Boolean isShow) {
+    public void setIsShow(Integer isShow) {
         this.isShow = isShow;
+    }
+
+    @Override
+    protected Serializable pkVal() {
+        return this.id;
+    }
+
+    @Override
+    public String toString() {
+        return "Member{" +
+        "id=" + id +
+        ", name=" + name +
+        ", major1=" + major1 +
+        ", major2=" + major2 +
+        ", blogUrl=" + blogUrl +
+        ", avatarUrl=" + avatarUrl +
+        ", institute=" + institute +
+        ", isShow=" + isShow +
+        "}";
     }
 }

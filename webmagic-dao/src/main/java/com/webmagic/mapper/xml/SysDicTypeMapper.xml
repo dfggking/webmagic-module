@@ -1,41 +1,22 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.webmagic.mapper.SysDicTypeMapper" >
-  <resultMap id="BaseResultMap" type="com.webmagic.model.SysDicType" >
-    <id column="id" property="id" jdbcType="CHAR" />
-    <result column="seq_id" property="seqId" jdbcType="CHAR" />
-    <result column="code" property="code" jdbcType="VARCHAR" />
-    <result column="status" property="status" jdbcType="BIT" />
-    <result column="text" property="text" jdbcType="VARCHAR" />
-  </resultMap>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
-    delete from sys_dic_type
-    where `id` = #{id,jdbcType=CHAR}
-  </delete>
-  <insert id="insert" parameterType="com.webmagic.model.SysDicType" >
-    <selectKey resultType="java.lang.String" keyProperty="id" order="AFTER" >
-      SELECT LAST_INSERT_ID()
-    </selectKey>
-    insert into sys_dic_type (`seq_id`, `code`, `status`, 
-      `text`)
-    values (#{seqId,jdbcType=CHAR}, #{code,jdbcType=VARCHAR}, #{status,jdbcType=BIT}, 
-      #{text,jdbcType=VARCHAR})
-  </insert>
-  <update id="updateByPrimaryKey" parameterType="com.webmagic.model.SysDicType" >
-    update sys_dic_type
-    set `seq_id` = #{seqId,jdbcType=CHAR},
-      `code` = #{code,jdbcType=VARCHAR},
-      `status` = #{status,jdbcType=BIT},
-      `text` = #{text,jdbcType=VARCHAR}
-    where `id` = #{id,jdbcType=CHAR}
-  </update>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
-    select `id`, `seq_id`, `code`, `status`, `text`
-    from sys_dic_type
-    where `id` = #{id,jdbcType=CHAR}
-  </select>
-  <select id="selectAll" resultMap="BaseResultMap" >
-    select `id`, `seq_id`, `code`, `status`, `text`
-    from sys_dic_type
-  </select>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.webmagic.mapper.SysDicTypeMapper">
+
+    <!-- 开启二级缓存 -->
+    <cache type="org.mybatis.caches.ehcache.EhcacheCache"/>
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.webmagic.model.SysDicType">
+        <id column="id" property="id" />
+        <result column="seq_id" property="seqId" />
+        <result column="code" property="code" />
+        <result column="status" property="status" />
+        <result column="text" property="text" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        seq_id, id, code, status, text
+    </sql>
+
 </mapper>

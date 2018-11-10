@@ -1,23 +1,21 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.webmagic.mapper.ResearchDirectionMapper" >
-  <resultMap id="BaseResultMap" type="com.webmagic.model.ResearchDirection" >
-    <result column="id" property="id" jdbcType="INTEGER" />
-    <result column="title" property="title" jdbcType="VARCHAR" />
-    <result column="content" property="content" jdbcType="VARCHAR" />
-    <result column="is_show" property="isShow" jdbcType="BIT" />
-  </resultMap>
-  <insert id="insert" parameterType="com.webmagic.model.ResearchDirection" >
-    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
-      SELECT LAST_INSERT_ID()
-    </selectKey>
-    insert into research_direction (`title`, `content`, `is_show`
-      )
-    values (#{title,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, #{isShow,jdbcType=BIT}
-      )
-  </insert>
-  <select id="selectAll" resultMap="BaseResultMap" >
-    select `id`, `title`, `content`, `is_show`
-    from research_direction
-  </select>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.webmagic.mapper.ResearchDirectionMapper">
+
+    <!-- 开启二级缓存 -->
+    <cache type="org.mybatis.caches.ehcache.EhcacheCache"/>
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.webmagic.model.ResearchDirection">
+        <result column="id" property="id" />
+        <result column="title" property="title" />
+        <result column="content" property="content" />
+        <result column="is_show" property="isShow" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, title, content, is_show
+    </sql>
+
 </mapper>

@@ -1,10 +1,16 @@
 package com.webmagic.mapper;
 
 import com.webmagic.model.User;
-import java.util.List;
+import com.baomidou.mybatisplus.mapper.BaseMapper;
 
-public interface UserMapper {
-    int insert(User record);
+/**
+ * <p>
+ * 用户表 Mapper 接口
+ * </p>
+ *
+ * @author dfggking
+ * @since 2018-11-09
+ */
+public interface UserMapper extends BaseMapper<User> {
 
-    List<User> selectAll();
 }

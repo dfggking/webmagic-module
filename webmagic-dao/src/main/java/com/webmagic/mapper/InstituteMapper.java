@@ -1,16 +1,16 @@
 package com.webmagic.mapper;
 
 import com.webmagic.model.Institute;
-import java.util.List;
+import com.baomidou.mybatisplus.mapper.BaseMapper;
 
-public interface InstituteMapper {
-    int deleteByPrimaryKey(Integer id);
+/**
+ * <p>
+ * 研究所表 Mapper 接口
+ * </p>
+ *
+ * @author dfggking
+ * @since 2018-11-09
+ */
+public interface InstituteMapper extends BaseMapper<Institute> {
 
-    int insert(Institute record);
-
-    Institute selectByPrimaryKey(Integer id);
-
-    List<Institute> selectAll();
-
-    int updateByPrimaryKey(Institute record);
 }

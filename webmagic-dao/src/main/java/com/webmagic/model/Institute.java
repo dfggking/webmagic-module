@@ -1,17 +1,32 @@
 package com.webmagic.model;
 
-public class Institute {
+import com.baomidou.mybatisplus.enums.IdType;
+import com.baomidou.mybatisplus.annotations.TableId;
+import com.baomidou.mybatisplus.annotations.TableId;
+import com.baomidou.mybatisplus.enums.IdType;
+import com.baomidou.mybatisplus.activerecord.Model;
+import java.io.Serializable;
+
+/**
+ * <p>
+ * 研究所表
+ * </p>
+ *
+ * @author dfggking
+ * @since 2018-11-09
+ */
+public class Institute extends Model<Institute> {
+
+    private static final long serialVersionUID = 1L;
+
+    @TableId(value = "id", type = IdType.AUTO)
     private Integer id;
-
+    private String introduction;
     private String mainImg;
-
     private String img1;
-
     private String img2;
-
     private String img3;
 
-    private String introduction;
 
     public Integer getId() {
         return id;
@@ -19,6 +34,14 @@ public class Institute {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public String getIntroduction() {
+        return introduction;
+    }
+
+    public void setIntroduction(String introduction) {
+        this.introduction = introduction;
     }
 
     public String getMainImg() {
@@ -53,11 +76,20 @@ public class Institute {
         this.img3 = img3;
     }
 
-    public String getIntroduction() {
-        return introduction;
+    @Override
+    protected Serializable pkVal() {
+        return this.id;
     }
 
-    public void setIntroduction(String introduction) {
-        this.introduction = introduction;
+    @Override
+    public String toString() {
+        return "Institute{" +
+        "id=" + id +
+        ", introduction=" + introduction +
+        ", mainImg=" + mainImg +
+        ", img1=" + img1 +
+        ", img2=" + img2 +
+        ", img3=" + img3 +
+        "}";
     }
 }

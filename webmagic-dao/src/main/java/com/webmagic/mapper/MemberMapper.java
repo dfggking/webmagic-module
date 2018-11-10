@@ -1,16 +1,16 @@
 package com.webmagic.mapper;
 
 import com.webmagic.model.Member;
-import java.util.List;
+import com.baomidou.mybatisplus.mapper.BaseMapper;
 
-public interface MemberMapper {
-    int deleteByPrimaryKey(Integer id);
+/**
+ * <p>
+ * 成员信息表 Mapper 接口
+ * </p>
+ *
+ * @author dfggking
+ * @since 2018-11-09
+ */
+public interface MemberMapper extends BaseMapper<Member> {
 
-    int insert(Member record);
-
-    Member selectByPrimaryKey(Integer id);
-
-    List<Member> selectAll();
-
-    int updateByPrimaryKey(Member record);
 }

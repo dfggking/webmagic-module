@@ -1,13 +1,27 @@
 package com.webmagic.model;
 
-public class ResearchDirection {
+import com.baomidou.mybatisplus.annotations.TableId;
+import com.baomidou.mybatisplus.enums.IdType;
+import com.baomidou.mybatisplus.activerecord.Model;
+import java.io.Serializable;
+
+/**
+ * <p>
+ * 
+ * </p>
+ *
+ * @author dfggking
+ * @since 2018-11-09
+ */
+public class ResearchDirection extends Model<ResearchDirection> {
+
+    private static final long serialVersionUID = 1L;
+
     private Integer id;
-
     private String title;
-
     private String content;
+    private Integer isShow;
 
-    private Boolean isShow;
 
     public Integer getId() {
         return id;
@@ -33,11 +47,26 @@ public class ResearchDirection {
         this.content = content;
     }
 
-    public Boolean getIsShow() {
+    public Integer getIsShow() {
         return isShow;
     }
 
-    public void setIsShow(Boolean isShow) {
+    public void setIsShow(Integer isShow) {
         this.isShow = isShow;
+    }
+
+    @Override
+    protected Serializable pkVal() {
+        return null;
+    }
+
+    @Override
+    public String toString() {
+        return "ResearchDirection{" +
+        "id=" + id +
+        ", title=" + title +
+        ", content=" + content +
+        ", isShow=" + isShow +
+        "}";
     }
 }

@@ -1,16 +1,16 @@
 package com.webmagic.mapper;
 
 import com.webmagic.model.WebsiteConfig;
-import java.util.List;
+import com.baomidou.mybatisplus.mapper.BaseMapper;
 
-public interface WebsiteConfigMapper {
-    int deleteByPrimaryKey(Integer id);
+/**
+ * <p>
+ * 网站配置表 Mapper 接口
+ * </p>
+ *
+ * @author dfggking
+ * @since 2018-11-09
+ */
+public interface WebsiteConfigMapper extends BaseMapper<WebsiteConfig> {
 
-    int insert(WebsiteConfig record);
-
-    WebsiteConfig selectByPrimaryKey(Integer id);
-
-    List<WebsiteConfig> selectAll();
-
-    int updateByPrimaryKey(WebsiteConfig record);
 }

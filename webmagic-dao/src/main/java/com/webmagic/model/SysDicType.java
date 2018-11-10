@@ -1,23 +1,44 @@
 package com.webmagic.model;
 
-public class SysDicType {
-    private String id;
+import com.baomidou.mybatisplus.annotations.TableId;
+import com.baomidou.mybatisplus.enums.IdType;
+import com.baomidou.mybatisplus.activerecord.Model;
+import java.io.Serializable;
 
+/**
+ * <p>
+ * 字典类型
+ * </p>
+ *
+ * @author dfggking
+ * @since 2018-11-09
+ */
+public class SysDicType extends Model<SysDicType> {
+
+    private static final long serialVersionUID = 1L;
+
+    /**
+     * 序号
+     */
     private String seqId;
-
+    /**
+     * 主键
+     */
+    @TableId(value = "id", type = IdType.AUTO)
+    private String id;
+    /**
+     * 编码
+     */
     private String code;
-
-    private Boolean status;
-
+    /**
+     * 状态
+     */
+    private Integer status;
+    /**
+     * 字典类型名称
+     */
     private String text;
 
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
 
     public String getSeqId() {
         return seqId;
@@ -25,6 +46,14 @@ public class SysDicType {
 
     public void setSeqId(String seqId) {
         this.seqId = seqId;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getCode() {
@@ -35,11 +64,11 @@ public class SysDicType {
         this.code = code;
     }
 
-    public Boolean getStatus() {
+    public Integer getStatus() {
         return status;
     }
 
-    public void setStatus(Boolean status) {
+    public void setStatus(Integer status) {
         this.status = status;
     }
 
@@ -49,5 +78,21 @@ public class SysDicType {
 
     public void setText(String text) {
         this.text = text;
+    }
+
+    @Override
+    protected Serializable pkVal() {
+        return this.id;
+    }
+
+    @Override
+    public String toString() {
+        return "SysDicType{" +
+        "seqId=" + seqId +
+        ", id=" + id +
+        ", code=" + code +
+        ", status=" + status +
+        ", text=" + text +
+        "}";
     }
 }

@@ -1,16 +1,16 @@
 package com.webmagic.mapper;
 
 import com.webmagic.model.Homepage;
-import java.util.List;
+import com.baomidou.mybatisplus.mapper.BaseMapper;
 
-public interface HomepageMapper {
-    int deleteByPrimaryKey(String id);
+/**
+ * <p>
+ * 首页信息表 Mapper 接口
+ * </p>
+ *
+ * @author dfggking
+ * @since 2018-11-09
+ */
+public interface HomepageMapper extends BaseMapper<Homepage> {
 
-    int insert(Homepage record);
-
-    Homepage selectByPrimaryKey(String id);
-
-    List<Homepage> selectAll();
-
-    int updateByPrimaryKey(Homepage record);
 }

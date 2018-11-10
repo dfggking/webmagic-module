@@ -1,16 +1,16 @@
 package com.webmagic.mapper;
 
 import com.webmagic.model.SysDicType;
-import java.util.List;
+import com.baomidou.mybatisplus.mapper.BaseMapper;
 
-public interface SysDicTypeMapper {
-    int deleteByPrimaryKey(String id);
+/**
+ * <p>
+ * 字典类型 Mapper 接口
+ * </p>
+ *
+ * @author dfggking
+ * @since 2018-11-09
+ */
+public interface SysDicTypeMapper extends BaseMapper<SysDicType> {
 
-    int insert(SysDicType record);
-
-    SysDicType selectByPrimaryKey(String id);
-
-    List<SysDicType> selectAll();
-
-    int updateByPrimaryKey(SysDicType record);
 }

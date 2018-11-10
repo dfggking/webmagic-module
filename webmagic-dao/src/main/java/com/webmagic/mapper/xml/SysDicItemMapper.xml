@@ -1,43 +1,23 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.webmagic.mapper.SysDicItemMapper" >
-  <resultMap id="BaseResultMap" type="com.webmagic.model.SysDicItem" >
-    <id column="id" property="id" jdbcType="CHAR" />
-    <result column="seq_id" property="seqId" jdbcType="CHAR" />
-    <result column="text" property="text" jdbcType="VARCHAR" />
-    <result column="value" property="value" jdbcType="VARCHAR" />
-    <result column="type_id" property="typeId" jdbcType="CHAR" />
-    <result column="sort" property="sort" jdbcType="INTEGER" />
-  </resultMap>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
-    delete from sys_dic_item
-    where `id` = #{id,jdbcType=CHAR}
-  </delete>
-  <insert id="insert" parameterType="com.webmagic.model.SysDicItem" >
-    <selectKey resultType="java.lang.String" keyProperty="id" order="AFTER" >
-      SELECT LAST_INSERT_ID()
-    </selectKey>
-    insert into sys_dic_item (`seq_id`, `text`, `value`, 
-      `type_id`, `sort`)
-    values (#{seqId,jdbcType=CHAR}, #{text,jdbcType=VARCHAR}, #{value,jdbcType=VARCHAR}, 
-      #{typeId,jdbcType=CHAR}, #{sort,jdbcType=INTEGER})
-  </insert>
-  <update id="updateByPrimaryKey" parameterType="com.webmagic.model.SysDicItem" >
-    update sys_dic_item
-    set `seq_id` = #{seqId,jdbcType=CHAR},
-      `text` = #{text,jdbcType=VARCHAR},
-      `value` = #{value,jdbcType=VARCHAR},
-      `type_id` = #{typeId,jdbcType=CHAR},
-      `sort` = #{sort,jdbcType=INTEGER}
-    where `id` = #{id,jdbcType=CHAR}
-  </update>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
-    select `id`, `seq_id`, `text`, `value`, `type_id`, `sort`
-    from sys_dic_item
-    where `id` = #{id,jdbcType=CHAR}
-  </select>
-  <select id="selectAll" resultMap="BaseResultMap" >
-    select `id`, `seq_id`, `text`, `value`, `type_id`, `sort`
-    from sys_dic_item
-  </select>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.webmagic.mapper.SysDicItemMapper">
+
+    <!-- 开启二级缓存 -->
+    <cache type="org.mybatis.caches.ehcache.EhcacheCache"/>
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.webmagic.model.SysDicItem">
+        <id column="id" property="id" />
+        <result column="seq_id" property="seqId" />
+        <result column="text" property="text" />
+        <result column="value" property="value" />
+        <result column="type_id" property="typeId" />
+        <result column="sort" property="sort" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        seq_id, id, text, value, type_id, sort
+    </sql>
+
 </mapper>

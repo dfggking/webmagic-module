@@ -1,21 +1,35 @@
 package com.webmagic.model;
 
 import java.util.Date;
+import com.baomidou.mybatisplus.annotations.TableId;
+import com.baomidou.mybatisplus.enums.IdType;
+import com.baomidou.mybatisplus.activerecord.Model;
+import java.io.Serializable;
 
-public class InstituteInformation {
+/**
+ * <p>
+ * 研究所资讯
+ * </p>
+ *
+ * @author dfggking
+ * @since 2018-11-09
+ */
+public class InstituteInformation extends Model<InstituteInformation> {
+
+    private static final long serialVersionUID = 1L;
+
+    @TableId(value = "id", type = IdType.AUTO)
     private Integer id;
-
     private String title;
-
     private String summary;
-
     private String content;
-
+    /**
+     * 信息类型
+     */
     private String type;
-
     private String mainImg;
-
     private Date createAt;
+
 
     public Integer getId() {
         return id;
@@ -71,5 +85,23 @@ public class InstituteInformation {
 
     public void setCreateAt(Date createAt) {
         this.createAt = createAt;
+    }
+
+    @Override
+    protected Serializable pkVal() {
+        return this.id;
+    }
+
+    @Override
+    public String toString() {
+        return "InstituteInformation{" +
+        "id=" + id +
+        ", title=" + title +
+        ", summary=" + summary +
+        ", content=" + content +
+        ", type=" + type +
+        ", mainImg=" + mainImg +
+        ", createAt=" + createAt +
+        "}";
     }
 }

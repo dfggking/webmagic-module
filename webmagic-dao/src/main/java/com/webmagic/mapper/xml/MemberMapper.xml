@@ -1,49 +1,25 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.webmagic.mapper.MemberMapper" >
-  <resultMap id="BaseResultMap" type="com.webmagic.model.Member" >
-    <id column="id" property="id" jdbcType="INTEGER" />
-    <result column="name" property="name" jdbcType="VARCHAR" />
-    <result column="major1" property="major1" jdbcType="VARCHAR" />
-    <result column="major2" property="major2" jdbcType="VARCHAR" />
-    <result column="blog_url" property="blogUrl" jdbcType="VARCHAR" />
-    <result column="avatar_url" property="avatarUrl" jdbcType="VARCHAR" />
-    <result column="institute" property="institute" jdbcType="VARCHAR" />
-    <result column="is_show" property="isShow" jdbcType="BIT" />
-  </resultMap>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
-    delete from member
-    where `id` = #{id,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" parameterType="com.webmagic.model.Member" >
-    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
-      SELECT LAST_INSERT_ID()
-    </selectKey>
-    insert into member (`name`, `major1`, `major2`, 
-      `blog_url`, `avatar_url`, `institute`, 
-      `is_show`)
-    values (#{name,jdbcType=VARCHAR}, #{major1,jdbcType=VARCHAR}, #{major2,jdbcType=VARCHAR}, 
-      #{blogUrl,jdbcType=VARCHAR}, #{avatarUrl,jdbcType=VARCHAR}, #{institute,jdbcType=VARCHAR}, 
-      #{isShow,jdbcType=BIT})
-  </insert>
-  <update id="updateByPrimaryKey" parameterType="com.webmagic.model.Member" >
-    update member
-    set `name` = #{name,jdbcType=VARCHAR},
-      `major1` = #{major1,jdbcType=VARCHAR},
-      `major2` = #{major2,jdbcType=VARCHAR},
-      `blog_url` = #{blogUrl,jdbcType=VARCHAR},
-      `avatar_url` = #{avatarUrl,jdbcType=VARCHAR},
-      `institute` = #{institute,jdbcType=VARCHAR},
-      `is_show` = #{isShow,jdbcType=BIT}
-    where `id` = #{id,jdbcType=INTEGER}
-  </update>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
-    select `id`, `name`, `major1`, `major2`, `blog_url`, `avatar_url`, `institute`, `is_show`
-    from member
-    where `id` = #{id,jdbcType=INTEGER}
-  </select>
-  <select id="selectAll" resultMap="BaseResultMap" >
-    select `id`, `name`, `major1`, `major2`, `blog_url`, `avatar_url`, `institute`, `is_show`
-    from member
-  </select>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.webmagic.mapper.MemberMapper">
+
+    <!-- 开启二级缓存 -->
+    <cache type="org.mybatis.caches.ehcache.EhcacheCache"/>
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.webmagic.model.Member">
+        <id column="id" property="id" />
+        <result column="name" property="name" />
+        <result column="major1" property="major1" />
+        <result column="major2" property="major2" />
+        <result column="blog_url" property="blogUrl" />
+        <result column="avatar_url" property="avatarUrl" />
+        <result column="institute" property="institute" />
+        <result column="is_show" property="isShow" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, name, major1, major2, blog_url, avatar_url, institute, is_show
+    </sql>
+
 </mapper>

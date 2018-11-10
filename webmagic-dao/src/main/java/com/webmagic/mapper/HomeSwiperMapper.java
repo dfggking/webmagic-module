@@ -1,16 +1,16 @@
 package com.webmagic.mapper;
 
 import com.webmagic.model.HomeSwiper;
-import java.util.List;
+import com.baomidou.mybatisplus.mapper.BaseMapper;
 
-public interface HomeSwiperMapper {
-    int deleteByPrimaryKey(Integer id);
+/**
+ * <p>
+ *  Mapper 接口
+ * </p>
+ *
+ * @author dfggking
+ * @since 2018-11-09
+ */
+public interface HomeSwiperMapper extends BaseMapper<HomeSwiper> {
 
-    int insert(HomeSwiper record);
-
-    HomeSwiper selectByPrimaryKey(Integer id);
-
-    List<HomeSwiper> selectAll();
-
-    int updateByPrimaryKey(HomeSwiper record);
 }
