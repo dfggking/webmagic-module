@@ -69,7 +69,7 @@
       $checked = $(data.elem);
       $checked.prop("checked", true);
       form.render('checkbox');
-      $('[name="type"]').val($checked.val());
+      $('input[name="type"]').val($checked.val());
     });
   });
 </script>

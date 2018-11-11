@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.webmagic.mapper.AttachmentMapper" >
+  <resultMap id="BaseResultMap" type="com.webmagic.model.Attachment" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="foreign_id" property="foreignId" jdbcType="VARCHAR" />
+    <result column="file_name" property="fileName" jdbcType="VARCHAR" />
+    <result column="file_size" property="fileSize" jdbcType="BIGINT" />
+    <result column="path" property="path" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from attachment
+    where `id` = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.webmagic.model.Attachment" >
+    insert into attachment (`id`, `foreign_id`, `file_name`, 
+      `file_size`, `path`, `create_time`
+      )
+    values (#{id,jdbcType=VARCHAR}, #{foreignId,jdbcType=VARCHAR}, #{fileName,jdbcType=VARCHAR}, 
+      #{fileSize,jdbcType=BIGINT}, #{path,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.webmagic.model.Attachment" >
+    update attachment
+    set `foreign_id` = #{foreignId,jdbcType=VARCHAR},
+      `file_name` = #{fileName,jdbcType=VARCHAR},
+      `file_size` = #{fileSize,jdbcType=BIGINT},
+      `path` = #{path,jdbcType=VARCHAR},
+      `create_time` = #{createTime,jdbcType=TIMESTAMP}
+    where `id` = #{id,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select `id`, `foreign_id`, `file_name`, `file_size`, `path`, `create_time`
+    from attachment
+    where `id` = #{id,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select `id`, `foreign_id`, `file_name`, `file_size`, `path`, `create_time`
+    from attachment
+  </select>
+  <select id="selectList" resultMap="BaseResultMap">
+    select `id`, `foreign_id`, `file_name`, `file_size`, `path`, `create_time`
+    from attachment where 1=1 ${ew.sqlSegment}
+  </select>
+</mapper>

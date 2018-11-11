@@ -45,6 +45,12 @@
             <textarea name="content" placeholder="请输入内容" lay-verify="required" class="layui-textarea" style="min-height: 500px;">${entity.content}</textarea>
           </div>
         </div>
+        <div class="layui-form-item">
+          <div class="layui-input-block">
+            <button class="layui-btn" lay-submit="" lay-filter="J_form_submit">提交</button>
+            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+          </div>
+        </div>
         <button id="J_info_submit_btn" style="display: none" class="layui-btn" lay-submit="" lay-filter="" />
       </div>
     </form>

@@ -7,6 +7,7 @@
     <result column="type" property="type" jdbcType="VARCHAR" />
     <result column="file_url" property="fileUrl" jdbcType="VARCHAR" />
     <result column="download_count" property="downloadCount" jdbcType="BIGINT" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
   </resultMap>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from data_and_code
@@ -14,25 +15,28 @@
   </delete>
   <insert id="insert" parameterType="com.webmagic.model.DataAndCode" >
     insert into data_and_code (`id`, `title`, `type`, 
-      `file_url`, `download_count`)
+      `file_url`, `download_count`, `create_time`
+      )
     values (#{id,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR}, 
-      #{fileUrl,jdbcType=VARCHAR}, #{downloadCount,jdbcType=BIGINT})
+      #{fileUrl,jdbcType=VARCHAR}, #{downloadCount,jdbcType=BIGINT}, #{createTime,jdbcType=TIMESTAMP}
+      )
   </insert>
   <update id="updateByPrimaryKey" parameterType="com.webmagic.model.DataAndCode" >
     update data_and_code
     set `title` = #{title,jdbcType=VARCHAR},
       `type` = #{type,jdbcType=VARCHAR},
       `file_url` = #{fileUrl,jdbcType=VARCHAR},
-      `download_count` = #{downloadCount,jdbcType=BIGINT}
+      `download_count` = #{downloadCount,jdbcType=BIGINT},
+      `create_time` = #{createTime,jdbcType=TIMESTAMP}
     where `id` = #{id,jdbcType=VARCHAR}
   </update>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
-    select `id`, `title`, `type`, `file_url`, `download_count`
+    select `id`, `title`, `type`, `file_url`, `download_count`, `create_time`
     from data_and_code
     where `id` = #{id,jdbcType=VARCHAR}
   </select>
   <select id="selectAll" resultMap="BaseResultMap" >
-    select `id`, `title`, `type`, `file_url`, `download_count`
+    select `id`, `title`, `type`, `file_url`, `download_count`, `create_time`
     from data_and_code
   </select>
 </mapper>

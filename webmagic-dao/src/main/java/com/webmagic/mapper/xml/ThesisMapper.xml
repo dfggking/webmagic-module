@@ -3,8 +3,7 @@
 <mapper namespace="com.webmagic.mapper.ThesisMapper" >
   <resultMap id="BaseResultMap" type="com.webmagic.model.Thesis" >
     <id column="id" property="id" jdbcType="VARCHAR" />
-    <result column="thesis_name" property="thesisName" jdbcType="VARCHAR" />
-    <result column="file_path" property="filePath" jdbcType="VARCHAR" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
     <result column="year" property="year" jdbcType="VARCHAR" />
     <result column="type" property="type" jdbcType="VARCHAR" />
     <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
@@ -14,29 +13,26 @@
     where `id` = #{id,jdbcType=VARCHAR}
   </delete>
   <insert id="insert" parameterType="com.webmagic.model.Thesis" >
-    insert into thesis (`id`, `thesis_name`, `file_path`, 
-      `year`, `type`, `create_time`
-      )
-    values (#{id,jdbcType=VARCHAR}, #{thesisName,jdbcType=VARCHAR}, #{filePath,jdbcType=VARCHAR}, 
-      #{year,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}
-      )
+    insert into thesis (`id`, `title`, `year`, 
+      `type`, `create_time`)
+    values (#{id,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, #{year,jdbcType=VARCHAR}, 
+      #{type,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP})
   </insert>
   <update id="updateByPrimaryKey" parameterType="com.webmagic.model.Thesis" >
     update thesis
-    set `thesis_name` = #{thesisName,jdbcType=VARCHAR},
-      `file_path` = #{filePath,jdbcType=VARCHAR},
+    set `title` = #{title,jdbcType=VARCHAR},
       `year` = #{year,jdbcType=VARCHAR},
       `type` = #{type,jdbcType=VARCHAR},
       `create_time` = #{createTime,jdbcType=TIMESTAMP}
     where `id` = #{id,jdbcType=VARCHAR}
   </update>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
-    select `id`, `thesis_name`, `file_path`, `year`, `type`, `create_time`
+    select `id`, `title`, `year`, `type`, `create_time`
     from thesis
     where `id` = #{id,jdbcType=VARCHAR}
   </select>
   <select id="selectAll" resultMap="BaseResultMap" >
-    select `id`, `thesis_name`, `file_path`, `year`, `type`, `create_time`
+    select `id`, `title`, `year`, `type`, `create_time`
     from thesis
   </select>
 </mapper>

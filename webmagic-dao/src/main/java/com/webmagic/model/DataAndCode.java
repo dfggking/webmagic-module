@@ -1,5 +1,7 @@
 package com.webmagic.model;
 
+import java.util.Date;
+
 public class DataAndCode {
     private String id;
 
@@ -10,6 +12,8 @@ public class DataAndCode {
     private String fileUrl;
 
     private Long downloadCount;
+
+    private Date createTime;
 
     public String getId() {
         return id;
@@ -49,5 +53,13 @@ public class DataAndCode {
 
     public void setDownloadCount(Long downloadCount) {
         this.downloadCount = downloadCount;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
     }
 }

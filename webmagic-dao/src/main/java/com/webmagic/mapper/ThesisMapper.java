@@ -1,6 +1,7 @@
 package com.webmagic.mapper;
 
 import com.webmagic.model.Thesis;
+
 import java.util.List;
 
 public interface ThesisMapper {

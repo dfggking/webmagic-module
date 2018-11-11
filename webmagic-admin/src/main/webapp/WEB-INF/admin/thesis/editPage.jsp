@@ -10,7 +10,7 @@
   <form action="" method="post">
     <div class="layui-form" wid100="" lay-filter="">
       <div class="layui-form-item">
-        <label class="layui-form-label">项目题目</label>
+        <label class="layui-form-label">论文标题</label>
         <div class="layui-input-block">
           <input name="id" type="hidden" value="${entity.id}" />
           <input type="text" name="title" value="${entity.title}" lay-verify="required" lay-verify="required" autocomplete="off" placeholder="请输入标题" class="layui-input">
@@ -18,25 +18,18 @@
       </div>
       <div class="layui-form-item">
         <div class="layui-inline">
-          <label class="layui-form-label">起止时间</label>
+          <label class="layui-form-label">年份</label>
           <div class="layui-input-inline">
-            <input type="text" class="layui-input" id="J_time_circle" value="${entity.fromTime} - ${entity.toTime}" lay-verify="required" placeholder=" - ">
+            <input name="year" type="text" class="layui-input" id="J_year_select" value="${entity.year}" lay-verify="required" placeholder="">
           </div>
         </div>
       </div>
       <div class="layui-form-item">
-        <label class="layui-form-label">项目级别</label>
+        <label class="layui-form-label">类别</label>
         <div class="layui-input-block">
-          <input name="level" type="hidden" value="${entity.level}" />
-          <input type="checkbox" name="level[1]" title="校级" value="校级" ${'校级'==entity.level ? 'checked=checked' : ''} lay-filter="check_filter">
-          <input type="checkbox" name="level[2]" title="市级" value="市级" ${'市级'==entity.level ? 'checked=checked' : ''} lay-filter="check_filter">
-          <input type="checkbox" name="level[3]" title="省级" value="省级" ${'省级'==entity.level ? 'checked=checked' : ''} lay-filter="check_filter">
-        </div>
-      </div>
-      <div class="layui-form-item layui-form-text">
-        <label class="layui-form-label">项目内容</label>
-        <div class="layui-input-block">
-          <textarea name="content" placeholder="请输入内容" lay-verify="required" class="layui-textarea" style="min-height: 300px;">${entity.content}</textarea>
+          <input name="type" type="hidden" value="${entity.type}" />
+          <input type="checkbox" name="type[1]" title="期刊" value="期刊" ${'期刊'==entity.type ? 'checked=checked' : ''} lay-filter="check_filter">
+          <input type="checkbox" name="type[2]" title="会议" value="会议" ${'会议'==entity.type ? 'checked=checked' : ''} lay-filter="check_filter">
         </div>
       </div>
       <div class="layui-form-item">
@@ -56,16 +49,12 @@
 
     //监听提交
     form.on('submit(J_form_submit)', function(args){
-      var timeCircle = $('#J_time_circle').val();
-      var resultTime = timeCircle.split(' - ');
       var param = args.field;
-      $.post('/srproject/edit', {
+      $.post('/thesis/edit', {
         id: param.id,
         title: param.title,
-        content: param.content,
-        fromTime: resultTime[0],
-        toTime: resultTime[1],
-        level: param.level
+        year: param.year,
+        type: param.type
       }, function(result){
         if ('success' == result) {
           layer.msg('操作成功', {
@@ -78,19 +67,18 @@
       return false;
     });
 
-    laydate.render({
-      elem: '#J_time_circle'
-      ,range: true
-    });
-
     form.on('checkbox(check_filter)', function(data){
       $('[lay-filter="check_filter"]').prop("checked", false);
       $checked = $(data.elem);
       $checked.prop("checked", true);
       form.render('checkbox');
 
-      console.info($('input[name="level"]'))
-      $('input[name="level"]').val($checked.val());
+      $('input[name="type"]').val($checked.val());
+    });
+
+    laydate.render({
+      elem: '#J_year_select'
+      ,type: 'year'
     });
   });
 </script>

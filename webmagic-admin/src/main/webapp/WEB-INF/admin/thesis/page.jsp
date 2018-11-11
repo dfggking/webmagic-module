@@ -9,7 +9,7 @@
 <div class="x-nav">
   <span class="layui-breadcrumb">
     <a href="">首页</a>
-    <a><cite>科研项目</cite></a>
+    <a><cite>论文著作</cite></a>
   </span>
   <a class="layui-btn layui-btn-small" style="line-height: 1.6em; margin-top: 3px; float: right"
      href="javascript:location.replace(location.href);" title="刷新">
@@ -32,7 +32,7 @@
     table.render({
       elem: '#J_list',
       id: 'idTest'
-      ,url:'/srproject/list'
+      ,url:'/thesis/list'
       ,parseData: function(res){ //res 即为原始返回的数据
         return {
           "code": res.status, //解析接口状态
@@ -43,16 +43,16 @@
       }
       ,cellMinWidth: 100 //全局定义常规单元格的最小宽度，layui 2.2.1 新增
       ,cols: [[
-        {field:'title', width: 300, title: '项目名称'}
-        ,{field:'content',title: '简介'}
-        ,{field:'level', width: 80, title: '级别'}
-        ,{field:'fromTime', width:125, title: '开始时间'}
-        ,{field:'toTime', width:125, title: '结束时间'}
+        {field:'title', width: 400, title: '论文标题'}
+        ,{field:'year', width: 80, title: '年份'}
+        ,{field:'type', width: 80, title: '类型'}
         ,{field:'createTime', width:165, title: '创建时间'}
-        ,{fixed: 'right', title:'操作', toolbar: '#bar', width:120}
+        ,{fixed: 'right', title:'操作', toolbar: '#bar', width:180}
+        // ,{field:'codeUrl', width: 80, title: '附件1'}
+        // ,{field:'pdfUrl', width: 80, title: '附件2'}
       ]]
       ,toolbar: '#toolbar',
-      defaultToolbar: ['filter', 'exports']
+      defaultToolbar: ['']
     });
 
     //头工具栏事件
@@ -62,17 +62,16 @@
         case 'addData':
           var index = layer.open({
             type: 2
-            ,title: '添加科研项目'
+            ,title: '添加论文著作'
             ,area: ['500px', '500px']
             ,shade: 0
             ,maxmin: true
-            ,content: '/srproject/addPage'
+            ,content: '/thesis/addPage'
             ,btn: ['提交', '关闭']
             ,yes: function(){
               window.frames[0].document.getElementById("J_info_submit_btn").click();
             }
             ,btn2: function(){
-
               layer.closeAll();
             },
             end: function(){
@@ -91,8 +90,8 @@
     table.on('tool(J_list)', function(obj){
       var data = obj.data;
       if(obj.event === 'del'){
-        layer.confirm('确定删除该科研项目吗', function(index){
-          $.post('/srproject/del', {
+        layer.confirm('确定删除该论文著作吗', function(index){
+          $.post('/thesis/del', {
             id: data.id
           }, function(args){
             console.info(args)
@@ -108,11 +107,11 @@
       } else if(obj.event === 'edit'){
         var index = layer.open({
           type: 2
-          ,title: '修改科研项目'
+          ,title: '修改论文著作'
           ,area: ['500px', '500px']
           ,shade: 0
           ,maxmin: true
-          ,content: '/srproject/editPage?id=' + data.id
+          ,content: '/thesis/editPage?id=' + data.id
           ,btn: ['提交', '关闭']
           ,yes: function(){
             window.frames[0].document.getElementById("J_info_submit_btn").click();
@@ -125,11 +124,31 @@
           }
         });
         layer.full(index);
+      } else if (obj.event === 'attachment') {
+        // 附件上传
+        var index = layer.open({
+          type: 2
+          ,title: '附件上传'
+          ,area: ['700px', '500px']
+          ,shade: 0
+          ,maxmin: true
+          ,content: '/thesis/attachmentPage?id=' + data.id
+          ,btn: ['提交', '关闭']
+          ,yes: function(){
+            window.frames[0].document.getElementById("J_info_submit_btn").click();
+          }
+          ,btn2: function(){
+            layer.closeAll();
+          },
+          end: function(){
+            table.reload('idTest', {});
+          }
+        });
       }
     });
 
     $('#J_edit_introduce').click(function(){
-      $.post('/srproject/introduce/edit', {
+      $.post('/thesis/edit', {
         id: $('#J_introduce_id').val(),
         introduce: $('#J_introduce_content').val()
       }, function(result){
@@ -152,6 +171,7 @@
 </script>
 <script type="text/html" id="bar">
   <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+  <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="attachment">附件</a>
   <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
 </script>
 </body>

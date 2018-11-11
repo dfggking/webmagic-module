@@ -1,7 +1,6 @@
 package com.admin.controller;
 
 import com.admin.controller.base.BaseController;
-import com.admin.vo.InstituteInformationVO;
 import com.admin.vo.ResultMap;
 import com.baomidou.mybatisplus.toolkit.IdWorker;
 import com.dfgg.util.CopyUtils;
@@ -116,19 +115,16 @@ public class HomepageController extends BaseController {
 	
 	@RequestMapping("institute/info/list")
 	@ResponseBody
-	public Map<String, Object> infoList(InstituteInformationVO infoVO, int page, int limit) throws InvocationTargetException, IllegalAccessException {
-		InstituteInformation info = new InstituteInformation();
-		BeanUtils.copyProperties(info, infoVO);
+	public Map<String, Object> infoList(InstituteInformation info, int page, int limit) throws InvocationTargetException, IllegalAccessException {
 		
 		List<InstituteInformation> list = informationService.select(info);
-		List<InstituteInformationVO> list2 = CopyUtils.copyList(list);
 		
 		Map<String, Object> resultMap = new HashMap<>();
 		resultMap.put("status", 0);
 		resultMap.put("message", "");
 		resultMap.put("total", list.size());
 		Map<String, Object> item = new HashMap<>();
-		item.put("item", list2);
+		item.put("item", list);
 		resultMap.put("data", item);
 		
 		return resultMap;

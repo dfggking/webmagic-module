@@ -10,23 +10,25 @@
     <form action="" method="post">
       <div class="layui-form" wid100="" lay-filter="">
         <div class="layui-form-item">
-          <label class="layui-form-label">标题</label>
+          <label class="layui-form-label">论文标题</label>
           <div class="layui-input-block">
-            <input type="text" name="title" lay-verify="required" lay-verify="required" autocomplete="off" placeholder="请输入标题" class="layui-input">
-          </div>
-        </div>
-        <div class="layui-form-item layui-form-text">
-          <label class="layui-form-label">内容</label>
-          <div class="layui-input-block">
-            <textarea name="content" placeholder="请输入内容" lay-verify="required" class="layui-textarea" style="min-height: 300px;"></textarea>
+            <input type="text" name="title" lay-verify="required" lay-verify="required" autocomplete="off" placeholder="请输入项目题目" class="layui-input">
           </div>
         </div>
         <div class="layui-form-item">
-          <label class="layui-form-label">类型</label>
+          <div class="layui-inline">
+            <label class="layui-form-label">年份</label>
+            <div class="layui-input-inline">
+              <input name="year" type="text" class="layui-input" id="J_year_select" lay-verify="required" placeholder="">
+            </div>
+          </div>
+        </div>
+        <div class="layui-form-item">
+          <label class="layui-form-label">类别</label>
           <div class="layui-input-block">
-            <input name="type" type="hidden" value="通知公告" />
-            <input type="checkbox" name="type[1]" title="通知公告" value="通知公告" checked lay-filter="check_filter">
-            <input type="checkbox" name="type[2]" title="重要会议" value="重要会议" lay-filter="check_filter">
+            <input name="type" type="hidden" value="期刊" />
+            <input type="checkbox" name="type[1]" title="期刊" value="期刊" checked lay-filter="check_filter">
+            <input type="checkbox" name="type[2]" title="会议" value="会议" lay-filter="check_filter">
           </div>
         </div>
         <div class="layui-form-item">
@@ -40,15 +42,16 @@
     </form>
   </div>
 <script>
-  layui.use('form', function(){
-    var form = layui.form;
+  layui.use(['form', 'laydate'], function(){
+    var form = layui.form,
+        laydate = layui.laydate;
 
     //监听提交
     form.on('submit(J_form_submit)', function(args){
       var param = args.field;
-      $.post('/notice/add', {
+      $.post('/thesis/add', {
         title: param.title,
-        content: param.content,
+        year: param.year,
         type: param.type
       }, function(result){
         if ('success' == result) {
@@ -67,7 +70,13 @@
       $checked = $(data.elem);
       $checked.prop("checked", true);
       form.render('checkbox');
+
       $('input[name="type"]').val($checked.val());
+    });
+
+    laydate.render({
+      elem: '#J_year_select'
+      ,type: 'year'
     });
   });
 </script>

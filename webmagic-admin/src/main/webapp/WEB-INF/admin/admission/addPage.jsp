@@ -59,7 +59,7 @@
       var timeCircle = $('#J_time_circle').val();
       var resultTime = timeCircle.split(' - ');
       var param = args.field;
-      $.post('/srproject/add', {
+      $.post('/admission/add', {
         title: param.title,
         content: param.content,
         fromTime: resultTime[0],

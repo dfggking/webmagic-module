@@ -1,6 +1,7 @@
 package com.webmagic.mapper;
 
 import com.webmagic.model.DataAndCode;
+
 import java.util.List;
 
 public interface DataAndCodeMapper {

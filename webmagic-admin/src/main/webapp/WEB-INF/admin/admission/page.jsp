@@ -9,7 +9,7 @@
 <div class="x-nav">
   <span class="layui-breadcrumb">
     <a href="">首页</a>
-    <a><cite>科研项目</cite></a>
+    <a><cite>招生信息</cite></a>
   </span>
   <a class="layui-btn layui-btn-small" style="line-height: 1.6em; margin-top: 3px; float: right"
      href="javascript:location.replace(location.href);" title="刷新">
@@ -19,7 +19,7 @@
 <div class="x-body">
 
   <fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
-    <legend>列表</legend>
+    <legend>信息</legend>
   </fieldset>
 
   <table class="layui-table" id="J_list" lay-filter="J_list" lay-data="{id: 'idTest'}"></table>
@@ -32,7 +32,7 @@
     table.render({
       elem: '#J_list',
       id: 'idTest'
-      ,url:'/srproject/list'
+      ,url:'/admission/list'
       ,parseData: function(res){ //res 即为原始返回的数据
         return {
           "code": res.status, //解析接口状态
@@ -43,11 +43,9 @@
       }
       ,cellMinWidth: 100 //全局定义常规单元格的最小宽度，layui 2.2.1 新增
       ,cols: [[
-        {field:'title', width: 300, title: '项目名称'}
-        ,{field:'content',title: '简介'}
-        ,{field:'level', width: 80, title: '级别'}
-        ,{field:'fromTime', width:125, title: '开始时间'}
-        ,{field:'toTime', width:125, title: '结束时间'}
+        {field:'title', width: 300, title: '信息标题'}
+        ,{field:'content',title: '信息介绍'}
+        ,{field:'level', width: 80, title: '排序'}
         ,{field:'createTime', width:165, title: '创建时间'}
         ,{fixed: 'right', title:'操作', toolbar: '#bar', width:120}
       ]]
@@ -66,7 +64,7 @@
             ,area: ['500px', '500px']
             ,shade: 0
             ,maxmin: true
-            ,content: '/srproject/addPage'
+            ,content: '/admission/addPage'
             ,btn: ['提交', '关闭']
             ,yes: function(){
               window.frames[0].document.getElementById("J_info_submit_btn").click();
@@ -92,7 +90,7 @@
       var data = obj.data;
       if(obj.event === 'del'){
         layer.confirm('确定删除该科研项目吗', function(index){
-          $.post('/srproject/del', {
+          $.post('/admission/del', {
             id: data.id
           }, function(args){
             console.info(args)
@@ -112,7 +110,7 @@
           ,area: ['500px', '500px']
           ,shade: 0
           ,maxmin: true
-          ,content: '/srproject/editPage?id=' + data.id
+          ,content: '/admission/editPage?id=' + data.id
           ,btn: ['提交', '关闭']
           ,yes: function(){
             window.frames[0].document.getElementById("J_info_submit_btn").click();
@@ -129,7 +127,7 @@
     });
 
     $('#J_edit_introduce').click(function(){
-      $.post('/srproject/introduce/edit', {
+      $.post('/admission/introduce/edit', {
         id: $('#J_introduce_id').val(),
         introduce: $('#J_introduce_content').val()
       }, function(result){

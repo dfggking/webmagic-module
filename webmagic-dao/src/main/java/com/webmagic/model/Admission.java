@@ -2,16 +2,14 @@ package com.webmagic.model;
 
 import java.util.Date;
 
-public class Thesis {
+public class Admission {
     private String id;
 
     private String title;
 
-    private String year;
-
-    private String type;
-
     private Date createTime;
+
+    private String content;
 
     public String getId() {
         return id;
@@ -29,27 +27,19 @@ public class Thesis {
         this.title = title;
     }
 
-    public String getYear() {
-        return year;
-    }
-
-    public void setYear(String year) {
-        this.year = year;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
     public Date getCreateTime() {
         return createTime;
     }
 
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
     }
 }
