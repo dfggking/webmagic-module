@@ -1,7 +1,9 @@
 package com.webmagic.model;
 
+import java.util.Date;
+
 public class ResearchDirection {
-    private Integer id;
+    private String id;
 
     private String title;
 
@@ -9,11 +11,13 @@ public class ResearchDirection {
 
     private Boolean isShow;
 
-    public Integer getId() {
+    private Date createTime;
+
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -39,5 +43,13 @@ public class ResearchDirection {
 
     public void setIsShow(Boolean isShow) {
         this.isShow = isShow;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
     }
 }

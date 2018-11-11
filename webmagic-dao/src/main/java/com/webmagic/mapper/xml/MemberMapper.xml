@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.webmagic.mapper.MemberMapper" >
   <resultMap id="BaseResultMap" type="com.webmagic.model.Member" >
-    <id column="id" property="id" jdbcType="INTEGER" />
+    <id column="id" property="id" jdbcType="VARCHAR" />
     <result column="name" property="name" jdbcType="VARCHAR" />
     <result column="major1" property="major1" jdbcType="VARCHAR" />
     <result column="major2" property="major2" jdbcType="VARCHAR" />
@@ -10,18 +10,19 @@
     <result column="avatar_url" property="avatarUrl" jdbcType="VARCHAR" />
     <result column="institute" property="institute" jdbcType="VARCHAR" />
     <result column="is_show" property="isShow" jdbcType="BIT" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
   </resultMap>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from member
-    where `id` = #{id,jdbcType=INTEGER}
+    where `id` = #{id,jdbcType=VARCHAR}
   </delete>
   <insert id="insert" parameterType="com.webmagic.model.Member" >
     insert into member (`id`, `name`, `major1`, 
       `major2`, `blog_url`, `avatar_url`, 
-      `institute`, `is_show`)
-    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{major1,jdbcType=VARCHAR}, 
+      `institute`, `is_show`, `create_time`)
+    values (#{id,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{major1,jdbcType=VARCHAR},
       #{major2,jdbcType=VARCHAR}, #{blogUrl,jdbcType=VARCHAR}, #{avatarUrl,jdbcType=VARCHAR}, 
-      #{institute,jdbcType=VARCHAR}, #{isShow,jdbcType=BIT})
+      #{institute,jdbcType=VARCHAR}, #{isShow,jdbcType=BIT}, #{createTime,jdbcType=TIMESTAMP})
   </insert>
   <update id="updateByPrimaryKey" parameterType="com.webmagic.model.Member" >
     update member
@@ -31,16 +32,17 @@
       `blog_url` = #{blogUrl,jdbcType=VARCHAR},
       `avatar_url` = #{avatarUrl,jdbcType=VARCHAR},
       `institute` = #{institute,jdbcType=VARCHAR},
-      `is_show` = #{isShow,jdbcType=BIT}
-    where `id` = #{id,jdbcType=INTEGER}
+      `is_show` = #{isShow,jdbcType=BIT},
+      `create_time` = #{createTime,jdbcType=TIMESTAMP}
+    where `id` = #{id,jdbcType=VARCHAR}
   </update>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
-    select `id`, `name`, `major1`, `major2`, `blog_url`, `avatar_url`, `institute`, `is_show`
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select `id`, `name`, `major1`, `major2`, `blog_url`, `avatar_url`, `institute`, `is_show`, `create_time`
     from member
-    where `id` = #{id,jdbcType=INTEGER}
+    where `id` = #{id,jdbcType=VARCHAR}
   </select>
   <select id="selectAll" resultMap="BaseResultMap" >
-    select `id`, `name`, `major1`, `major2`, `blog_url`, `avatar_url`, `institute`, `is_show`
-    from member
+    select `id`, `name`, `major1`, `major2`, `blog_url`, `avatar_url`, `institute`, `is_show`, `create_time`
+    from member order by create_time desc
   </select>
 </mapper>

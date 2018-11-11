@@ -3,7 +3,7 @@ package com.webmagic.model;
 import java.util.Date;
 
 public class ScientificResearchProject {
-    private Integer id;
+    private String id;
 
     private String title;
 
@@ -15,11 +15,13 @@ public class ScientificResearchProject {
 
     private Byte level;
 
-    public Integer getId() {
+    private Date createTime;
+
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -61,5 +63,13 @@ public class ScientificResearchProject {
 
     public void setLevel(Byte level) {
         this.level = level;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
     }
 }

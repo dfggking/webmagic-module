@@ -14,21 +14,15 @@
     <div class="left_open">
       <i title="展开左侧栏" class="iconfont">&#xe699;</i>
     </div>
-    <%--<ul class="layui-nav left fast-add" lay-filter="">
-      <li class="layui-nav-item"><a href="javascript:">+新增</a>
+    <ul class="layui-nav left fast-add" lay-filter="">
+      <li class="layui-nav-item"><a href="javascript:">+交互</a>
         <dl class="layui-nav-child">
-          <!-- 二级菜单 -->
           <dd>
-            <a onclick="x_admin_show('备用','http://www.baidu.com')"><i class="iconfont">&#xe6a2;</i>开发中</a>
+            <a _href="./timeline/page"><i class="iconfont">&#xe6a2;</i>意见反馈~开发中</a>
           </dd>
-          <dd>
-            <a onclick="x_admin_show('备用','http://www.baidu.com')"><i class="iconfont">&#xe6a8;</i>开发中</a>
-          </dd>
-          <dd>
-            <a onclick="x_admin_show('备用','http://www.baidu.com')"><i class="iconfont">&#xe6b8;</i>开发中</a>
-          </dd>
-        </dl></li>
-    </ul>--%>
+        </dl>
+      </li>
+    </ul>
     <ul class="layui-nav right" lay-filter="">
       <li class="layui-nav-item"><a href="javascript:">admin</a>
         <dl class="layui-nav-child">
@@ -40,11 +34,11 @@
             <a onclick="x_admin_show('切换帐号','http://www.baidu.com')">切换帐号</a>
           </dd>--%>
           <dd>
-            <a href="./login.html">退出</a>
+            <a href="">退出</a>
           </dd>
         </dl></li>
 
-      <li class="layui-nav-item to-index"><a target="_blank" href="${sysConfig}">前台首页</a></li>
+      <li class="layui-nav-item to-index"><a target="_blank" href="${sysCOnfig.webUrl}">前台首页</a></li>
     </ul>
 
   </div>
@@ -61,6 +55,8 @@
           <ul class="sub-menu">
             <li><a _href="./wconfig/page"><i class="iconfont">&#xe6a7;</i><cite>网站配置</cite></a></li>
             <li><a _href="./sysconfig/page"><i class="iconfont">&#xe6a7;</i><cite>系统配置</cite></a></li>
+            <li><a _href="./notice/page"><i class="iconfont">&#xe6a7;</i><cite>通知公告</cite></a></li>
+            <li><a _href="./timeline/page"><i class="iconfont">&#xe6a7;</i><cite>版本信息</cite></a></li>
             <%--<li><a _href="./wconfig/page"><i class="iconfont">&#xe6a7;</i><cite>用户管理</cite></a></li>
             <li><a _href="./wconfig/page"><i class="iconfont">&#xe6a7;</i><cite>角色管理</cite></a></li>
             <li><a _href="./wconfig/page"><i class="iconfont">&#xe6a7;</i><cite>系统菜单</cite></a></li>
@@ -68,7 +64,7 @@
           </ul>
         </li>
         <li>
-          <a href="javascript:">
+          <a id="J_default_open" href="javascript:">
             <i class="iconfont">&#xe699;</i><cite>模块管理</cite><i class="iconfont nav_right">&#xe697;</i>
           </a>
           <ul class="sub-menu">
@@ -95,7 +91,7 @@
                 <i class="iconfont">&#xe6b5;</i><cite>研究方向</cite><i class="iconfont nav_right">&#xe697;</i>
               </a>
               <ul class="sub-menu">
-                <li><a _href="./rdirection/list"><i class="iconfont">&#xe6a7;</i><cite>研究列表</cite></a></li>
+                <li><a _href="./rdirection/page"><i class="iconfont">&#xe6a7;</i><cite>研究列表</cite></a></li>
               </ul>
             </li>
             <li>
@@ -103,7 +99,7 @@
                 <i class="iconfont">&#xe6b5;</i><cite>论文著作</cite><i class="iconfont nav_right">&#xe697;</i>
               </a>
               <ul class="sub-menu">
-                <li><a _href="./thesis/list"><i class="iconfont">&#xe6a7;</i><cite>论文列表</cite></a></li>
+                <li><a _href="./thesis/page"><i class="iconfont">&#xe6a7;</i><cite>论文列表</cite></a></li>
               </ul>
             </li>
             <li>
@@ -111,7 +107,7 @@
                 <i class="iconfont">&#xe6b5;</i><cite>科研项目</cite><i class="iconfont nav_right">&#xe697;</i>
               </a>
               <ul class="sub-menu">
-                <li><a _href="./srproject/list"><i class="iconfont">&#xe6a7;</i><cite>项目列表</cite></a></li>
+                <li><a _href="./srproject/page"><i class="iconfont">&#xe6a7;</i><cite>项目列表</cite></a></li>
               </ul>
             </li>
             <li>
@@ -119,7 +115,7 @@
                 <i class="iconfont">&#xe6b5;</i><cite>新闻动态</cite><i class="iconfont nav_right">&#xe697;</i>
               </a>
               <ul class="sub-menu">
-                <li><a _href="./news/list"><i class="iconfont">&#xe6a7;</i><cite>新闻列表</cite></a></li>
+                <li><a _href="./news/page"><i class="iconfont">&#xe6a7;</i><cite>新闻列表</cite></a></li>
               </ul>
             </li>
             <li>
@@ -127,7 +123,7 @@
                 <i class="iconfont">&#xe6b5;</i><cite>课程教学</cite><i class="iconfont nav_right">&#xe697;</i>
               </a>
               <ul class="sub-menu">
-                <li><a _href="./course/list"><i class="iconfont">&#xe6a7;</i><cite>课程列表</cite></a></li>
+                <li><a _href="./course/page"><i class="iconfont">&#xe6a7;</i><cite>课程列表</cite></a></li>
               </ul>
             </li>
             <li>
@@ -135,8 +131,8 @@
                 <i class="iconfont">&#xe6b5;</i><cite>数据与代码</cite><i class="iconfont nav_right">&#xe697;</i>
               </a>
               <ul class="sub-menu">
-                <li><a _href="./datacode/data/list"><i class="iconfont">&#xe6a7;</i><cite>数据集</cite></a></li>
-                <li><a _href="./datacode/code/list"><i class="iconfont">&#xe6a7;</i><cite>代码</cite></a></li>
+                <li><a _href="./datacode/data/page"><i class="iconfont">&#xe6a7;</i><cite>数据集</cite></a></li>
+                <li><a _href="./datacode/code/page"><i class="iconfont">&#xe6a7;</i><cite>代码</cite></a></li>
               </ul>
             </li>
             <li>
@@ -144,7 +140,7 @@
                 <i class="iconfont">&#xe6b5;</i><cite>招生信息</cite><i class="iconfont nav_right">&#xe697;</i>
               </a>
               <ul class="sub-menu">
-                <li><a _href="./admission/info"><i class="iconfont">&#xe6a7;</i><cite>信息维护</cite></a></li>
+                <li><a _href="./admission/page"><i class="iconfont">&#xe6a7;</i><cite>信息维护</cite></a></li>
               </ul>
             </li>
           </ul>
@@ -175,5 +171,10 @@
     <div class="copyright">Copyright ©2018 DFGGKING All Rights Reserved</div>
     <div class="author">技术支持：835317619@qq.com</div>
   </div>
+<script>
+  $(function(){
+    $('#J_default_open').click();
+  })
+</script>
 </body>
 </html>

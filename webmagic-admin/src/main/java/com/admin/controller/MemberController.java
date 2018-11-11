@@ -2,6 +2,7 @@ package com.admin.controller;
 
 import com.admin.controller.base.BaseController;
 import com.admin.vo.MemberVO;
+import com.baomidou.mybatisplus.toolkit.IdWorker;
 import com.webmagic.mapper.MemberMapper;
 import com.webmagic.mapper.SysConfigMapper;
 import com.webmagic.model.Member;
@@ -19,6 +20,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
+import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
@@ -46,9 +48,18 @@ public class MemberController extends BaseController {
         return mv;
     }
     
-    @RequestMapping(value = "add", method = RequestMethod.POST)
-    public ModelAndView add(MultipartFile avatar, MemberVO member, HttpServletRequest request){
+    @RequestMapping("editPage")
+    public ModelAndView editPage(String id) {
+        Member member = memberMapper.selectByPrimaryKey(id);
         ModelAndView mv = new ModelAndView();
+        mv.addObject(ENTITY, member);
+        return mv;
+    }
+    
+    @RequestMapping(value = "add", method = RequestMethod.POST)
+    public ModelAndView add(MultipartFile avatar, Member member, HttpServletRequest request){
+        ModelAndView mv = new ModelAndView("redirect:/member/addPage");
+   
         if (avatar != null ) {
             String fileName = avatar.getOriginalFilename();
             String newFileName = UUID.randomUUID() + fileName;
@@ -60,26 +71,48 @@ public class MemberController extends BaseController {
             }
             try {
                 avatar.transferTo(targetFile);
-                Member memberDTO = new Member();
-                BeanUtils.copyProperties(memberDTO, member);
-                memberDTO.setAvatarUrl(sysConfig.getWebUrl() +"/uploads/avatar/"+ newFileName);
-                memberMapper.insert(memberDTO);
+                member.setId(IdWorker.getIdStr());
+                member.setAvatarUrl(sysConfig.getWebUrl() +"/uploads/avatar/"+ newFileName);
+                member.setCreateTime(new Date());
+                memberMapper.insert(member);
                 mv.addObject(RESULT, SUCCESS);
-                mv.setViewName("/member/addPage");
             } catch (IOException e) {
-                e.printStackTrace();
-            } catch (IllegalAccessException e) {
-                e.printStackTrace();
-            } catch (InvocationTargetException e) {
                 e.printStackTrace();
             }
         }
         return mv;
     }
     
+    @RequestMapping(value = "edit", method = RequestMethod.POST)
+    public ModelAndView edit(MultipartFile avatar, Member member, HttpServletRequest request){
+        SysConfig sysConfig = sysConfigMapper.selectByPrimaryKey(1);
+        ModelAndView mv = new ModelAndView("redirect:/member/editPage");
+        mv.addObject("id", member.getId());
+        if (avatar != null ) {
+            String fileName = avatar.getOriginalFilename();
+            String newFileName = UUID.randomUUID() + fileName;
+            File targetFile = new File(sysConfig.getFileSavePosition() + "/uploads/avatar/", newFileName);
+            File fileParent = targetFile.getParentFile();
+            if(!fileParent.exists()){
+                fileParent.mkdirs();
+            }
+            try {
+                avatar.transferTo(targetFile);
+                member.setAvatarUrl(sysConfig.getWebUrl() +"/uploads/avatar/"+ newFileName);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else {
+            member.setAvatarUrl(sysConfig.getWebUrl() +"/uploads/avatar/timg.jpg");
+        }
+        member.setCreateTime(new Date());
+        memberMapper.updateByPrimaryKey(member);
+        return mv;
+    }
+    
     @RequestMapping(value = "del", method = RequestMethod.GET)
     @ResponseBody
-    public String del(int id){
+    public String del(String id){
         memberMapper.deleteByPrimaryKey(id);
         return SUCCESS;
     }

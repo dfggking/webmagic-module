@@ -1,8 +1,12 @@
 package com.webmagic.controller;
 
 import com.webmagic.controller.base.BaseController;
+import com.webmagic.mapper.PageIntroduceMapper;
+import com.webmagic.mapper.WebsiteConfigMapper;
+import com.webmagic.model.PageIntroduce;
 import com.webmagic.model.ResearchDirection;
 import com.webmagic.mapper.ResearchDirectionMapper;
+import com.webmagic.model.WebsiteConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,13 +24,21 @@ public class ResearchDirectionController extends BaseController {
 
     @Autowired
     private ResearchDirectionMapper rdMapper;
+    @Autowired
+    private PageIntroduceMapper introduceMapper;
+    @Autowired
+    private WebsiteConfigMapper websiteConfigService;
 
 	@RequestMapping("direction")
 	public ModelAndView index() {
+        WebsiteConfig wc = websiteConfigService.selectByPrimaryKey(1);
+        PageIntroduce pageIntroduce = introduceMapper.selectByPrimaryKey("1");
         List<ResearchDirection> list = rdMapper.selectAll();
         ModelAndView mv = new ModelAndView();
         mv.addObject(RESULT, SUCCESS);
         mv.addObject(LIST, list);
+        mv.addObject(ENTITY, wc);
+        mv.addObject("pageIntroduce", pageIntroduce);
         return mv;
 	}
 

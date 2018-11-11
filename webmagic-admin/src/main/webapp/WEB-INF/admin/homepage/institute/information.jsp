@@ -25,7 +25,7 @@
     </a>
   </div>
   <div class="x-body">
-    <table class="layui-hide" id="J_list" lay-filter="J_list" lay-data="{id: 'idTest'}"></table>
+    <table class="layui-table" id="J_list" lay-filter="J_list" lay-data="{id: 'idTest'}"></table>
   </div>
   <script>
     layui.use('table', function(){
@@ -102,7 +102,6 @@
             window.frames[0].document.getElementById("J_info_submit_btn").click();
           }
           ,btn2: function(){
-
             layer.closeAll();
           }
         });

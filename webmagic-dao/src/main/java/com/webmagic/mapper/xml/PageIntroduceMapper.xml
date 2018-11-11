@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.webmagic.mapper.PageIntroduceMapper" >
+  <resultMap id="BaseResultMap" type="com.webmagic.model.PageIntroduce" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="introduce" property="introduce" jdbcType="VARCHAR" />
+    <result column="page_name" property="pageName" jdbcType="VARCHAR" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from page_introduce
+    where `id` = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.webmagic.model.PageIntroduce" >
+    insert into page_introduce (`id`, `introduce`, `page_name`
+      )
+    values (#{id,jdbcType=VARCHAR}, #{introduce,jdbcType=VARCHAR}, #{pageName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.webmagic.model.PageIntroduce" >
+    update page_introduce
+    set `introduce` = #{introduce,jdbcType=VARCHAR},
+      `page_name` = #{pageName,jdbcType=VARCHAR}
+    where `id` = #{id,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select `id`, `introduce`, `page_name`
+    from page_introduce
+    where `id` = #{id,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select `id`, `introduce`, `page_name`
+    from page_introduce
+  </select>
+</mapper>

@@ -2,19 +2,37 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.webmagic.mapper.ResearchDirectionMapper" >
   <resultMap id="BaseResultMap" type="com.webmagic.model.ResearchDirection" >
-    <result column="id" property="id" jdbcType="INTEGER" />
+    <id column="id" property="id" jdbcType="VARCHAR" />
     <result column="title" property="title" jdbcType="VARCHAR" />
     <result column="content" property="content" jdbcType="VARCHAR" />
     <result column="is_show" property="isShow" jdbcType="BIT" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
   </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from research_direction
+    where `id` = #{id,jdbcType=VARCHAR}
+  </delete>
   <insert id="insert" parameterType="com.webmagic.model.ResearchDirection" >
     insert into research_direction (`id`, `title`, `content`, 
-      `is_show`)
-    values (#{id,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, 
-      #{isShow,jdbcType=BIT})
+      `is_show`, `create_time`)
+    values (#{id,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, 
+      #{isShow,jdbcType=BIT}, #{createTime,jdbcType=TIMESTAMP})
   </insert>
-  <select id="selectAll" resultMap="BaseResultMap" >
-    select `id`, `title`, `content`, `is_show`
+  <update id="updateByPrimaryKey" parameterType="com.webmagic.model.ResearchDirection" >
+    update research_direction
+    set `title` = #{title,jdbcType=VARCHAR},
+      `content` = #{content,jdbcType=VARCHAR},
+      `is_show` = #{isShow,jdbcType=BIT},
+      `create_time` = #{createTime,jdbcType=TIMESTAMP}
+    where `id` = #{id,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select `id`, `title`, `content`, `is_show`, `create_time`
     from research_direction
+    where `id` = #{id,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select `id`, `title`, `content`, `is_show`, `create_time`
+    from research_direction order by create_time desc
   </select>
 </mapper>

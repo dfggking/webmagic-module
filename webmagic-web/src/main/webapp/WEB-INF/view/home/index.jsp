@@ -64,18 +64,12 @@
         <div class="c-img">
           <div id="J_info_swiper" class="swiper-container">
             <div class="swiper-wrapper">
+              <c:forEach items="${info_list}" var="info" varStatus="s">
               <div class="swiper-slide">
-                <img class="swiper-img" src="/images/information.jpg">
-                <p class="swiper-title">北京交通大学 2016年11月研究生发表高水平论文奖励通知</p>
+                <img class="swiper-img" src="${info.mainImg}">
+                <p class="swiper-title">${info.title}</p>
               </div>
-              <div class="swiper-slide">
-                <img class="swiper-img" src="/images/information.jpg">
-                <p class="swiper-title">关于拟对薛冰等234名在职专业学位研究生进行退学处理的通知</p>
-              </div>
-              <div class="swiper-slide">
-                <img class="swiper-img" src="/images/information.jpg">
-                <p class="swiper-title">关于2018-2019学年第一学期研究生学籍注册的通知 （全日制/非全日制/博...</p>
-              </div>
+              </c:forEach>
             </div>
             <div class="swiper-button-prev"></div><!--左箭头-->
             <div class="swiper-button-next"></div><!--右箭头-->
@@ -83,12 +77,17 @@
         </div>
         <div class="notice">
           <ul class="info-list">
-            <c:forEach items="${info_list}" var="info" varStatus="s">
+            <c:forEach items="${notices}" var="info" varStatus="s">
             <li class="active">
               <a href="">
-                <span class="label color1">${info.type}</span>
+                <c:if test="${'通知公告' == info.type}">
+                  <span class="label color1">${info.type}</span>
+                </c:if>
+                <c:if test="${'重要会议' == info.type}">
+                  <span class="label color2">${info.type}</span>
+                </c:if>
                 <span class="title">${info.title}</span>
-                <span class="time">[<fmt:formatDate value="${info.createAt}" type="date" pattern="yyyy-MM-dd"/>]</span>
+                <span class="time">[<fmt:formatDate value="${info.createTime}" type="date" pattern="yyyy-MM-dd"/>]</span>
               </a>
             </li>
             </c:forEach>

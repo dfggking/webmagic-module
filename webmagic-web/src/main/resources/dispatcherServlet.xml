@@ -35,7 +35,7 @@
   <context:component-scan base-package="com.webmagic.mapper"/>
   <context:component-scan base-package="com.webmagic.mymapper"/>
   <mvc:default-servlet-handler />
-  
+  <mvc:resources mapping="/uploads/**" location="/uploads/" />
   <!-- 定义视图及路径 -->
   <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
     <property name="viewClass" value="org.springframework.web.servlet.view.JstlView" />
