@@ -73,6 +73,8 @@ public class DCCodeController extends BaseController {
     public String add(DataAndCode dataCode){
         dataCode.setId(IdWorker.getIdStr());
         dataCode.setCreateTime(new Date());
+        dataCode.setType("代码");
+
         dataCodeMapper.insert(dataCode);
         return SUCCESS;
     }

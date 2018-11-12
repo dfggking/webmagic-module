@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <%@ include file="../common/header.jsp" %>
+  <%@ include file="../../common/header.jsp" %>
 </head>
 <body>
 <div class="x-nav">
@@ -152,6 +152,7 @@
 </script>
 <script type="text/html" id="bar">
   <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+  <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="attachment">附件</a>
   <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
 </script>
 </body>

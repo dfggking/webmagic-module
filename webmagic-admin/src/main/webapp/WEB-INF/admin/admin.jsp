@@ -112,10 +112,10 @@
             </li>
             <li>
               <a href="javascript:">
-                <i class="iconfont">&#xe6b5;</i><cite>新闻动态</cite><i class="iconfont nav_right">&#xe697;</i>
+                <i class="iconfont">&#xe6b5;</i><cite>新闻资讯</cite><i class="iconfont nav_right">&#xe697;</i>
               </a>
               <ul class="sub-menu">
-                <li><a _href="./news/page"><i class="iconfont">&#xe6a7;</i><cite>新闻列表</cite></a></li>
+                <li><a _href="./homepage/institute/information"><i class="iconfont">&#xe6a7;</i><cite>资讯列表</cite></a></li>
               </ul>
             </li>
             <li>
@@ -123,7 +123,7 @@
                 <i class="iconfont">&#xe6b5;</i><cite>课程教学</cite><i class="iconfont nav_right">&#xe697;</i>
               </a>
               <ul class="sub-menu">
-                <li><a _href="./course/page"><i class="iconfont">&#xe6a7;</i><cite>课程列表</cite></a></li>
+                <li><a _href="./courseteach/page"><i class="iconfont">&#xe6a7;</i><cite>课程列表</cite></a></li>
               </ul>
             </li>
             <li>

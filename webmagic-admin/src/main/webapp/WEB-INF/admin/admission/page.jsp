@@ -43,7 +43,7 @@
       }
       ,cellMinWidth: 100 //全局定义常规单元格的最小宽度，layui 2.2.1 新增
       ,cols: [[
-        {field:'title', width: 300, title: '信息标题'}
+        {field:'title', width: 300, title: '招生信息'}
         ,{field:'content',title: '信息介绍'}
         ,{field:'level', width: 80, title: '排序'}
         ,{field:'createTime', width:165, title: '创建时间'}
@@ -60,7 +60,7 @@
         case 'addData':
           var index = layer.open({
             type: 2
-            ,title: '添加科研项目'
+            ,title: '添加信息'
             ,area: ['500px', '500px']
             ,shade: 0
             ,maxmin: true
@@ -89,7 +89,7 @@
     table.on('tool(J_list)', function(obj){
       var data = obj.data;
       if(obj.event === 'del'){
-        layer.confirm('确定删除该科研项目吗', function(index){
+        layer.confirm('确定删除该信息吗', function(index){
           $.post('/admission/del', {
             id: data.id
           }, function(args){
@@ -106,7 +106,7 @@
       } else if(obj.event === 'edit'){
         var index = layer.open({
           type: 2
-          ,title: '修改科研项目'
+          ,title: '修改信息'
           ,area: ['500px', '500px']
           ,shade: 0
           ,maxmin: true

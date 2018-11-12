@@ -3,42 +3,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <%@ include file="../common/header.jsp" %>
+  <%@ include file="../../common/header.jsp" %>
 </head>
 <body>
 <div class="layui-card-body" pad15="">
   <form action="" method="post">
     <div class="layui-form" wid100="" lay-filter="">
       <div class="layui-form-item">
-        <label class="layui-form-label">项目题目</label>
+        <label class="layui-form-label">标题</label>
         <div class="layui-input-block">
           <input name="id" type="hidden" value="${entity.id}" />
           <input type="text" name="title" value="${entity.title}" lay-verify="required" lay-verify="required" autocomplete="off" placeholder="请输入标题" class="layui-input">
         </div>
       </div>
-      <div class="layui-form-item">
-        <div class="layui-inline">
-          <label class="layui-form-label">起止时间</label>
-          <div class="layui-input-inline">
-            <input type="text" class="layui-input" id="J_time_circle" value="${entity.fromTime} - ${entity.toTime}" lay-verify="required" placeholder=" - ">
-          </div>
-        </div>
-      </div>
-      <div class="layui-form-item">
-        <label class="layui-form-label">项目级别</label>
-        <div class="layui-input-block">
-          <input name="level" type="hidden" value="${entity.level}" />
-          <input type="checkbox" name="level[1]" title="校级" value="校级" ${'校级'==entity.level ? 'checked=checked' : ''} lay-filter="check_filter">
-          <input type="checkbox" name="level[2]" title="市级" value="市级" ${'市级'==entity.level ? 'checked=checked' : ''} lay-filter="check_filter">
-          <input type="checkbox" name="level[3]" title="省级" value="省级" ${'省级'==entity.level ? 'checked=checked' : ''} lay-filter="check_filter">
-        </div>
-      </div>
-      <div class="layui-form-item layui-form-text">
+      <%--<div class="layui-form-item layui-form-text">
         <label class="layui-form-label">项目内容</label>
         <div class="layui-input-block">
           <textarea name="content" placeholder="请输入内容" lay-verify="required" class="layui-textarea" style="min-height: 300px;">${entity.content}</textarea>
         </div>
-      </div>
+      </div>--%>
       <div class="layui-form-item">
         <div class="layui-input-block">
           <button class="layui-btn" lay-submit="" lay-filter="J_form_submit">提交</button>
@@ -59,38 +42,21 @@
       var timeCircle = $('#J_time_circle').val();
       var resultTime = timeCircle.split(' - ');
       var param = args.field;
-      $.post('/srproject/edit', {
+      $.post('/datacode/code/edit', {
         id: param.id,
-        title: param.title,
-        content: param.content,
-        fromTime: resultTime[0],
-        toTime: resultTime[1],
-        level: param.level
+        title: param.title
       }, function(result){
         if ('success' == result) {
           layer.msg('操作成功', {
             icon : 1
           });
         } else {
-
+          layer.msg('操作失败', {
+            icon : 2
+          });
         }
       });
       return false;
-    });
-
-    laydate.render({
-      elem: '#J_time_circle'
-      ,range: true
-    });
-
-    form.on('checkbox(check_filter)', function(data){
-      $('[lay-filter="check_filter"]').prop("checked", false);
-      $checked = $(data.elem);
-      $checked.prop("checked", true);
-      form.render('checkbox');
-
-      console.info($('input[name="level"]'))
-      $('input[name="level"]').val($checked.val());
     });
   });
 </script>
