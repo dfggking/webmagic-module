@@ -3,16 +3,14 @@ package com.admin.controller;
 import com.admin.controller.base.BaseController;
 import com.admin.vo.ResultMap;
 import com.baomidou.mybatisplus.toolkit.IdWorker;
-import com.dfgg.util.CopyUtils;
+import com.webmagic.mapper.HomeSwiperMapper;
 import com.webmagic.mapper.InfoTypeMapper;
 import com.webmagic.mapper.InstituteInformationMapper;
-import com.webmagic.model.*;
-import com.webmagic.mapper.HomeSwiperMapper;
 import com.webmagic.mapper.SysConfigMapper;
+import com.webmagic.model.*;
 import com.webmagic.service.HomepageService;
 import com.webmagic.service.InformationService;
 import com.webmagic.service.InstituteService;
-import org.apache.commons.beanutils.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -64,14 +62,14 @@ public class HomepageController extends BaseController {
 			if (file != null && fileName != null && fileName.length() > 0) {
 				String newFileName = UUID.randomUUID() + fileName;
                 SysConfig sysConfig = sysConfigMapper.selectByPrimaryKey(1);
-				File targetFile = new File(sysConfig.getFileSavePosition() + "/uploads", newFileName);
+				File targetFile = new File(sysConfig.getFileSavePosition() + "/uploads/swiper", newFileName);
 				File fileParent = targetFile.getParentFile();
 				if(!fileParent.exists()){
 					fileParent.mkdirs();
 				}
 				file.transferTo(targetFile);
 				HomeSwiper homeSwiper = new HomeSwiper();
-				homeSwiper.setFilePath(targetFile.getPath());
+				homeSwiper.setFilePath("/uploads/swiper/"+ newFileName);
 				homeSwiper.setFileName(newFileName);
 				homeSwiperMapper.insert(homeSwiper);
 			}
@@ -84,11 +82,10 @@ public class HomepageController extends BaseController {
 	}
 
     @RequestMapping("swiper/del")
-	public ModelAndView delSwiper(Integer id){
+    @ResponseBody
+	public String delSwiper(Integer id){
         homeSwiperMapper.deleteByPrimaryKey(id);
-        ModelAndView mv = new ModelAndView();
-        mv.setViewName("homepage/swiper");
-        return mv;
+        return SUCCESS;
     }
 	@RequestMapping("institute/introduce")
 	public ModelAndView introduce() {
@@ -102,6 +99,8 @@ public class HomepageController extends BaseController {
 	@RequestMapping("institute/information")
 	public ModelAndView information() {
 		ModelAndView mv = new ModelAndView();
+        SysConfig sysConfig = sysConfigMapper.selectByPrimaryKey(1);
+        mv.addObject("website", sysConfig.getWebUrl());
 		return mv;
 	}
 
@@ -137,7 +136,7 @@ public class HomepageController extends BaseController {
         if (img != null) {
             String fileName = img.getOriginalFilename();
             String newFileName = UUID.randomUUID() + fileName;
-            File targetFile = new File(sysConfig.getFileSavePosition() + "/uploads/infoimg/", newFileName);
+            File targetFile = new File(sysConfig.getFileSavePosition() + "/uploads/info/", newFileName);
             File fileParent = targetFile.getParentFile();
             if (!fileParent.exists()) {
                 fileParent.mkdirs();
@@ -148,9 +147,9 @@ public class HomepageController extends BaseController {
                 e.printStackTrace();
                 mv.addObject(RESULT, FAILED);
             }
-            info.setMainImg(sysConfig.getWebUrl() + "/uploads/infoimg/" + newFileName);
+            info.setMainImg("/uploads/info/" + newFileName);
         } else {
-            info.setMainImg(sysConfig.getWebUrl() +"/images/news/3.jpg");
+            info.setMainImg("/images/news/3.jpg");
         }
         info.setId(IdWorker.getIdStr());
         info.setCreateAt(new Date());
@@ -164,6 +163,8 @@ public class HomepageController extends BaseController {
         InstituteInformation info = infoMapper.selectByPrimaryKey(id);
         List<InfoType> infoTypes = infoTypeMapper.selectAll();
         ModelAndView mv = new ModelAndView();
+        SysConfig sysConfig = sysConfigMapper.selectByPrimaryKey(1);
+        mv.addObject("website", sysConfig.getWebUrl());
         mv.addObject(LIST, infoTypes);
         mv.addObject(ENTITY, info);
         return mv;
@@ -188,9 +189,9 @@ public class HomepageController extends BaseController {
                 e.printStackTrace();
                 mv.addObject(RESULT, FAILED);
             }
-            info.setMainImg(sysConfig.getWebUrl() + "/uploads/infoimg/" + newFileName);
+            info.setMainImg( "/uploads/infoimg/" + newFileName);
         } else {
-            info.setMainImg(sysConfig.getWebUrl() +"/images/news/3.jpg");
+            info.setMainImg("/images/news/3.jpg");
         }
         info.setCreateAt(new Date());
         infoMapper.updateByPrimaryKey(info);

@@ -20,9 +20,9 @@
           <li><a href="/team/member/list">团队成员</a></li>
           <li><a href="/research/direction">研究方向</a></li>
           <li><a href="/thesis/index">论文著作</a></li>
-          <li><a href="/project/info">科研项目</a></li>
+          <li><a href="/project/page">科研项目</a></li>
           <li class="active"><a href="/news/info">新闻资讯</a></li>
-          <li><a href="/course/teaching">课程教学</a></li>
+          <li><a href="/courseteach/page">课程教学</a></li>
           <li><a href="/dataCode/info">数据与代码</a></li>
           <li><a href="/admission/info">招生信息</a></li>
         </ul>
@@ -45,7 +45,7 @@
       <c:forEach items="${info_list}" var="info" varStatus="s">
       <div class="news-panel">
         <div class="news-img">
-          <img src="/images/news/3.jpg" />
+          <img src="${info.mainImg!=null ? info.mainImg : '/images/news/3.jpg'}" />
         </div>
         <h4>${info.title}</h4>
         <div class="panel-footer">

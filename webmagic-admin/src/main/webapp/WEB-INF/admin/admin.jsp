@@ -108,6 +108,7 @@
               </a>
               <ul class="sub-menu">
                 <li><a _href="./srproject/page"><i class="iconfont">&#xe6a7;</i><cite>项目列表</cite></a></li>
+                <li><a _href="./enterprise/page"><i class="iconfont">&#xe6a7;</i><cite>合作企业</cite></a></li>
               </ul>
             </li>
             <li>

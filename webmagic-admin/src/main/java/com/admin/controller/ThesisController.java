@@ -136,7 +136,7 @@ public class ThesisController extends BaseController {
                     multipartFile.transferTo(targetFile);
                     Attachment attachment = new Attachment();
                     attachment.setId(IdWorker.getIdStr());
-                    attachment.setPath(sysConfig.getWebUrl() +"/uploads/attathment/thesis/"+ newFileName);
+                    attachment.setPath("/uploads/attathment/thesis/"+ newFileName);
                     attachment.setCreateTime(new Date());
                     attachment.setForeignId(id);
                     attachment.setFileName(fileName);

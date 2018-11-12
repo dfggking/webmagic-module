@@ -22,6 +22,12 @@
           </div>
         </div>
         <div class="layui-form-item">
+          <label class="layui-form-label">排序</label>
+          <div class="layui-input-block">
+            <input type="number" name="sort" lay-verify="required" lay-verify="required" autocomplete="off" placeholder="请输入排序" class="layui-input">
+          </div>
+        </div>
+        <div class="layui-form-item">
           <div class="layui-input-block">
             <button class="layui-btn" lay-submit="" lay-filter="J_form_submit">提交</button>
             <button type="reset" class="layui-btn layui-btn-primary">重置</button>
@@ -42,16 +48,16 @@
       $.post('/admission/add', {
         title: param.title,
         content: param.content,
-        fromTime: resultTime[0],
-        toTime: resultTime[1],
-        level: param.level
+        sort: param.sort
       }, function(result){
         if ('success' == result) {
           layer.msg('操作成功', {
             icon : 1
           });
         } else {
-
+          layer.msg('操作失败', {
+            icon : 2
+          });
         }
       });
       return false;

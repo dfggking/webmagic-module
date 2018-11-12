@@ -22,9 +22,17 @@
   </fieldset>
   <ul class="layui-timeline">
     <li class="layui-timeline-item">
+      <i class="layui-icon layui-anim layui-anim-rotate layui-anim-loop layui-timeline-axis"></i>
+      <div class="layui-timeline-content layui-text">
+        <h3 class="layui-timeline-title">11月20日</h3>
+        <p>1.完成修复网站BUG，改善使用体验，完善分页功能<i class="layui-icon"></i></p>
+        <p>2.优化图片上传功能<i class="layui-icon"></i></p>
+      </div>
+    </li>
+    <li class="layui-timeline-item">
       <i class="layui-icon layui-timeline-axis"></i>
       <div class="layui-timeline-content layui-text">
-        <h3 class="layui-timeline-title">2018年11月14日</h3>
+        <h3 class="layui-timeline-title">11月14日</h3>
         <p>
           项目1.0演示<i class="layui-icon"></i>
         </p>
@@ -33,7 +41,7 @@
     <li class="layui-timeline-item">
       <i class="layui-icon layui-timeline-axis"></i>
       <div class="layui-timeline-content layui-text">
-        <h3 class="layui-timeline-title">2018年11月1日 ~ 2018年11月13日</h3>
+        <h3 class="layui-timeline-title">11月1日 ~ 11月13日</h3>
         <p>
           项目开发阶段
         </p>
@@ -42,7 +50,7 @@
     <li class="layui-timeline-item">
       <i class="layui-icon layui-timeline-axis"></i>
       <div class="layui-timeline-content layui-text">
-        <h3 class="layui-timeline-title">2018年10月1日</h3>
+        <h3 class="layui-timeline-title">10月1日</h3>
         <p>
           项目启动，开始设计
         </p>
@@ -63,7 +71,7 @@
     <li class="layui-timeline-item">
       <i class="layui-icon layui-timeline-axis"></i>
       <div class="layui-timeline-content layui-text">
-        <div class="layui-timeline-title">2018年，layui 5.0 发布。并发展成为中国最受欢迎的前端UI框架（期望）</div>
+        <div class="layui-timeline-title">，layui 5.0 发布。并发展成为中国最受欢迎的前端UI框架（期望）</div>
       </div>
     </li>
     <li class="layui-timeline-item">

@@ -18,9 +18,9 @@
           <li><a href="/team/member/list">团队成员</a></li>
           <li><a href="/research/direction">研究方向</a></li>
           <li><a href="/thesis/index">论文著作</a></li>
-          <li><a href="/project/info">科研项目</a></li>
+          <li><a href="/project/page">科研项目</a></li>
           <li><a href="/news/info">新闻资讯</a></li>
-          <li><a href="/course/teaching">课程教学</a></li>
+          <li><a href="/courseteach/page">课程教学</a></li>
           <li><a href="/dataCode/info">数据与代码</a></li>
           <li class="active"><a href="/admission/info">招生信息</a></li>
         </ul>
@@ -53,62 +53,14 @@
       </p>
     </div>
     <div class="admission-info">
-      <div class="info-panel">
-        <h3>1. 大学生创新试验计划要求</h3>
-        <div class="panel-body">
-          本研究所每年最多接到三个项目的指导请求。项目组队要求及目标包括：
-          <ul>
-            <li>要求主要曾元大二以上，每组人数不超过3人；</li>
-            <li>队员要求有科研热情，学习成绩优良，外语好，具有较强的阅读科技文献能力；</li>
-            <li>研究内容需符合本研究所方向；</li>
-            <li>要求主要曾元大二以上，每组人数不超过3人；</li>
-            <li>队员要求有科研热情，学习成绩优良，外语好，具有较强的阅读科技文献能力；</li>
-            <li>研究内容需符合本研究所方向；</li>
-          </ul>
+      <c:forEach items="${list}" var="entity">
+        <div class="info-panel">
+          <h3>${entity.title}</h3>
+          <div class="panel-body">
+            ${entity.content}
+          </div>
         </div>
-      </div>
-      <div class="info-panel">
-        <h3>2. 大学生创新试验计划要求</h3>
-        <div class="panel-body">
-          本研究所每年最多接到三个项目的指导请求。项目组队要求及目标包括：
-          <ul>
-            <li>要求主要曾元大二以上，每组人数不超过3人；</li>
-            <li>队员要求有科研热情，学习成绩优良，外语好，具有较强的阅读科技文献能力；</li>
-            <li>研究内容需符合本研究所方向；</li>
-            <li>要求主要曾元大二以上，每组人数不超过3人；</li>
-            <li>队员要求有科研热情，学习成绩优良，外语好，具有较强的阅读科技文献能力；</li>
-            <li>研究内容需符合本研究所方向；</li>
-          </ul>
-        </div>
-      </div>
-      <div class="info-panel">
-        <h3>3. 大学生创新试验计划要求</h3>
-        <div class="panel-body">
-          本研究所每年最多接到三个项目的指导请求。项目组队要求及目标包括：
-          <ul>
-            <li>要求主要曾元大二以上，每组人数不超过3人；</li>
-            <li>队员要求有科研热情，学习成绩优良，外语好，具有较强的阅读科技文献能力；</li>
-            <li>研究内容需符合本研究所方向；</li>
-            <li>要求主要曾元大二以上，每组人数不超过3人；</li>
-            <li>队员要求有科研热情，学习成绩优良，外语好，具有较强的阅读科技文献能力；</li>
-            <li>研究内容需符合本研究所方向；</li>
-          </ul>
-        </div>
-      </div>
-      <div class="info-panel">
-        <h3>4. 大学生创新试验计划要求</h3>
-        <div class="panel-body">
-          本研究所每年最多接到三个项目的指导请求。项目组队要求及目标包括：
-          <ul>
-            <li>要求主要曾元大二以上，每组人数不超过3人；</li>
-            <li>队员要求有科研热情，学习成绩优良，外语好，具有较强的阅读科技文献能力；</li>
-            <li>研究内容需符合本研究所方向；</li>
-            <li>要求主要曾元大二以上，每组人数不超过3人；</li>
-            <li>队员要求有科研热情，学习成绩优良，外语好，具有较强的阅读科技文献能力；</li>
-            <li>研究内容需符合本研究所方向；</li>
-          </ul>
-        </div>
-      </div>
+      </c:forEach>
     </div>
     <div class="introduction">
       <h4 class="">附录：研究所介绍</h4>

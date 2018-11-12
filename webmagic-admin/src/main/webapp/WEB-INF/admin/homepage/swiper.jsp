@@ -26,13 +26,6 @@
     <blockquote class="layui-elem-quote">
       请在此选择多文件上传
     </blockquote>
-    <div class="layui-carousel" id="J_image_carousel">
-      <div carousel-item>
-        <div class=""><img src="/images/swiper.jpg" alt=""></div>
-        <div><img src="/images/swiper.jpg" alt=""></div>
-        <div><img src="/images/swiper.jpg" alt=""></div>
-      </div>
-    </div>
       <div class="layui-upload">
         <button type="button" class="layui-btn layui-btn-normal" id="J_add_image">选择多文件</button>
         <div class="layui-upload-list">
@@ -46,7 +39,7 @@
             <tbody id="J_image_list">
               <c:forEach items="${list}" var="img">
                 <tr id="upload-${img.id}">
-                  <td class="img-td"><img src="${sysConfig.webUrl}/uploads/${img.fileName}" style="max-width:800px;" /></td>
+                  <td class="img-td"><img src="${sysConfig.webUrl}${img.filePath}" style="max-width:800px;" /></td>
                   <td>
                     <button class="layui-btn layui-btn-xs layui-btn-danger demo-delete" onclick="imgDel(this, ${img.id})">删除</button>
                   </td>
@@ -73,6 +66,11 @@
         ,multiple: true
         ,auto: false
         ,bindAction: '#J_upload_image_action'
+        ,before: function(obj){
+          console.info(obj)
+          if (obj) {
+          }
+        }
         ,choose: function(obj){
           var files = this.files = obj.pushFile(); //将每次选择的文件追加到文件队列
           //读取本地文件
@@ -100,13 +98,15 @@
         }
         ,done: function(res, index, upload){
           if("success" == res.result){ //上传成功
+            layer.msg('上传成功', {
+              icon : 1
+            });
             var tr = imageListView.find('tr#upload-'+ index)
               ,tds = tr.children();
             tds.eq(2).html('<span style="color: #5FB878;">上传成功</span>');
             tds.eq(3).html(''); //清空操作
             return delete this.files[index]; //删除文件队列已经上传成功的文件
           }
-          this.error(index, upload);
         }
         ,error: function(index, upload){
           var tr = imageListView.find('tr#upload-'+ index)
@@ -127,14 +127,12 @@
             id: id
           },
           success: function(args){
-            if ("success" == args.result) {
+            if ("success" == args) {
               //发异步删除数据
               $(obj).parents("tr").remove();
-              layer.msg('已删除!', {
-                icon : 1,
-                time : 1000
+              layer.msg('操作成功', {
+                icon : 1
               });
-              layer.close(index);
             }
           },
           error: function (args) {
@@ -142,7 +140,9 @@
           }
         })
       } else {
-
+        layer.msg('操作失败', {
+          icon : 5
+        });
       }
     }
   </script>

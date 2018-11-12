@@ -23,6 +23,12 @@
         </div>
       </div>
       <div class="layui-form-item">
+        <label class="layui-form-label">排序</label>
+        <div class="layui-input-block">
+          <input type="number" name="sort" value="${entity.sort}" lay-verify="required" lay-verify="required" autocomplete="off" placeholder="请输入排序" class="layui-input">
+        </div>
+      </div>
+      <div class="layui-form-item">
         <div class="layui-input-block">
           <button class="layui-btn" lay-submit="" lay-filter="J_form_submit">提交</button>
           <button type="reset" class="layui-btn layui-btn-primary">重置</button>
@@ -39,13 +45,12 @@
 
     //监听提交
     form.on('submit(J_form_submit)', function(args){
-      var timeCircle = $('#J_time_circle').val();
-      var resultTime = timeCircle.split(' - ');
       var param = args.field;
       $.post('/admission/edit', {
         id: param.id,
         title: param.title,
-        content: param.content
+        content: param.content,
+        sort: param.sort
       }, function(result){
         if ('success' == result) {
           layer.msg('操作成功', {

@@ -27,11 +27,11 @@ public class ResearchDirectionController extends BaseController {
     @Autowired
     private PageIntroduceMapper introduceMapper;
     @Autowired
-    private WebsiteConfigMapper websiteConfigService;
+    private WebsiteConfigMapper websiteConfigMapper;
 
 	@RequestMapping("direction")
 	public ModelAndView index() {
-        WebsiteConfig wc = websiteConfigService.selectByPrimaryKey(1);
+        WebsiteConfig wc = websiteConfigMapper.selectByPrimaryKey(1);
         PageIntroduce pageIntroduce = introduceMapper.selectByPrimaryKey("1");
         List<ResearchDirection> list = rdMapper.selectAll();
         ModelAndView mv = new ModelAndView();

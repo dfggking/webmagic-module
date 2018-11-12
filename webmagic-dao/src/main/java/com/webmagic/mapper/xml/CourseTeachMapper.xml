@@ -6,6 +6,7 @@
     <result column="title" property="title" jdbcType="VARCHAR" />
     <result column="content" property="content" jdbcType="VARCHAR" />
     <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="sort" property="sort" jdbcType="INTEGER" />
   </resultMap>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from course_teach
@@ -13,24 +14,25 @@
   </delete>
   <insert id="insert" parameterType="com.webmagic.model.CourseTeach" >
     insert into course_teach (`id`, `title`, `content`, 
-      `create_time`)
+      `create_time`, `sort`)
     values (#{id,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, 
-      #{createTime,jdbcType=TIMESTAMP})
+      #{createTime,jdbcType=TIMESTAMP}, #{sort,jdbcType=INTEGER})
   </insert>
   <update id="updateByPrimaryKey" parameterType="com.webmagic.model.CourseTeach" >
     update course_teach
     set `title` = #{title,jdbcType=VARCHAR},
       `content` = #{content,jdbcType=VARCHAR},
-      `create_time` = #{createTime,jdbcType=TIMESTAMP}
+      `create_time` = #{createTime,jdbcType=TIMESTAMP},
+      `sort` = #{sort,jdbcType=INTEGER}
     where `id` = #{id,jdbcType=VARCHAR}
   </update>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
-    select `id`, `title`, `content`, `create_time`
+    select `id`, `title`, `content`, `create_time`, `sort`
     from course_teach
     where `id` = #{id,jdbcType=VARCHAR}
   </select>
   <select id="selectAll" resultMap="BaseResultMap" >
-    select `id`, `title`, `content`, `create_time`
-    from course_teach
+    select `id`, `title`, `content`, `create_time`, `sort`
+    from course_teach order by sort desc
   </select>
 </mapper>

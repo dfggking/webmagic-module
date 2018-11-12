@@ -14,7 +14,7 @@
           <label class="layui-form-label">头像</label>
           <input type="file" name="avatar" id="J_avatar_file" value="${entity.avatarUrl}" style="display: none;">
           <div class="layui-input-inline" style="width: 135px;">
-            <img class="layui-upload-img" id="demo1" style="width:120px;height:120px;-webkit-border-radius: 50%;-moz-border-radius: 50%;border-radius: 50%;" src="${entity.avatarUrl != null ? entity.avatarUrl : 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1541334737490&di=f0a42dced736696808dee6f13c17092a&imgtype=0&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F01786557e4a6fa0000018c1bf080ca.png'}">
+            <img class="layui-upload-img" id="demo1" style="width:120px;height:120px;-webkit-border-radius: 50%;-moz-border-radius: 50%;border-radius: 50%;" src="${website}${entity.avatarUrl != null ? entity.avatarUrl : 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1541334737490&di=f0a42dced736696808dee6f13c17092a&imgtype=0&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F01786557e4a6fa0000018c1bf080ca.png'}">
           </div>
           <button type="button" class="layui-btn" id="J_avatar_select">选择</button>
         </div>

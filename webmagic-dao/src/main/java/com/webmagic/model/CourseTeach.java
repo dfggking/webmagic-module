@@ -11,6 +11,8 @@ public class CourseTeach {
 
     private Date createTime;
 
+    private Integer sort;
+
     public String getId() {
         return id;
     }
@@ -41,5 +43,13 @@ public class CourseTeach {
 
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
+    }
+
+    public Integer getSort() {
+        return sort;
+    }
+
+    public void setSort(Integer sort) {
+        this.sort = sort;
     }
 }

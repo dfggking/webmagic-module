@@ -50,7 +50,7 @@
         <c:forEach items="${list}" var="member" varStatus="s">
         <tr>
           <td data-field="avatar" style="width: 100px;">
-            <img src="${member.avatarUrl}" style="width: 100px;height: 100px;">
+            <img src="${website}${member.avatarUrl}" style="width: 100px;height: 100px;">
           </td>
           <td>${member.name}</td>
           <td>${member.major1}</td>

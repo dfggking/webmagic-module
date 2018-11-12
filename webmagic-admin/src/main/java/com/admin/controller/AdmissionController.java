@@ -78,6 +78,7 @@ public class AdmissionController extends BaseController {
     @RequestMapping("edit")
     @ResponseBody
     public String edit(Admission admission){
+        admission.setCreateTime(new Date());
         admissionMapper.updateByPrimaryKey(admission);
         return SUCCESS;
     }

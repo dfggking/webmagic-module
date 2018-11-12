@@ -20,7 +20,7 @@
           <label class="layui-form-label">资讯图片</label>
           <input type="file" name="img" id="J_image" style="display: none;">
           <div class="layui-input-inline" style="width: 155px;">
-            <img class="layui-upload-img" id="demo1" style="width:150px;height:120px;" src="${entity.mainImg != '' ? entity.mainImg : '/images/news/3.jpg'}">
+            <img class="layui-upload-img" id="demo1" style="width:150px;height:120px;" src="${website}${entity.mainImg != '' ? entity.mainImg : '/images/news/3.jpg'}">
           </div>
           <button type="button" class="layui-btn" id="J_img_select">选择</button>
         </div>

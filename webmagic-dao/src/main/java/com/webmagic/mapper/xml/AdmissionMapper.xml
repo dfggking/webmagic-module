@@ -5,6 +5,7 @@
     <id column="id" property="id" jdbcType="VARCHAR" />
     <result column="title" property="title" jdbcType="VARCHAR" />
     <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="sort" property="sort" jdbcType="INTEGER" />
     <result column="content" property="content" jdbcType="LONGVARCHAR" />
   </resultMap>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
@@ -13,24 +14,25 @@
   </delete>
   <insert id="insert" parameterType="com.webmagic.model.Admission" >
     insert into admission (`id`, `title`, `create_time`, 
-      `content`)
+      `sort`, `content`)
     values (#{id,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
-      #{content,jdbcType=LONGVARCHAR})
+      #{sort,jdbcType=INTEGER}, #{content,jdbcType=LONGVARCHAR})
   </insert>
   <update id="updateByPrimaryKey" parameterType="com.webmagic.model.Admission" >
     update admission
     set `title` = #{title,jdbcType=VARCHAR},
       `create_time` = #{createTime,jdbcType=TIMESTAMP},
+      `sort` = #{sort,jdbcType=INTEGER},
       `content` = #{content,jdbcType=LONGVARCHAR}
     where `id` = #{id,jdbcType=VARCHAR}
   </update>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
-    select `id`, `title`, `create_time`, `content`
+    select `id`, `title`, `create_time`, `sort`, `content`
     from admission
     where `id` = #{id,jdbcType=VARCHAR}
   </select>
   <select id="selectAll" resultMap="BaseResultMap" >
-    select `id`, `title`, `create_time`, `content`
-    from admission
+    select `id`, `title`, `create_time`, `sort`, `content`
+    from admission order by sort asc
   </select>
 </mapper>

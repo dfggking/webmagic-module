@@ -45,12 +45,12 @@
       ,cols: [[
         {field:'title', width: 300, title: '招生信息'}
         ,{field:'content',title: '信息介绍'}
-        ,{field:'level', width: 80, title: '排序'}
+        ,{field:'sort', width: 80, title: '排序'}
         ,{field:'createTime', width:165, title: '创建时间'}
         ,{fixed: 'right', title:'操作', toolbar: '#bar', width:120}
       ]]
       ,toolbar: '#toolbar',
-      defaultToolbar: ['filter', 'exports']
+      defaultToolbar: ['']
     });
 
     //头工具栏事件

@@ -3,10 +3,8 @@ package com.webmagic.controller;
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.dfgg.util.CopyUtils;
 import com.webmagic.controller.base.BaseController;
-import com.webmagic.mapper.NoticeMapper;
-import com.webmagic.mapper.WebsiteLogMapper;
+import com.webmagic.mapper.*;
 import com.webmagic.model.*;
-import com.webmagic.mapper.HomeSwiperMapper;
 import com.webmagic.service.InformationService;
 import com.webmagic.service.InstituteService;
 import com.webmagic.service.WebsiteConfigService;
@@ -23,7 +21,7 @@ import java.util.List;
 public class HomeController extends BaseController {
 	
 	@Autowired
-	private WebsiteConfigService websiteConfigService;
+	private WebsiteConfigMapper websiteConfigMapper;
 	@Autowired
 	private InstituteService instituteService;
     @Autowired
@@ -34,6 +32,8 @@ public class HomeController extends BaseController {
     private WebsiteLogMapper logMapper;
 	@Autowired
 	private NoticeMapper noticeMapper;
+	@Autowired
+	private SysConfigMapper sysConfigMapper;
  
 	@RequestMapping("")
 	public ModelAndView _default() {
@@ -43,18 +43,18 @@ public class HomeController extends BaseController {
 	
 	@RequestMapping("index")
 	public ModelAndView index() {
-		WebsiteConfig wc = websiteConfigService.get();
-
+		
+		SysConfig sysConfig = sysConfigMapper.selectByPrimaryKey(1);
         InstituteInformation info = new InstituteInformation();
         List<InstituteInformation> list = informationService.select(info);
 		List<HomeSwiper> swipers = homeSwiperMapper.selectAll();
         ModelAndView mv = new ModelAndView();
 		mv.addObject(RESULT, SUCCESS);
-		mv.addObject(ENTITY, wc);
         mv.addObject("info_list", list);
 		Institute institute = instituteService.get(0);
 		mv.addObject("institute", institute);
 		mv.addObject("swipers", swipers);
+		mv.addObject("website", sysConfig.getWebUrl());
         WebsiteLog log = logMapper.selectByPrimaryKey("0");
         int count = log.getVisite();
         log.setVisite(++count);
@@ -66,6 +66,9 @@ public class HomeController extends BaseController {
         wrapper.orderBy("create_time", false);
         List<Notice> notices = noticeMapper.selectList(wrapper);
         mv.addObject("notices", notices);
+		
+		WebsiteConfig wc = websiteConfigMapper.selectByPrimaryKey(1);
+		mv.addObject(ENTITY, wc);
 		return mv;
 	}
 }

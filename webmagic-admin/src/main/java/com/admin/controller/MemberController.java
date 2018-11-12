@@ -36,6 +36,8 @@ public class MemberController extends BaseController {
         ModelAndView mv = new ModelAndView();
         mv.addObject(RESULT, SUCCESS);
         mv.addObject(LIST, memberList);
+        SysConfig sysConfig = sysConfigMapper.selectByPrimaryKey(1);
+        mv.addObject("website", sysConfig.getWebUrl());
         return mv;
     }
 
@@ -50,6 +52,8 @@ public class MemberController extends BaseController {
         Member member = memberMapper.selectByPrimaryKey(id);
         ModelAndView mv = new ModelAndView();
         mv.addObject(ENTITY, member);
+        SysConfig sysConfig = sysConfigMapper.selectByPrimaryKey(1);
+        mv.addObject("website", sysConfig.getWebUrl());
         return mv;
     }
     
@@ -69,7 +73,7 @@ public class MemberController extends BaseController {
             try {
                 avatar.transferTo(targetFile);
                 member.setId(IdWorker.getIdStr());
-                member.setAvatarUrl(sysConfig.getWebUrl() +"/uploads/avatar/"+ newFileName);
+                member.setAvatarUrl("/uploads/avatar/"+ newFileName);
                 member.setCreateTime(new Date());
                 memberMapper.insert(member);
                 mv.addObject(RESULT, SUCCESS);
@@ -95,12 +99,12 @@ public class MemberController extends BaseController {
             }
             try {
                 avatar.transferTo(targetFile);
-                member.setAvatarUrl(sysConfig.getWebUrl() +"/uploads/avatar/"+ newFileName);
+                member.setAvatarUrl("/uploads/avatar/"+ newFileName);
             } catch (IOException e) {
                 e.printStackTrace();
             }
         } else {
-            member.setAvatarUrl(sysConfig.getWebUrl() +"/uploads/avatar/timg.jpg");
+            member.setAvatarUrl("/uploads/avatar/timg.jpg");
         }
         member.setCreateTime(new Date());
         memberMapper.updateByPrimaryKey(member);

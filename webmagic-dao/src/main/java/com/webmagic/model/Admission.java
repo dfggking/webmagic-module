@@ -9,6 +9,8 @@ public class Admission {
 
     private Date createTime;
 
+    private Integer sort;
+
     private String content;
 
     public String getId() {
@@ -33,6 +35,14 @@ public class Admission {
 
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
+    }
+
+    public Integer getSort() {
+        return sort;
+    }
+
+    public void setSort(Integer sort) {
+        this.sort = sort;
     }
 
     public String getContent() {
