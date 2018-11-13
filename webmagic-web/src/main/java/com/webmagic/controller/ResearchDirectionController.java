@@ -31,7 +31,7 @@ public class ResearchDirectionController extends BaseController {
 
 	@RequestMapping("direction")
 	public ModelAndView index() {
-        WebsiteConfig wc = websiteConfigMapper.selectByPrimaryKey(1);
+        WebsiteConfig wc = websiteConfigMapper.selectByPrimaryKey(0);
         PageIntroduce pageIntroduce = introduceMapper.selectByPrimaryKey("1");
         List<ResearchDirection> list = rdMapper.selectAll();
         ModelAndView mv = new ModelAndView();

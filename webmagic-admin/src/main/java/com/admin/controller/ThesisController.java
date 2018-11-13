@@ -127,7 +127,7 @@ public class ThesisController extends BaseController {
                 for (MultipartFile multipartFile : files) {
                     String fileName = multipartFile.getOriginalFilename();
                     String newFileName = sdf.format(new Date()) + fileName;
-                    SysConfig sysConfig = sysConfigMapper.selectByPrimaryKey(1);
+                    SysConfig sysConfig = sysConfigMapper.selectByPrimaryKey(0);
                     File targetFile = new File(sysConfig.getFileSavePosition() + "/uploads/attathment/thesis/", newFileName);
                     File fileParent = targetFile.getParentFile();
                     if(!fileParent.exists()){

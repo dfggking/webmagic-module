@@ -28,7 +28,7 @@ public class ThesisController extends BaseController {
 	public ModelAndView index() {
 		ModelAndView mv = new ModelAndView();
 		
-		WebsiteConfig wc = websiteConfigMapper.selectByPrimaryKey(1);
+		WebsiteConfig wc = websiteConfigMapper.selectByPrimaryKey(0);
 		mv.addObject(ENTITY, wc);
 		return mv;
 	}

@@ -34,7 +34,7 @@ public class EnterpriseController extends BaseController {
     @RequestMapping("page")
     public ModelAndView page() {
         ModelAndView mv = new ModelAndView();
-        SysConfig sysConfig = sysConfigMapper.selectByPrimaryKey(1);
+        SysConfig sysConfig = sysConfigMapper.selectByPrimaryKey(0);
         mv.addObject("website", sysConfig.getWebUrl());
         return mv;
     }
@@ -49,7 +49,7 @@ public class EnterpriseController extends BaseController {
     public ModelAndView editPage(String id){
         Enterprise enterprise = enterpriseMapper.selectByPrimaryKey(id);
         ModelAndView mv = new ModelAndView();
-        SysConfig sysConfig = sysConfigMapper.selectByPrimaryKey(1);
+        SysConfig sysConfig = sysConfigMapper.selectByPrimaryKey(0);
         enterprise.setLogo(sysConfig.getWebUrl() + enterprise.getLogo());
         mv.addObject(ENTITY, enterprise);
         return mv;
@@ -76,7 +76,7 @@ public class EnterpriseController extends BaseController {
         if (logoFile != null ) {
             String fileName = logoFile.getOriginalFilename();
             String newFileName = UUID.randomUUID() + fileName;
-            SysConfig sysConfig = sysConfigMapper.selectByPrimaryKey(1);
+            SysConfig sysConfig = sysConfigMapper.selectByPrimaryKey(0);
             File targetFile = new File(sysConfig.getFileSavePosition() + "/uploads/logo/", newFileName);
             File fileParent = targetFile.getParentFile();
             if(!fileParent.exists()){
@@ -102,7 +102,7 @@ public class EnterpriseController extends BaseController {
         if (logoFile != null ) {
             String fileName = logoFile.getOriginalFilename();
             String newFileName = UUID.randomUUID() + fileName;
-            SysConfig sysConfig = sysConfigMapper.selectByPrimaryKey(1);
+            SysConfig sysConfig = sysConfigMapper.selectByPrimaryKey(0);
             File targetFile = new File(sysConfig.getFileSavePosition() + "/uploads/logo/", newFileName);
             File fileParent = targetFile.getParentFile();
             if(!fileParent.exists()){

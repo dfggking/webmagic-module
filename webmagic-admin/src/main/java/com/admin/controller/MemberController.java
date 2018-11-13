@@ -4,8 +4,10 @@ import com.admin.controller.base.BaseController;
 import com.baomidou.mybatisplus.toolkit.IdWorker;
 import com.webmagic.mapper.MemberMapper;
 import com.webmagic.mapper.SysConfigMapper;
+import com.webmagic.mapper.WebsiteConfigMapper;
 import com.webmagic.model.Member;
 import com.webmagic.model.SysConfig;
+import com.webmagic.model.WebsiteConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,7 +30,8 @@ public class MemberController extends BaseController {
     private MemberMapper memberMapper;
     @Autowired
     private SysConfigMapper sysConfigMapper;
-
+    @Autowired
+    private WebsiteConfigMapper websiteConfigMapper;
 
     @RequestMapping("list")
     public ModelAndView list() {
@@ -36,8 +39,11 @@ public class MemberController extends BaseController {
         ModelAndView mv = new ModelAndView();
         mv.addObject(RESULT, SUCCESS);
         mv.addObject(LIST, memberList);
-        SysConfig sysConfig = sysConfigMapper.selectByPrimaryKey(1);
+        SysConfig sysConfig = sysConfigMapper.selectByPrimaryKey(0);
         mv.addObject("website", sysConfig.getWebUrl());
+
+        WebsiteConfig wc = websiteConfigMapper.selectByPrimaryKey(0);
+        mv.addObject(ENTITY, wc);
         return mv;
     }
 
@@ -52,7 +58,7 @@ public class MemberController extends BaseController {
         Member member = memberMapper.selectByPrimaryKey(id);
         ModelAndView mv = new ModelAndView();
         mv.addObject(ENTITY, member);
-        SysConfig sysConfig = sysConfigMapper.selectByPrimaryKey(1);
+        SysConfig sysConfig = sysConfigMapper.selectByPrimaryKey(0);
         mv.addObject("website", sysConfig.getWebUrl());
         return mv;
     }
@@ -64,7 +70,7 @@ public class MemberController extends BaseController {
         if (avatar != null ) {
             String fileName = avatar.getOriginalFilename();
             String newFileName = UUID.randomUUID() + fileName;
-            SysConfig sysConfig = sysConfigMapper.selectByPrimaryKey(1);
+            SysConfig sysConfig = sysConfigMapper.selectByPrimaryKey(0);
             File targetFile = new File(sysConfig.getFileSavePosition() + "/uploads/avatar/", newFileName);
             File fileParent = targetFile.getParentFile();
             if(!fileParent.exists()){
@@ -86,7 +92,7 @@ public class MemberController extends BaseController {
     
     @RequestMapping(value = "edit", method = RequestMethod.POST)
     public ModelAndView edit(MultipartFile avatar, Member member, HttpServletRequest request){
-        SysConfig sysConfig = sysConfigMapper.selectByPrimaryKey(1);
+        SysConfig sysConfig = sysConfigMapper.selectByPrimaryKey(0);
         ModelAndView mv = new ModelAndView("redirect:/member/editPage");
         mv.addObject("id", member.getId());
         if (avatar != null && avatar.getSize() > 0) {

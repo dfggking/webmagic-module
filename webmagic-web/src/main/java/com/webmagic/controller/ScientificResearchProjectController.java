@@ -1,8 +1,10 @@
 package com.webmagic.controller;
 
 import com.webmagic.controller.base.BaseController;
+import com.webmagic.mapper.WebsiteConfigMapper;
 import com.webmagic.model.ScientificResearchProject;
 import com.webmagic.mapper.ScientificResearchProjectMapper;
+import com.webmagic.model.WebsiteConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,6 +25,8 @@ public class ScientificResearchProjectController extends BaseController {
 
     @Autowired
     private ScientificResearchProjectMapper srpMapper;
+    @Autowired
+    private WebsiteConfigMapper websiteConfigMapper;
 
     @RequestMapping("page")
     public ModelAndView page(HttpServletRequest request, ModelAndView mv) {
@@ -51,6 +55,10 @@ public class ScientificResearchProjectController extends BaseController {
         mv.addObject("province", tempList_p);
         mv.addObject("city", tempList_c);
         mv.addObject("school", tempList_s);
+
+
+        WebsiteConfig wc = websiteConfigMapper.selectByPrimaryKey(0);
+        mv.addObject(ENTITY, wc);
         return mv;
     }
 }

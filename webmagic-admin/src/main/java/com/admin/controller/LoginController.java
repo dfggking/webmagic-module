@@ -18,7 +18,7 @@ public class LoginController {
     @RequestMapping("")
     public ModelAndView login(HttpServletRequest request) {
         ModelAndView mv = new ModelAndView("admin");
-        SysConfig sysConfig = sysConfigMapper.selectByPrimaryKey(1);
+        SysConfig sysConfig = sysConfigMapper.selectByPrimaryKey(0);
         mv.addObject("sysCOnfig", sysConfig);
         return mv;
     }

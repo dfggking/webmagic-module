@@ -32,7 +32,7 @@ public class TeamMemberController extends BaseController {
 		mv.addObject(RESULT, SUCCESS);
 		mv.addObject(LIST, list);
 		
-		WebsiteConfig wc = websiteConfigMapper.selectByPrimaryKey(1);
+		WebsiteConfig wc = websiteConfigMapper.selectByPrimaryKey(0);
 		mv.addObject(ENTITY, wc);
 		return mv;
 	}

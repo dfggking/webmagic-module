@@ -14,6 +14,7 @@
 .project-container .level-module .project-list>.project-panel{
   float: left;
   width: 46%;
+  height: 150px;
   margin-top: 1.875em;
   padding-bottom: 1.625em;
   border-bottom: 1px dotted #ddd;
@@ -26,6 +27,7 @@
 }
 .level-module .project-list>.project-panel>.p-title {
   font-size: 1.125em;
+  line-height: 1.5;
   margin-bottom: 1em;
   color: #222222;
 }

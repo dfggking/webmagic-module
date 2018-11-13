@@ -46,7 +46,7 @@ public class HomepageController extends BaseController {
 	
 	@RequestMapping("swiper")
 	public ModelAndView swiper(ModelAndView mv){
-        SysConfig sysConfig = sysConfigMapper.selectByPrimaryKey(1);
+        SysConfig sysConfig = sysConfigMapper.selectByPrimaryKey(0);
         List<HomeSwiper> list = homeSwiperMapper.selectAll();
         mv.addObject(LIST, list);
         mv.addObject("sysConfig", sysConfig);
@@ -61,7 +61,7 @@ public class HomepageController extends BaseController {
 			String fileName = file.getOriginalFilename();
 			if (file != null && fileName != null && fileName.length() > 0) {
 				String newFileName = UUID.randomUUID() + fileName;
-                SysConfig sysConfig = sysConfigMapper.selectByPrimaryKey(1);
+                SysConfig sysConfig = sysConfigMapper.selectByPrimaryKey(0);
 				File targetFile = new File(sysConfig.getFileSavePosition() + "/uploads/swiper", newFileName);
 				File fileParent = targetFile.getParentFile();
 				if(!fileParent.exists()){
@@ -99,7 +99,7 @@ public class HomepageController extends BaseController {
 	@RequestMapping("institute/information")
 	public ModelAndView information() {
 		ModelAndView mv = new ModelAndView();
-        SysConfig sysConfig = sysConfigMapper.selectByPrimaryKey(1);
+        SysConfig sysConfig = sysConfigMapper.selectByPrimaryKey(0);
         mv.addObject("website", sysConfig.getWebUrl());
 		return mv;
 	}
@@ -132,7 +132,7 @@ public class HomepageController extends BaseController {
     @RequestMapping(value = "institute/info/add", method = RequestMethod.POST)
     public ModelAndView addInfo(MultipartFile img, InstituteInformation info) {
         ModelAndView mv = new ModelAndView("/homepage/institute/addInfoPage");
-        SysConfig sysConfig = sysConfigMapper.selectByPrimaryKey(1);
+        SysConfig sysConfig = sysConfigMapper.selectByPrimaryKey(0);
         if (img != null) {
             String fileName = img.getOriginalFilename();
             String newFileName = UUID.randomUUID() + fileName;
@@ -163,7 +163,7 @@ public class HomepageController extends BaseController {
         InstituteInformation info = infoMapper.selectByPrimaryKey(id);
         List<InfoType> infoTypes = infoTypeMapper.selectAll();
         ModelAndView mv = new ModelAndView();
-        SysConfig sysConfig = sysConfigMapper.selectByPrimaryKey(1);
+        SysConfig sysConfig = sysConfigMapper.selectByPrimaryKey(0);
         mv.addObject("website", sysConfig.getWebUrl());
         mv.addObject(LIST, infoTypes);
         mv.addObject(ENTITY, info);
@@ -174,7 +174,7 @@ public class HomepageController extends BaseController {
     public ModelAndView editInfo(MultipartFile img, InstituteInformation info) {
         ModelAndView mv = new ModelAndView("redirect:/homepage/institute/editInfoPage");
         mv.addObject("id", info.getId());
-        SysConfig sysConfig = sysConfigMapper.selectByPrimaryKey(1);
+        SysConfig sysConfig = sysConfigMapper.selectByPrimaryKey(0);
         if (img != null) {
             String fileName = img.getOriginalFilename();
             String newFileName = UUID.randomUUID() + fileName;

@@ -44,7 +44,7 @@ public class HomeController extends BaseController {
 	@RequestMapping("index")
 	public ModelAndView index() {
 		
-		SysConfig sysConfig = sysConfigMapper.selectByPrimaryKey(1);
+		SysConfig sysConfig = sysConfigMapper.selectByPrimaryKey(0);
         InstituteInformation info = new InstituteInformation();
         List<InstituteInformation> list = informationService.select(info);
 		List<HomeSwiper> swipers = homeSwiperMapper.selectAll();
