@@ -24,9 +24,19 @@
     <li class="layui-timeline-item">
       <i class="layui-icon layui-anim layui-anim-rotate layui-anim-loop layui-timeline-axis"></i>
       <div class="layui-timeline-content layui-text">
+        <h3 class="layui-timeline-title">11月30日</h3>
+        <p>1.网页参数排查增加判断<i class="layui-icon"></i></p>
+        <p>2.增加网站异常短信提醒<i class="layui-icon"></i></p>
+        <p>2.完善咨询、通知等编辑体验，例如http://www.ict.ac.cn/shye/tzgg/<i class="layui-icon"></i></p>
+      </div>
+    </li>
+    <li class="layui-timeline-item">
+      <i class="layui-icon layui-anim layui-anim-rotate layui-anim-loop layui-timeline-axis"></i>
+      <div class="layui-timeline-content layui-text">
         <h3 class="layui-timeline-title">11月20日</h3>
         <p>1.完成修复网站BUG，改善使用体验，完善分页功能<i class="layui-icon"></i></p>
         <p>2.优化图片上传功能<i class="layui-icon"></i></p>
+        <p>3.增加点击标题浏览PDF文件<i class="layui-icon"></i></p>
       </div>
     </li>
     <li class="layui-timeline-item">

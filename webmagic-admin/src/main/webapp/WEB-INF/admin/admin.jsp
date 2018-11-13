@@ -56,7 +56,7 @@
             <li><a _href="./wconfig/page"><i class="iconfont">&#xe6a7;</i><cite>网站配置</cite></a></li>
             <li><a _href="./sysconfig/page"><i class="iconfont">&#xe6a7;</i><cite>系统配置</cite></a></li>
             <li><a _href="./notice/page"><i class="iconfont">&#xe6a7;</i><cite>通知公告</cite></a></li>
-            <li><a _href="./timeline/page"><i class="iconfont">&#xe6a7;</i><cite>版本信息</cite></a></li>
+            <li><a _href="./timeline/page"><i class="iconfont">&#xe6a7;</i><cite>版本更新</cite></a></li>
             <%--<li><a _href="./wconfig/page"><i class="iconfont">&#xe6a7;</i><cite>用户管理</cite></a></li>
             <li><a _href="./wconfig/page"><i class="iconfont">&#xe6a7;</i><cite>角色管理</cite></a></li>
             <li><a _href="./wconfig/page"><i class="iconfont">&#xe6a7;</i><cite>系统菜单</cite></a></li>

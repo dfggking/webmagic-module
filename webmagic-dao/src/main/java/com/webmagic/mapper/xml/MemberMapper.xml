@@ -30,7 +30,9 @@
       `major1` = #{major1,jdbcType=VARCHAR},
       `major2` = #{major2,jdbcType=VARCHAR},
       `blog_url` = #{blogUrl,jdbcType=VARCHAR},
-      `avatar_url` = #{avatarUrl,jdbcType=VARCHAR},
+      <if test="avatarUrl != null">
+        `avatar_url` = #{avatarUrl,jdbcType=VARCHAR},
+      </if>
       `institute` = #{institute,jdbcType=VARCHAR},
       `is_show` = #{isShow,jdbcType=BIT},
       `create_time` = #{createTime,jdbcType=TIMESTAMP}

@@ -67,7 +67,7 @@ public class HomeController extends BaseController {
         List<Notice> notices = noticeMapper.selectList(wrapper);
         mv.addObject("notices", notices);
 		
-		WebsiteConfig wc = websiteConfigMapper.selectByPrimaryKey(1);
+		WebsiteConfig wc = websiteConfigMapper.selectByPrimaryKey(0);
 		mv.addObject(ENTITY, wc);
 		return mv;
 	}

@@ -1,0 +1,10 @@
+@charset "UTF-8";
+/* 新闻详情 */
+.detail-container{
+
+}
+
+.detail-container .h1-title{
+  text-align: center;
+  font-size: 20px;
+}

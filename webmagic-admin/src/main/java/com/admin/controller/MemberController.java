@@ -89,7 +89,7 @@ public class MemberController extends BaseController {
         SysConfig sysConfig = sysConfigMapper.selectByPrimaryKey(1);
         ModelAndView mv = new ModelAndView("redirect:/member/editPage");
         mv.addObject("id", member.getId());
-        if (avatar != null ) {
+        if (avatar != null && avatar.getSize() > 0) {
             String fileName = avatar.getOriginalFilename();
             String newFileName = UUID.randomUUID() + fileName;
             File targetFile = new File(sysConfig.getFileSavePosition() + "/uploads/avatar/", newFileName);
@@ -103,8 +103,6 @@ public class MemberController extends BaseController {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        } else {
-            member.setAvatarUrl("/uploads/avatar/timg.jpg");
         }
         member.setCreateTime(new Date());
         memberMapper.updateByPrimaryKey(member);
