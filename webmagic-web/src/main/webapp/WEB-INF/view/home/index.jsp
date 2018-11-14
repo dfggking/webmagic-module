@@ -79,7 +79,7 @@
           <ul class="info-list">
             <c:forEach items="${notices}" var="info" varStatus="s">
             <li class="active">
-              <a href="">
+              <a href="/detail/page">
                 <c:if test="${'通知公告' == info.type}">
                   <span class="label color1">${info.type}</span>
                 </c:if>
