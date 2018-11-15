@@ -12,13 +12,13 @@
         <div class="layui-form-item">
           <label class="layui-form-label">招生信息</label>
           <div class="layui-input-block">
-            <input type="text" name="title" lay-verify="required" lay-verify="required" autocomplete="off" placeholder="请输入招生信息" class="layui-input">
+            <input type="text" name="title" lay-verify="required" autocomplete="off" placeholder="请输入招生信息" class="layui-input">
           </div>
         </div>
         <div class="layui-form-item layui-form-text">
           <label class="layui-form-label">信息内容</label>
           <div class="layui-input-block">
-            <textarea name="content" placeholder="请输入信息内容" lay-verify="required" class="layui-textarea" style="min-height: 300px;"></textarea>
+            <textarea id="J_content_editer" style="display: none;"></textarea>
           </div>
         </div>
         <div class="layui-form-item">
@@ -38,16 +38,19 @@
     </form>
   </div>
 <script>
-  layui.use(['form', 'laydate'], function(){
-    var form = layui.form,
-        laydate = layui.laydate;
+  layui.use(['layedit', 'form'], function(){
+    var form = layui.form;
+    var layedit = layui.layedit;
+
+    var index = layedit.build('J_content_editer'); //建立编辑器
 
     //监听提交
     form.on('submit(J_form_submit)', function(args){
       var param = args.field;
+
       $.post('/admission/add', {
         title: param.title,
-        content: param.content,
+        content: layedit.getContent(index),
         sort: param.sort
       }, function(result){
         if ('success' == result) {

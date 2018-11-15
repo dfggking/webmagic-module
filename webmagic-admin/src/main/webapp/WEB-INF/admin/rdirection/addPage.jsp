@@ -18,7 +18,7 @@
         <div class="layui-form-item layui-form-text">
           <label class="layui-form-label">内容</label>
           <div class="layui-input-block">
-            <textarea name="content" placeholder="请输入内容" lay-verify="required" class="layui-textarea" style="min-height: 500px;"></textarea>
+            <textarea id="J_content_editer" lay-verify="required" style="display: none;"></textarea>
           </div>
         </div>
         <button id="J_info_submit_btn" style="display: none" class="layui-btn" lay-submit="" lay-filter="J_form_submit" />
@@ -26,15 +26,17 @@
     </form>
   </div>
 <script>
-  layui.use('form', function(){
+  layui.use(['layedit', 'form'], function(){
     var form = layui.form;
+    var layedit = layui.layedit;
+    var index = layedit.build('J_content_editer'); //建立编辑器
 
     //监听提交
     form.on('submit(J_form_submit)', function(args){
       var param = args.field;
       $.post('/rdirection/add', {
         title: param.title,
-        content: param.content
+        content: layedit.getContent(index)
       }, function(result){
         if ('success' == result) {
           layer.msg('操作成功', {

@@ -19,7 +19,7 @@
       <div class="layui-form-item layui-form-text">
         <label class="layui-form-label">介绍内容</label>
         <div class="layui-input-block">
-          <textarea name="content" placeholder="请输入介绍内容" lay-verify="required" class="layui-textarea" style="min-height: 300px;">${entity.content}</textarea>
+          <textarea id="J_content_editer" lay-verify="required" style="display: none;">${entity.content}</textarea>
         </div>
       </div>
       <div class="layui-form-item">
@@ -33,9 +33,11 @@
   </form>
 </div>
 <script>
-  layui.use(['form', 'laydate'], function(){
-    var form = layui.form,
-      laydate = layui.laydate;
+  layui.use(['form', 'layedit'], function(){
+    var form = layui.form;
+    var layedit = layui.layedit;
+
+    var index = layedit.build('J_content_editer'); //建立编辑器
 
     //监听提交
     form.on('submit(J_form_submit)', function(args){
@@ -43,14 +45,16 @@
       $.post('/courseteach/edit', {
         id: param.id,
         title: param.title,
-        content: param.content
+        content: layedit.getContent(index)
       }, function(result){
         if ('success' == result) {
           layer.msg('操作成功', {
             icon : 1
           });
         } else {
-
+          layer.msg('操作失败', {
+            icon : 2
+          });
         }
       });
       return false;

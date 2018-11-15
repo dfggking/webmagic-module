@@ -18,7 +18,7 @@
         <div class="layui-form-item layui-form-text">
           <label class="layui-form-label">内容</label>
           <div class="layui-input-block">
-            <textarea name="content" placeholder="请输入内容" lay-verify="required" class="layui-textarea" style="min-height: 300px;"></textarea>
+            <textarea id="J_content_editer" lay-verify="required" style="display: none;"></textarea>
           </div>
         </div>
         <div class="layui-form-item">
@@ -40,15 +40,17 @@
     </form>
   </div>
 <script>
-  layui.use('form', function(){
+  layui.use(['layedit', 'form'], function(){
     var form = layui.form;
+    var layedit = layui.layedit;
 
-    //监听提交
+    var index = layedit.build('J_content_editer'); //建立编辑器
+  //监听提交
     form.on('submit(J_form_submit)', function(args){
       var param = args.field;
       $.post('/notice/add', {
         title: param.title,
-        content: param.content,
+        content: layedit.getContent(index),
         type: param.type
       }, function(result){
         if ('success' == result) {
@@ -56,7 +58,9 @@
             icon : 1
           });
         } else {
-
+          layer.msg('操作失败', {
+            icon : 2
+          });
         }
       });
       return false;

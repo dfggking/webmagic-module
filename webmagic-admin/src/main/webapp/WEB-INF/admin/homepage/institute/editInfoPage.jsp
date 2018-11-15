@@ -42,7 +42,7 @@
         <div class="layui-form-item layui-form-text">
           <label class="layui-form-label">资讯内容</label>
           <div class="layui-input-block">
-            <textarea name="content" placeholder="请输入内容" lay-verify="required" class="layui-textarea" style="min-height: 500px;">${entity.content}</textarea>
+            <textarea name="content" id="J_content_editer" lay-verify="required" style="display: none;">${type.content}</textarea>
           </div>
         </div>
         <div class="layui-form-item">
@@ -59,7 +59,9 @@
   layui.use('upload', function() {
     var $ = layui.jquery
       , upload = layui.upload;
+    var layedit = layui.layedit;
 
+    var index = layedit.build('J_content_editer'); //建立编辑器
     $('#J_img_select').click(function(){
       $('#J_image').click();
     });

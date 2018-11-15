@@ -46,7 +46,7 @@
             <element id="module-output" name="webmagic-util" />
           </element>
           <element id="archive" name="webmagic-model-1.0.0.jar">
-            <element id="module-output" name="webmagic-model" />
+            <element id="module-output" name="webmagicmodel" />
           </element>
           <element id="library" level="project" name="Maven: com.baomidou:mybatis-plus:2.3" />
           <element id="library" level="project" name="Maven: com.baomidou:mybatis-plus-core:2.3" />

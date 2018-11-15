@@ -50,9 +50,11 @@
   </form>
 </div>
 <script>
-  layui.use(['form', 'laydate'], function(){
+  layui.use(['layedit', 'form', 'laydate'], function(){
     var form = layui.form,
       laydate = layui.laydate;
+    var layedit = layui.layedit;
+    var index = layedit.build('J_content_editer'); //建立编辑器
 
     //监听提交
     form.on('submit(J_form_submit)', function(args){
@@ -62,7 +64,7 @@
       $.post('/srproject/edit', {
         id: param.id,
         title: param.title,
-        content: param.content,
+        content: layedit.getContent(index),
         fromTime: resultTime[0],
         toTime: resultTime[1],
         level: param.level
