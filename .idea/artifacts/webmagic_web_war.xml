@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="webmagic-web:war">
+    <output-path>$PROJECT_DIR$/webmagic-web/target</output-path>
+    <root id="archive" name="webmagic-web-1.0.0.war">
+      <element id="artifact" artifact-name="webmagic-web:war exploded" />
+    </root>
+  </artifact>
+</component>

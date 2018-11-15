@@ -2,7 +2,14 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/webmagic-model/webmagicmodel.iml" filepath="$PROJECT_DIR$/webmagic-model/webmagicmodel.iml" />
+      <module fileurl="file://$PROJECT_DIR$/webmagic-admin/webmagic-admin.iml" filepath="$PROJECT_DIR$/webmagic-admin/webmagic-admin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/webmagic-api/webmagic-api.iml" filepath="$PROJECT_DIR$/webmagic-api/webmagic-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/webmagic-dao/webmagic-dao.iml" filepath="$PROJECT_DIR$/webmagic-dao/webmagic-dao.iml" />
+      <module fileurl="file://$PROJECT_DIR$/webmagic-model/webmagic-model.iml" filepath="$PROJECT_DIR$/webmagic-model/webmagic-model.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/webmagic-module.iml" filepath="$PROJECT_DIR$/.idea/webmagic-module.iml" />
+      <module fileurl="file://$PROJECT_DIR$/webmagic-service/webmagic-service.iml" filepath="$PROJECT_DIR$/webmagic-service/webmagic-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/webmagic-util/webmagic-util.iml" filepath="$PROJECT_DIR$/webmagic-util/webmagic-util.iml" />
+      <module fileurl="file://$PROJECT_DIR$/webmagic-web/webmagic-web.iml" filepath="$PROJECT_DIR$/webmagic-web/webmagic-web.iml" />
     </modules>
   </component>
 </project>

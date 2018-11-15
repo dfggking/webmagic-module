@@ -9,21 +9,21 @@
         <module name="webmagic-admin" />
         <module name="webmagic-api" />
         <module name="webmagic-dao" />
+        <module name="webmagic-model" />
         <module name="webmagic-service" />
         <module name="webmagic-util" />
         <module name="webmagic-web" />
-        <module name="webmagicadmin" />
-        <module name="webmagicapi" />
-        <module name="webmagicdao" />
-        <module name="webmagicmodel" />
-        <module name="webmagicservice" />
-        <module name="webmagicutil" />
-        <module name="webmagicweb" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="webmagic-admin" target="1.8" />
+      <module name="webmagic-api" target="1.8" />
+      <module name="webmagic-dao" target="1.8" />
       <module name="webmagic-model" target="1.8" />
-      <module name="webmagicmodel" target="1.8" />
+      <module name="webmagic-module" target="1.8" />
+      <module name="webmagic-service" target="1.8" />
+      <module name="webmagic-util" target="1.8" />
+      <module name="webmagic-web" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

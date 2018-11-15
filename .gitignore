@@ -47,3 +47,13 @@ webmagic-admin/myspaceGitRepertorywebmagicsrcmainwebappdfgg.log.2018-11-13
 webmagic-web/src/main/webapp/uploads/avatar/32455e5e-958b-4e6f-b0d8-35d26f8b7d3bu=733624848,3582554596&fm=27&gp=0.jpg
 webmagic-web/src/main/webapp/uploads/avatar/714ef9ec-06e8-496b-ba75-ad4d9761c235u=733624848,3582554596&fm=27&gp=0.jpg
 webmagic-web/src/main/webapp/uploads/avatar/7f4c8070-a6e3-48f4-bc19-9dbc6b9245a6u=1686240325,3027046160&fm=26&gp=0.jpg
+/webmagic-dao/src/main/resources/jdbc.properties
+/.idea/misc.xml
+/.idea/modules.xml
+/.idea/artifacts/webmagic_admin_war_exploded.xml
+.idea/artifacts/webmagic_admin_war_exploded.xml
+*.xml
+.idea/artifacts/webmagic_web_war_exploded.xml
+*.xml
+*.iml
+*.iml
