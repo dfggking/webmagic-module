@@ -61,7 +61,7 @@
       ,auto: false
       ,field: 'files'
       ,data: {
-        id: ${thesisId}
+        thesisId: '${thesisId}'
       }
       ,bindAction: '#testListAction'
       ,choose: function(obj){

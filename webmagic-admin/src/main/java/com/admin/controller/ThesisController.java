@@ -5,10 +5,8 @@ import com.admin.vo.ResultMap;
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.toolkit.IdWorker;
 import com.webmagic.mapper.*;
-import com.webmagic.model.Attachment;
-import com.webmagic.model.SysConfig;
-import com.webmagic.model.Thesis;
-import com.webmagic.model.PageIntroduce;
+import com.webmagic.model.*;
+import com.webmagic.service.ThesisService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -30,15 +28,16 @@ import java.util.*;
 @Controller
 @RequestMapping("thesis")
 public class ThesisController extends BaseController {
-    
     @Autowired
     private ThesisMapper thesisMapper;
+    @Autowired
+    private AttachmentMapper attachmentMapper;
+    @Autowired
+    private ThesisService thesisService;
     @Autowired
     private PageIntroduceMapper introduceMapper;
     @Autowired
     private SysConfigMapper sysConfigMapper;
-    @Autowired
-    private AttachmentMapper attachmentMapper;
     
     @RequestMapping("page")
     public ModelAndView page() {
@@ -61,26 +60,27 @@ public class ThesisController extends BaseController {
     }
     
     @RequestMapping("attachmentPage")
-    public ModelAndView attachmentPage(String id){
+    public ModelAndView attachmentPage(String fid){
         EntityWrapper<Attachment> wrapper = new EntityWrapper<>();
         wrapper.orderBy("create_time", false);
+        wrapper.where("foreign_id={0}", fid);
         List<Attachment> attachmentList = attachmentMapper.selectList(wrapper);
         ModelAndView mv = new ModelAndView();
         mv.addObject("attachmentList", attachmentList);
-        mv.addObject("thesisId", id);
+        mv.addObject("thesisId", fid);
         return mv;
     }
     
     @RequestMapping("list")
     @ResponseBody
-    public Map<String, Object> list(){
-        List<Thesis> list = thesisMapper.selectAll();
+    public Map<String, Object> list(Thesis thesis){
+        List<ThesisAttachment> resultList = thesisService.queryThesisList(thesis);
         Map<String, Object> resultMap = new HashMap<>();
         resultMap.put("status", 0);
         resultMap.put("message", "");
-        resultMap.put("total", list.size());
+        resultMap.put("total", resultList.size());
         Map<String, Object> item = new HashMap<>();
-        item.put("item", list);
+        item.put("item", resultList);
         resultMap.put("data", item);
         return resultMap;
     }
@@ -119,7 +119,7 @@ public class ThesisController extends BaseController {
     
     @RequestMapping(value = "uploads", method = RequestMethod.POST)
     @ResponseBody
-    public ResultMap uploads(MultipartFile[] files, String id, HttpServletRequest request){
+    public ResultMap uploads(MultipartFile[] files, String thesisId, HttpServletRequest request){
         ResultMap resultMap = new ResultMap();
         if(files!=null&&files.length>0){
             SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
@@ -138,7 +138,7 @@ public class ThesisController extends BaseController {
                     attachment.setId(IdWorker.getIdStr());
                     attachment.setPath("/uploads/attathment/thesis/"+ newFileName);
                     attachment.setCreateTime(new Date());
-                    attachment.setForeignId(id);
+                    attachment.setForeignId(thesisId);
                     attachment.setFileName(fileName);
                     attachment.setFileSize(multipartFile.getSize());
                     attachmentMapper.insert(attachment);

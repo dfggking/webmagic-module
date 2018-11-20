@@ -73,41 +73,16 @@
       </div>
     </div>
     <div class="thesis-list">
-      <ul>
-        <li>
-          大数据环境下的网络安全领域文献研究进展分析
-          <span class="oper">[<a href="">源码</a>]</span><span class="oper">[<a href="">pdf</a>]</span><span class="oper">[<a href="">下载</a>]</span>
-        </li>
-      </ul>
-      <ul>
-        <li>Windows下基于SpamAssassin的垃圾邮件过滤系统的研究与实现 优先出版
-          <span class="oper">[<a href="">源码</a>]</span><span class="oper">[<a href="">pdf</a>]</span><span class="oper">[<a href="">下载</a>]</span>
-        </li>
-      </ul>
-      <ul>
-        <li>
-          S.-Y. Zhao, G.-D. Zhang, M.-W. Li, W.-J. Li. Proximal SCOPE for Distributed Sparse Learning. In: Proceedings of the Annual Conference on Neural Information Processing Systems (NIPS), 2018.
-          <span class="oper">[<a href="">源码</a>]</span><span class="oper">[<a href="">pdf</a>]</span><span class="oper">[<a href="">下载</a>]</span>
-        </li>
-      </ul>
-      <ul>
-        <li>
-          Y. Yang, Y.-F. Wu, D.-C. Zhan, Z.-B. Liu, Y. Jiang. Complex Object Classification: A Multi-Modal Multi-Instance Multi-Label Deep Network with Optimal Transport. In: Proceedings of the Annual Conference on ACM SIGKDD (KDD'18), London, UK, 2018.
-          <span class="oper">[<a href="">源码</a>]</span><span class="oper">[<a href="">pdf</a>]</span><span class="oper">[<a href="">下载</a>]</span>
-        </li>
-      </ul>
-      <ul>
-        <li>
-          S.-Y. Chen, Y. Yu, Q. Da, J. Tan, H.-K. Huang and H.-H. Tang. <u>Stablizing reinforcement learning in dynamic environment with application to online recommendation</u>. <b>In: Proceedings of the 24th ACM SIGKDD Conference on Knowledge Discovery and Data Mining (KDD'18)</b> (Research Track), London, UK, 2018.
-          <span class="oper">[<a href="">源码</a>]</span><span class="oper">[<a href="">pdf</a>]</span><span class="oper">[<a href="">下载</a>]</span>
-        </li>
-      </ul>
-      <ul>
-        <li>
-          H.-J. Ye, D.-C. Zhan, Y. Jiang, Z.-H. Zhou. <u>Rectify Heterogeneous Model with Semantic Mapping</u>. <b>In: Proceedings of the 35th International Conference on Machine Learning (ICML'18)</b>, Stockholm, Sweden, 2018.
-          <span class="oper">[<a href="">源码</a>]</span><span class="oper">[<a href="">pdf</a>]</span><span class="oper">[<a href="">下载</a>]</span>
-        </li>
-      </ul>
+      <c:forEach items="${list}" var="item">
+        <ul>
+          <li>
+            ${item.title}
+            <c:forEach items="${item.attachmentList}" var="attachment">
+              <span class="oper">[<a target="_blank" href="/download?path=${SYSCONFIG.fileSavePosition}${attachment.path}">${attachment.fileName}</a>]</span>
+            </c:forEach>
+          </li>
+        </ul>
+      </c:forEach>
     </div>
   </div>
   <jsp:include page="../common/footer.jsp" />
